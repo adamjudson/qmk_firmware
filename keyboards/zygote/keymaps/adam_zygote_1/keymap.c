@@ -177,7 +177,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { \
   \
   /* ctrl - k layer */ \
 	[10] = LAYOUT_ortho_4x12(\
-      KC_TAB,    LSFT(KC_TAB),      LALT(KC_TAB),      KC_NO,        KC_NO,         XXXX,    XXXX,       KC_NO,        KC_NO,      KC_NO,          KC_NO,    KC_NO,  \
+      KC_TAB,    LSFT(KC_TAB), KC_TRNS, KC_TRNS,        KC_NO,         XXXX,    XXXX,       KC_NO,        KC_NO,      KC_NO,          KC_NO,    KC_NO,  \
       KC_ESC,    KC_DEL,     KC_DEL,     KC_BSPC,      KC_NO,         XXXX,    XXXX,       KC_NO,        KC_LCTL,    KC_NO,          LCTL(KC_L), KC_NO, \
       KC_NO,    KC_NO,      KC_NO,      KC_NO,        KC_NO,         KC_TRNS, KC_TRNS,    KC_NO,        KC_NO,      KC_NO,          KC_NO,   LCTL(KC_SLSH), \
       KC_NO,    KC_NO,      KC_NO,      KC_NO,        KC_NO,         KC_TRNS, KC_TRNS,   KC_LALT,  KC_TRNS,    KC_TRNS,        KC_TRNS,  KC_TRNS) \
