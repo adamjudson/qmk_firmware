@@ -1,0 +1,71 @@
+/* Welcome to ASETNIOP
+ *
+ * This file contains your personal chords, the  basic layout, symbols and 
+ * layers are in different files. Refer to dicts.def for their locations!
+ *
+ * This is a very different layout based off this table
+ * http://asetniop.com/ 
+ *
+ * Unlike standard Asetniop there are a few concessions that must be
+ * made. Namely we don't do partials and if a chord has multiple left/
+ * right words we go with the most common of the two.
+ *
+ * Also note, All Combos _must_ be done through Command Mode! If you
+ *
+  use a combo enough add it to your dictionary in the USR section!
+ *
+ * Two 'layers' are available, CMD and USR. Just add these into a chord. 
+ * You'll enter/exit these layers with SET_STICKY(CMD) and SET_STICKY(0)
+ *
+ * Note: The engine optimizes for the longest chord it can find, every
+ * now and again this makes conflicts! If you have a better dictionary
+ * or come up with improvements, please submit a PR!
+ */
+
+
+// You can use the following aliases in your chords
+// AA, AS, AE, AT, AN, AI, AO, AP, AL, AR (Left/Right thumb)
+// NUM, USR and CMD are also available
+
+// User defs
+SUBS(USR | AA,											undef1, "undefined User ")
+SUBS(USR | AS,											undef2, "undefined User ")
+SUBS(USR | AE,											undef3, "undefined User ")
+SUBS(USR | AT,											undef4, "undefined User ")
+SUBS(USR | AN,											undef5, "undefined User ")
+SUBS(USR | AI,											undef6, "undefined User ")
+SUBS(USR | AO,											undef7, "undefined User ")
+SUBS(USR | AP,											undef8, "undefined User ")
+SUBS(USR | AR,											undef9, "undefined User ")
+SUBS(USR | AL,											undef0, "undefined User ")
+
+//  KEYS(AA|AO,                             cmb_9df323cdb026f7ce,                  {KC_LSFT, KC_9, COMBO_END})
+
+// Quick Fires
+
+KEYS(AR | AA |AS, qf0, {KC_LCTL, KC_LGUI,  KC_LEFT})
+KEYS(AR | AS | AE, qf1, {KC_LCTL, KC_LGUI,  KC_RIGHT})
+KEYS(AR | AE | AT,									qf2, 		{KC_LCTL, KC_TAB})
+SUBS(AR | AT | AN,									qf3, 		"Undefined Qfa ")
+SUBS(AR | AN | AI,									qf4, 		"Undefined q few ")
+SUBS(AR | AI | AO,									qf5, 		"Undefined q Fire ")
+SUBS(AR | AO | AP,									qf6, 		"Undefined q Fire ")
+KEYS(AR | AA | AT,   qf7, {KC_LALT, KC_TAB})
+
+// too many conflicts with the dictionary
+// KEYS(AR | AA |AS | AE | AT, qf8, {KC_LCTL, KC_LGUI,  KC_LEFT})
+// KEYS(AR | AN |AI | AO | AP, qf9, {KC_LCTL, KC_LGUI,  KC_RIGHT})
+
+
+// this might break things
+PRES(AR | AN, KC_LEFT)
+PRES(AR | AI, KC_DOWN)
+PRES(AR | AO, KC_UP)
+PRES(AR | AP, KC_RIGHT)
+
+PRES(AR | AA, KC_ESC)
+PRES(AR | AT, KC_TAB)
+
+
+
+
