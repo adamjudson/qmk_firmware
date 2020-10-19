@@ -112,17 +112,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { \
       KC_NO,        KC_NO,    KC_NO,      KC_NO,      KC_NO,        KC_NO,          KC_NO,        KC_NO,      KC_NO,          KC_NO,    LCTL(KC_SLSH), KC_NO, \
       KC_NO,        KC_NO,    KC_NO,      KC_NO,      KC_NO,        LCTL(KC_SPC),                 KC_NO,      KC_NO,          KC_NO,    KC_NO,    KC_NO) \
   */ \
-  /* a might be a problem.  Keep hitting left instead of space, so no more left... */ \
+  /* a might be a problem.  Keep hitting left instead of space, so no more left... Keep hitting tab instead of b, but making it b seems a bit much.  Going to try dropping it*/ \
 	[0] = LAYOUT_ortho_4x12(\
       KC_Q,         KC_W,       KC_E,       KC_R,         KC_T,         XXXX,         XXXX,        KC_Y,         KC_U,       KC_I,         KC_O,     KC_P, \
       LT(4,KC_A),   LT(5,KC_S), LT(9,KC_D), LSFT_T(KC_F), LT(7,KC_G),   XXXX,         XXXX,        LSFT_T(KC_H), LT(8,KC_J), LT(10,KC_K),  KC_L,     KC_SCLN, \
-      KC_Z,         KC_X,       KC_C,       KC_V,         LT(7,KC_B),   KC_TAB,       KC_BSPC,      KC_N,         KC_M,       KC_COMM,      KC_DOT,   KC_SLSH,  \
+      KC_Z,         KC_X,       KC_C,       KC_V,         LT(7,KC_B),   KC_NO,       KC_BSPC,      KC_N,         KC_M,       KC_COMM,      KC_DOT,   KC_SLSH,  \
       KC_LCTL,      KC_LGUI,    KC_LALT,    LT(1,KC_ENT), LT(1,KC_ENT), LT(6, KC_ESC), MO(2),      LSFT_T(KC_SPC),  LSFT_T(KC_SPC),   KC_DOWN,      KC_UP,    KC_RGHT), \
   /* lower  - things to find a space for KC_TILD, KC_PIPE KC_QUOT again*/ \
 	[1] = LAYOUT_ortho_4x12(\
       KC_EXLM,      KC_AT,     KC_HASH,     KC_DLR,       KC_PERC,      XXXX,        XXXX,        KC_CIRC,      KC_AMPR,    KC_ASTR,      KC_DEL,  KC_BSPC,  \
       KC_F1,        KC_F2,     KC_F3,       KC_F4,        KC_F5,        XXXX,        XXXX,        KC_F6,        KC_UNDS,    KC_EQUAL,     KC_QUOT, LSFT(KC_QUOT), \
-      KC_F7,        KC_F8,     KC_F9,       KC_F10,       KC_F11,       LSFT(KC_TAB),   KC_DEL,       KC_F12,       KC_MUTE,    KC_LT,        KC_GT,    KC_QUES,  \
+      KC_F7,        KC_F8,     KC_F9,       KC_F10,       KC_F11,       KC_TAB,   KC_DEL,       KC_F12,       KC_MUTE,    KC_LT,        KC_GT,    KC_QUES,  \
       KC_TRNS,      KC_TRNS,   KC_TRNS,     KC_TRNS,      KC_TRNS,      KC_GRAVE,      MO(3),        KC_TRNS,  LALT(KC_LEFT),  KC_VOLD,  KC_VOLU,  LALT(KC_RGHT)), \
 /* raise - KC_MPRV media previous*/ \
 \
@@ -137,9 +137,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { \
       KC_NO,        KC_NO,     KC_NO,       KC_NO,        KC_NO,        KC_NO,       KC_NO,          KC_NO,         KC_NO,    KC_NO,        KC_NO,   RESET, \
       KC_NO,        KC_NO,     KC_NO,       KC_NO,        KC_NO,        KC_NO,       KC_NO,          KC_NO,         KC_NO,    KC_NO,        KC_NO,   KC_NO, \
       KC_NO,        KC_TRNS,   KC_NO,       KC_TRNS,      KC_TRNS,      LCA(KC_DEL), KC_TRNS,        KC_NO,         KC_NO,    KC_NO,        KC_NO,   KC_NO), \
-  /* anne pro / desktop swap - dropped os-e shifted left and right */ \
+  /* anne pro / desktop swap - dropped os-e shifted left and right  - a is not a great key to use.  Especially for alt-F4.  Moving that to k*/ \
 	[4] = LAYOUT_ortho_4x12(\
-      KC_NO, LGUI(LCTL(KC_LEFT)), LGUI(LCTL(KC_RIGHT)),    LALT(KC_F4), KC_NO, XXXX, XXXX,  KC_NO,        KC_NO,      KC_NO,        KC_NO,    KC_NO,\
+      KC_NO, LGUI(LCTL(KC_LEFT)), LGUI(LCTL(KC_RIGHT)),    KC_NO, KC_NO, XXXX, XXXX,  KC_NO,        KC_NO,      KC_NO,        KC_NO,    KC_NO,\
       KC_NO,        KC_NO,      KC_NO,      KC_NO,        KC_NO,          XXXX, XXXX, KC_NO,        KC_NO,      KC_NO,          KC_NO,    KC_NO, \
       KC_NO,        KC_NO,      KC_NO,      KC_NO,        KC_NO,          KC_NO, KC_NO, KC_NO,        KC_NO,      KC_NO,          KC_NO,    KC_NO,  \
       KC_NO,        KC_NO,      KC_NO,      KC_NO,        KC_NO,          KC_NO, KC_NO, KC_NO,        KC_NO,      KC_NO,          KC_NO,    KC_NO ), \
@@ -168,16 +168,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { \
       KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,        KC_TRNS,   KC_TRNS, KC_TRNS,      KC_TRNS,    KC_TRNS,        KC_NO,    KC_NO, \
       KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,        KC_TRNS,   KC_TRNS, LGUI(KC_SPC),      KC_TRNS,    KC_NO,          KC_NO,    KC_NO), \
   \
-  /* nav - d layer */ \
+  /* nav - d layer - tab on q seems like a bit of a waste*/ \
 	[9] = LAYOUT_ortho_4x12(\
-      LALT(KC_TAB),  LCTL(KC_W), KC_TRNS,    LCTL(KC_R),   LCTL(KC_T),     XXXX,     XXXX,   KC_TRNS,      KC_PGUP,    KC_UP,          KC_PGDN,  KC_BSPC, \
+      KC_TAB,  LCTL(KC_W), KC_TRNS,    LCTL(KC_R),   LCTL(KC_T),     XXXX,     XXXX,   KC_TRNS,      KC_PGUP,    KC_UP,          KC_PGDN,  KC_BSPC, \
       KC_ESC,  KC_DEL,     KC_TRNS,    KC_LSFT,      LCTL(KC_TAB),   XXXX,     XXXX,   KC_HOME,      KC_LEFT,    KC_DOWN,        KC_RGHT,  KC_END, \
       KC_TRNS,  KC_TRNS,    KC_TRNS,    LCTL(KC_V),   KC_TRNS,        KC_NO,     KC_NO,   KC_TRNS,      KC_TRNS,    KC_TRNS,        KC_TRNS,  KC_TRNS, \
       KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_LCTL,      LCTL(KC_C),     KC_TRNS,   KC_TRNS, LCTL(KC_C), LCTL(KC_X),   KC_TRNS,        KC_TRNS,  KC_TRNS), \
   \
   /* ctrl - k layer */ \
 	[10] = LAYOUT_ortho_4x12(\
-      KC_TAB,    LSFT(KC_TAB), KC_TRNS, KC_TRNS,        KC_NO,         XXXX,    XXXX,       KC_NO,        KC_NO,      KC_NO,          KC_NO,    KC_NO,  \
+      KC_TAB,    LSFT(KC_TAB), KC_TRNS, LALT(KC_F4),        KC_NO,         XXXX,    XXXX,       KC_NO,        KC_NO,      KC_NO,          KC_NO,    KC_NO,  \
       KC_ESC,    KC_DEL,     KC_DEL,     KC_BSPC,      KC_NO,         XXXX,    XXXX,       KC_NO,        KC_LCTL,    KC_NO,          LCTL(KC_L), KC_NO, \
       KC_NO,    KC_NO,      KC_NO,      KC_NO,        KC_NO,         KC_TRNS, KC_TRNS,    KC_NO,        KC_NO,      KC_NO,          KC_NO,   LCTL(KC_SLSH), \
       KC_NO,    KC_NO,      KC_NO,      KC_NO,        KC_NO,         KC_TRNS, KC_TRNS,   KC_LALT,  KC_TRNS,    KC_TRNS,        KC_TRNS,  KC_TRNS) \
