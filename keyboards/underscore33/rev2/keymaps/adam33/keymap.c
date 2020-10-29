@@ -49,6 +49,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  // need to find a spot for tilda and back quote
  // might be time to start dropping numbers from raise?
 
+ // suspect there are issues with alt-tab and gui-tab
+
   /* a might be a problem.  Keep hitting left instead of space, so no more left... Keep hitting tab instead of b, but making it b seems a bit much.  Going to try dropping it*/ \
 	[0] = LAYOUT_33_split_space(\
       KC_Q,         KC_W,       KC_E,       KC_R,         KC_T,              KC_Y,         KC_U,       KC_I,         KC_O,     KC_P, \
@@ -123,19 +125,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 // what?
+
 #ifdef COMBO_ENABLE
 const uint16_t PROGMEM combo_bspc[] = {KC_O, KC_P, COMBO_END};
-const uint16_t PROGMEM combo_numbak[] = {KC_0, KC_9, COMBO_END};
 const uint16_t PROGMEM combo_tab[] = {KC_Q, KC_W, COMBO_END};
 const uint16_t PROGMEM combo_esc[] = {KC_E, KC_W, COMBO_END};
-const uint16_t PROGMEM combo_del[] = {KC_MINS, KC_EQL, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
-  [COMBO_BSPC] = COMBO(combo_bspc,KC_BSPC),
-  [COMBO_NUMBAK] = COMBO(combo_numbak,KC_BSPC),
-  [COMBO_TAB] = COMBO(combo_tab,KC_TAB),
-  [COMBO_ESC] = COMBO(combo_esc,KC_ESC),
-  [COMBO_DEL] = COMBO(combo_del,KC_DEL),
-
+ COMBO(combo_bspc,KC_BSPC),
+ COMBO(combo_tab,KC_TAB),
+ COMBO(combo_esc,KC_ESC)
 };
 #endif
+
+
+
