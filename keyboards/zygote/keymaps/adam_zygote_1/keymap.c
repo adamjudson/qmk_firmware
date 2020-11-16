@@ -117,7 +117,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { \
       KC_Q,         KC_W,       KC_E,       KC_R,         KC_T,         XXXX,         XXXX,        KC_Y,         KC_U,       KC_I,         KC_O,     KC_P, \
       LT(4,KC_A),   LT(5,KC_S), LT(9,KC_D), LSFT_T(KC_F), LT(7,KC_G),   XXXX,         XXXX,        LSFT_T(KC_H), LT(8,KC_J), LT(10,KC_K),  KC_L,     KC_SCLN, \
       KC_Z,         KC_X,       KC_C,       KC_V,         LT(7,KC_B),   KC_NO,       KC_BSPC,      KC_N,         KC_M,       KC_COMM,      KC_DOT,   KC_SLSH,  \
-      KC_LCTL,      KC_LGUI,    KC_LALT,    LT(1,KC_ENT), LT(1,KC_ENT), LT(6, KC_ESC), MO(2),      LSFT_T(KC_SPC),  LSFT_T(KC_SPC),   KC_DOWN,      KC_UP,    KC_RGHT), \
+      KC_LCTL,      KC_LGUI,    KC_LALT,    LT(1,KC_ENT), LT(1,KC_ENT), LT(6, KC_ESC), MO(2),      LSFT_T(KC_SPC),  KC_LEFT,   KC_DOWN,      KC_UP,    KC_RGHT), \
   /* lower  - things to find a space for KC_TILD, KC_PIPE KC_QUOT again*/ \
 	[1] = LAYOUT_ortho_4x12(\
       KC_EXLM,      KC_AT,     KC_HASH,     KC_DLR,       KC_PERC,      XXXX,        XXXX,        KC_CIRC,      KC_AMPR,    KC_ASTR,      KC_DEL,  KC_BSPC,  \
@@ -184,6 +184,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { \
 
 };
 
+
+
+// this is kind of cool
+
+#ifdef COMBO_ENABLE
+const uint16_t PROGMEM combo_bspc[] = {KC_O, KC_P, COMBO_END};
+const uint16_t PROGMEM combo_tab[] = {KC_Q, KC_W, COMBO_END};
+const uint16_t PROGMEM combo_esc[] = {KC_E, KC_W, COMBO_END};
+
+combo_t key_combos[COMBO_COUNT] = {
+ COMBO(combo_bspc,KC_BSPC),
+ COMBO(combo_tab,KC_TAB),
+ COMBO(combo_esc,KC_ESC)
+};
+#endif
 
 void matrix_scan_user(void) {
 		return;
