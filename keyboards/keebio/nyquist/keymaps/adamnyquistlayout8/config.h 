@@ -1,0 +1,4 @@
+#pragma once
+
+#define RGBLIGHT_LAYERS
+#define RGB_MAX_LAYERS 5
