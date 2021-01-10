@@ -19,7 +19,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define RGBLIGHT_LAYERS
 
-#define TAPPING_TOGGLE 2
-#define TAPPING_TERM 150
-
-#define USE_I2C
+#define IGNORE_MOD_TAP_INTERRUPT
