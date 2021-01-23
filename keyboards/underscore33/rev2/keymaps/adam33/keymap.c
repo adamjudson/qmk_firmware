@@ -85,7 +85,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* numbers - think about 0 and 1 ?*/ \
 	[5] = LAYOUT_33_split_space(\
       KC_NO,    KC_NO,      KC_NO,      KC_NO,        KC_NO,           KC_PAST,      KC_P7,      KC_P8,          KC_P9,    KC_PMNS,   \
-      KC_NO,    KC_NO,      KC_NO,      KC_NO,        KC_NO,           KC_NO,        KC_P4,      KC_P5,          KC_P6,    KC_PPLS,   \
+      KC_NO,    KC_NO,      KC_NO,      KC_NO,        KC_NO,           KC_PMNS,      KC_P4,      KC_P5,          KC_P6,    KC_PPLS,   \
       KC_NO,    KC_NO,      KC_NO,      KC_NO,        KC_NO,           KC_PDOT,      KC_P1,      KC_P2,          KC_P3,    KC_TRNS,   \
                           KC_NO,    KC_NO,            KC_TRNS,         KC_P0,             KC_NO,    KC_NO     ),\
   /* mouse - again, not sure if we can get here*/ \
