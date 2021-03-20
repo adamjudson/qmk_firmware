@@ -75,9 +75,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 	[8] = LAYOUT_all(
     KC_TRNS, LGUI(KC_1), LGUI(KC_2), LGUI(KC_E), LGUI(KC_4), LGUI(KC_5),                              LGUI(KC_6), LGUI(KC_7), LGUI(KC_8), KC_TRNS, KC_TRNS, KC_TRNS, 
-    KC_NO, KC_TRNS, KC_TRNS, LGUI(KC_3), KC_TRNS, KC_TAB,                   KC_TRNS,                          KC_TRNS, KC_TRNS, KC_LGUI, LGUI(KC_L), KC_NO, KC_NO, 
-    KC_NO, KC_TRNS, LGUI(KC_X), LGUI(KC_C), LGUI(KC_V), KC_TRNS, KC_NO,      KC_TRNS,                         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, 
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_TRNS,                   KC_TRNS,                          KC_LALT, KC_NO, KC_NO, KC_NO, KC_NO
+    KC_NO, KC_TRNS, KC_TRNS, LGUI(KC_3), KC_TRNS, KC_TAB,                   KC_TRNS,                          KC_TRNS, KC_TRNS, KC_LGUI, LGUI(KC_L), KC_LALT, KC_NO, 
+    KC_NO, KC_TRNS, LGUI(KC_X), LGUI(KC_C), LGUI(KC_V), KC_TRNS,            KC_TRNS,                         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, 
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_TRNS,                      KC_TRNS,                         KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO
     ),
 
 	[9] = LAYOUT_all(
