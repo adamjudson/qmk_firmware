@@ -164,7 +164,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { \
   /*  os nav - j layer */ \
 	[8] = LAYOUT_ortho_4x12(\
       LGUI(KC_1), LGUI(KC_2), LGUI(KC_E), LGUI(KC_4), LGUI(KC_5),     XXXX,     XXXX,   LGUI(KC_6),   LGUI(KC_7), LGUI(KC_8),     KC_NO,    KC_NO, \
-      KC_NO,      KC_NO,      LGUI(KC_3), KC_NO,      KC_NO,          XXXX,     XXXX,   KC_NO,        KC_TRNS,    KC_LGUI,        LGUI(KC_L), KC_NO, \
+      KC_NO,      KC_NO,      LGUI(KC_3), KC_NO,      KC_NO,          XXXX,     XXXX,   KC_NO,        KC_TRNS,    KC_LGUI,        LGUI(KC_L), KC_LALT, \
       KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,        KC_TAB,   KC_TRNS, KC_TRNS,      KC_TRNS,    KC_TRNS,        KC_NO,    KC_NO, \
       KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,        KC_TRNS,   KC_TRNS, LGUI(KC_SPC),      KC_TRNS,    KC_NO,          KC_NO,    KC_NO), \
   \
