@@ -16,6 +16,11 @@
 // first row is missing the middle key
 // last row has 2u space on both thumbs, so that's the 6th and 9th keys.  5th and 10th are no-ops
 
+enum custom_keycodes {
+  JSARROW = SAFE_RANGE
+};
+
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[0] = LAYOUT_all(
     KC_TAB,         KC_Q,       KC_W,       KC_E,       KC_R,         KC_T,                                 KC_Y,              KC_U,         KC_I,         KC_O,   KC_P,     KC_BSPC, 
@@ -83,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[9] = LAYOUT_all(
     KC_NO, KC_NO, LCTL(KC_W), KC_NO, LCTL(KC_R), LCTL(KC_T),                                          KC_NO, KC_PGUP, KC_UP, KC_PGDN, KC_NO, KC_BSPC, 
     KC_NO, KC_BSPC, KC_DEL, KC_TRNS, KC_LSFT, LCTL(KC_TAB),                   KC_TRNS,                        KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END, LCTL(KC_L), 
-    KC_NO, KC_NO, KC_NO, KC_NO, LCTL(KC_V), KC_NO,                            LCTL(KC_X),                        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, 
+    KC_NO, KC_NO, KC_NO, KC_NO, LCTL(KC_V), KC_NO,                            LCTL(KC_X),                        KC_NO, KC_NO, KC_NO, JSARROW, KC_NO, KC_NO, 
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_LCTL,                          KC_MFFD,                        LCTL(KC_C), KC_NO, KC_NO, KC_NO, KC_NO, KC_NO
     ),
 
@@ -151,4 +156,12 @@ void encoder_update_user(uint8_t index, bool clockwise) {
     } else {
       tap_code16(KC_VOLU);
     }
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (keycode == JSARROW && record->event.pressed) {
+    SEND_STRING("=>");
+  }
+  
+  return true;
 }

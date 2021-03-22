@@ -18,6 +18,7 @@
 // probably don't need this
 enum custom_keycodes{
   RGBRST = SAFE_RANGE,
+  JSARROW
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -111,7 +112,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[9] = LAYOUT_33_split_space(\
       KC_TAB,  LCTL(KC_W), KC_TRNS,    LCTL(KC_R),   LCTL(KC_T),       KC_TRNS,      KC_PGUP,    KC_UP,          KC_PGDN,  KC_BSPC, \
       KC_ESC,  KC_DEL,     KC_TRNS,    KC_LSFT,      LCTL(KC_TAB),     KC_HOME,      KC_LEFT,    KC_DOWN,        KC_RGHT,  KC_END, \
-      KC_TRNS,  KC_TRNS,    KC_TRNS,    LCTL(KC_V),   KC_TRNS,         KC_TRNS,      KC_TRNS,    KC_TRNS,        KC_TRNS,  KC_TRNS, \
+      KC_TRNS,  KC_TRNS,    KC_TRNS,    LCTL(KC_V),   KC_TRNS,         KC_TRNS,      KC_TRNS,    KC_TRNS,        JSARROW,  KC_TRNS, \
                     KC_TRNS,    KC_TRNS,    KC_LCTL,      LCTL(KC_C),     LCTL(KC_X),    KC_TRNS), \
   \
   /* ctrl - k layer */ \
@@ -139,4 +140,11 @@ combo_t key_combos[COMBO_COUNT] = {
 #endif
 
 
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (keycode == JSARROW && record->event.pressed) {
+    SEND_STRING("=>");
+  }
+  
+  return true;
+}
 
