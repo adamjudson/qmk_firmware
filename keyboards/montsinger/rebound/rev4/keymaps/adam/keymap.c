@@ -73,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 	[7] = LAYOUT_all(
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                                                         KC_NO, KC_NO, KC_LBRC, KC_RBRC, KC_NO, KC_NO, 
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                       KC_TRNS,                          KC_NO, KC_LPRN, KC_RPRN, KC_LCBR, KC_RCBR, KC_NO, 
+    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                       KC_TRNS,                          JSARROW, KC_LPRN, KC_RPRN, KC_LCBR, KC_RCBR, KC_NO, 
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                        KC_TRNS,                         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, 
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                        KC_TRNS,                         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO
     ),

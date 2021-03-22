@@ -98,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* brackets - g layer */ \
 	[7] = LAYOUT_33_split_space(\
       KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_NO,        KC_NO,                KC_NO,        KC_NO,      KC_LBRC,        KC_RBRC,  KC_BSPC,     \
-      KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_NO,        KC_NO,                KC_NO,        KC_LPRN,    KC_RPRN,        KC_LCBR,  KC_RCBR,   \
+      KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_NO,        KC_NO,                JSARROW,      KC_LPRN,    KC_RPRN,        KC_LCBR,  KC_RCBR,   \
       KC_TRNS,  KC_TRNS,    KC_NO,      KC_NO,        KC_NO,                KC_NO,        KC_LBRC,    KC_RBRC,        KC_NO,    KC_NO,     \
                             KC_TRNS,  KC_TRNS,           KC_TRNS,      KC_TRNS,          KC_TRNS,    KC_TRNS   ), \
   /*  os nav - j layer */ \
