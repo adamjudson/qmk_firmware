@@ -65,21 +65,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { \
   /* brackets - g layer */ \
 	[7] = LAYOUT_ortho_4x12(\
       KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_NO,        KC_NO,          KC_NO,     KC_NO,        KC_NO,        KC_NO,      KC_LBRC,        KC_RBRC,  KC_BSPC,     \
-      KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_NO,        KC_NO,          KC_NO,     KC_NO,        KC_NO,        KC_LPRN,    KC_RPRN,        KC_LCBR,  KC_RCBR,   \
+      KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_NO,        KC_NO,          KC_NO,     KC_NO,        JSARROW,      KC_LPRN,    KC_RPRN,        KC_LCBR,  KC_RCBR,   \
       KC_TRNS,  KC_TRNS,    KC_NO,      KC_NO,        KC_NO,          KC_NO,     KC_NO,        KC_NO,        KC_LBRC,    KC_RBRC,        KC_NO,    KC_NO,     \
       KC_TRNS,  KC_TRNS,    KC_NO,      KC_NO,        KC_NO,          KC_NO,     KC_NO,        KC_NO,        KC_NO,      KC_NO,          KC_NO,    KC_NO   ), \
   /*  os nav - j layer */ \
 	[8] = LAYOUT_ortho_4x12(\
       LGUI(KC_1), LGUI(KC_2), LGUI(KC_E), LGUI(KC_4), LGUI(KC_5),     XXXX,     XXXX,   LGUI(KC_6),   LGUI(KC_7), LGUI(KC_8),     KC_NO,    KC_NO, \
-      KC_NO,      KC_NO,      LGUI(KC_3), KC_NO,      KC_NO,          XXXX,     XXXX,   KC_NO,        KC_TRNS,    KC_LGUI,        LGUI(KC_L), KC_LALT, \
+      KC_NO,      KC_TRNS,    LGUI(KC_3), KC_NO,      KC_TAB,         XXXX,     XXXX,   KC_NO,         KC_TRNS,    KC_LGUI,        LGUI(KC_L), KC_LALT, \
       KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,        KC_TAB,   KC_TRNS, KC_TRNS,      KC_TRNS,    KC_TRNS,        KC_NO,    KC_NO, \
-      KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,        KC_TRNS,   KC_TRNS, LGUI(KC_SPC),      KC_TRNS,    KC_NO,          KC_NO,    KC_NO), \
+      KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,        KC_TRNS,   KC_TRNS, KC_TRNS,     KC_TRNS,    KC_NO,          KC_NO,    KC_NO), \
   \
   /* nav - d layer - tab on q seems like a bit of a waste*/ \
 	[9] = LAYOUT_ortho_4x12(\
       KC_TAB,  LCTL(KC_W), KC_TRNS,    LCTL(KC_R),   LCTL(KC_T),     XXXX,     XXXX,   KC_TRNS,      KC_PGUP,    KC_UP,          KC_PGDN,  KC_BSPC, \
       KC_ESC,  KC_DEL,     KC_TRNS,    KC_LSFT,      LCTL(KC_TAB),   XXXX,     XXXX,   KC_HOME,      KC_LEFT,    KC_DOWN,        KC_RGHT,  KC_END, \
-      KC_TRNS,  KC_TRNS,    KC_TRNS,    LCTL(KC_V),   KC_TRNS,        KC_NO,     KC_NO,   KC_TRNS,      KC_TRNS,    JSARROW,        KC_TRNS,  KC_TRNS, \
+      KC_TRNS,  KC_TRNS,    KC_TRNS,    LCTL(KC_V),   KC_TRNS,        KC_NO,     KC_NO,   KC_TRNS,      KC_TRNS,    KC_TRNS,     JSARROW,  KC_TRNS, \
       KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_LCTL,      LCTL(KC_C),     LCTL(KC_C),   KC_TRNS, LCTL(KC_C), LCTL(KC_X),   KC_TRNS,        KC_TRNS,  KC_TRNS), \
   \
   /* ctrl - k layer */ \
@@ -88,6 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { \
       KC_ESC,    KC_DEL,     KC_DEL,     KC_BSPC,      KC_NO,         XXXX,    XXXX,       KC_NO,        KC_LCTL,    KC_NO,          LCTL(KC_L), KC_NO, \
       KC_NO,    KC_NO,      KC_NO,      KC_NO,        KC_NO,         KC_TRNS, KC_TRNS,    KC_NO,        KC_NO,      KC_NO,          KC_NO,   LCTL(KC_SLSH), \
       KC_NO,    KC_NO,      KC_NO,      KC_NO,        KC_NO,         KC_TRNS, KC_TRNS,   KC_LALT,  KC_TRNS,    KC_TRNS,        KC_TRNS,  KC_TRNS) \
+
 
 };
 
