@@ -118,7 +118,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* ctrl - k layer */ \
 	[10] = LAYOUT_33_split_space(\
       KC_TAB,    LSFT(KC_TAB), KC_TRNS, LALT(KC_F4),        KC_NO,        KC_NO,        KC_NO,      KC_NO,          KC_NO,    KC_NO,  \
-      KC_ESC,    KC_DEL,     KC_DEL,     KC_BSPC,      KC_NO,             KC_NO,        KC_LCTL,    KC_NO,          LCTL(KC_L), KC_NO, \
+      KC_ESC,    KC_DEL,     KC_DEL,     KC_BSPC,    LALT(KC_LEFT),       KC_NO,        KC_LCTL,    KC_NO,          LCTL(KC_L), KC_NO, \
       KC_NO,    KC_NO,      KC_NO,      KC_NO,        KC_NO,            KC_NO,        KC_NO,      KC_NO,          KC_NO,   LCTL(KC_SLSH), \
                    KC_NO,      KC_NO,      KC_NO,             KC_LALT,  KC_TRNS,    KC_TRNS) \
 
