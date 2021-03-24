@@ -20,12 +20,15 @@ enum custom_keycodes {
   JSARROW = SAFE_RANGE
 };
 
+// looks like the top middle key isn't working at all?
 
+// consider making the button of the encoder a LT?
+// tried it, kind of annoying
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[0] = LAYOUT_all(
     KC_TAB,         KC_Q,       KC_W,       KC_E,       KC_R,         KC_T,                                 KC_Y,              KC_U,         KC_I,         KC_O,   KC_P,     KC_BSPC, 
-    LT(4,KC_ESC),   KC_A,       LT(5,KC_S), LT(9,KC_D), LSFT_T(KC_F), LT(7,KC_G),            KC_LCTL,       LSFT_T(KC_H),      LT(8,KC_J),   LT(10,KC_K),  KC_L,   KC_SCLN,  KC_QUOT, 
-    KC_LSFT,        KC_Z,       KC_X,       KC_C,       KC_V,         KC_B,                  LT(2,KC_SPC),  KC_N,              KC_M,         KC_COMM,      KC_DOT, KC_SLSH,  LSFT_T(KC_BSLS), 
+    LT(4,KC_ESC),   KC_A,       LT(5,KC_S), LT(9,KC_D), LSFT_T(KC_F), LT(7,KC_G),        LT(3, KC_DEL),       LSFT_T(KC_H),      LT(8,KC_J),   LT(10,KC_K),  KC_L,   KC_SCLN,  KC_QUOT, 
+    KC_LSFT,        KC_Z,       KC_X,       KC_C,       KC_V,         KC_B,              LT(2, KC_SPC),  KC_N,              KC_M,         KC_COMM,      KC_DOT, KC_SLSH,  LSFT_T(KC_BSLS), 
     KC_LCTL,        KC_LGUI,    TG(6),      KC_LALT,    KC_NO,        LT(1,KC_ENT),       KC_MUTE,       LSFT_T(KC_SPC),    KC_NO,       KC_LEFT,      KC_DOWN, KC_UP,   KC_RGHT
     ),
 
@@ -51,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
 	[4] = LAYOUT_all(
-    KC_DEL, LGUI(LCTL(KC_LEFT)), LGUI(LCTL(KC_RIGHT)), LGUI(KC_E), LALT(KC_F4), KC_NO,                KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_DEL, 
+    KC_DEL, LGUI(LCTL(KC_LEFT)), LGUI(LCTL(KC_RIGHT)), LGUI(KC_E), LALT(KC_F4), KC_NO,                KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, RESET, 
     KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                  KC_TRNS,                                     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, 
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                    KC_TRNS,                                     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, 
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                    KC_TRNS,                                     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO
@@ -150,11 +153,32 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 */
 
+// how do we get the layer state here?
+// might be cool to have the scroll do something 
 void encoder_update_user(uint8_t index, bool clockwise) {
-    if (clockwise) {
-      tap_code16(S(KC_VOLD));
-    } else {
-      tap_code16(KC_VOLU);
+      switch(get_highest_layer(layer_state)) {
+      case 4:
+      case 2:
+        if (clockwise) {
+          tap_code16(KC_UP);
+        } else {
+          tap_code16(KC_DOWN);
+        }
+        break;
+      case 1:
+        if (clockwise) {
+          tap_code16(KC_LEFT);
+        } else {
+          tap_code16(KC_RIGHT);
+        }
+        break;
+      default:
+        if (clockwise) {
+          tap_code16(KC_VOLD);
+        } else {
+          tap_code16(KC_VOLU);
+        }
+        break;
     }
 }
 
