@@ -80,23 +80,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
 	[8] = LAYOUT_all(
-    KC_TRNS, LGUI(KC_1), LGUI(KC_2), LGUI(KC_E), LGUI(KC_4), LGUI(KC_5),                              LGUI(KC_6), LGUI(KC_7), LGUI(KC_8), KC_TRNS, KC_TRNS, KC_TRNS, 
+    KC_TRNS, LGUI(KC_1), LGUI(KC_2), LGUI(KC_E), LGUI(KC_4), LGUI(KC_5),                              LGUI(KC_6), LGUI(KC_7), LGUI(KC_8), KC_TRNS, LGUI(KC_P), KC_TRNS, 
     KC_NO, KC_TRNS, KC_TRNS, LGUI(KC_3), KC_TRNS, KC_TAB,                   KC_TRNS,                          KC_TRNS, KC_TRNS, KC_LGUI, LGUI(KC_L), KC_LALT, KC_NO, 
-    KC_NO, KC_TRNS, LGUI(KC_X), LGUI(KC_C), LGUI(KC_V), KC_TRNS,            KC_TRNS,                         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, 
+    KC_NO, KC_TRNS, LGUI(KC_X), LGUI(KC_C), LGUI(KC_V), KC_TRNS,            KC_TRNS,                         KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_NO, 
     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_TRNS,                      KC_TRNS,                         KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO
     ),
 
 	[9] = LAYOUT_all(
     KC_NO, KC_NO, LCTL(KC_W), KC_NO, LCTL(KC_R), LCTL(KC_T),                                          KC_NO, KC_PGUP, KC_UP, KC_PGDN, KC_NO, KC_BSPC, 
     KC_NO, KC_BSPC, KC_DEL, KC_TRNS, KC_LSFT, LCTL(KC_TAB),                   KC_TRNS,                        KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END, LCTL(KC_L), 
-    KC_NO, KC_NO, KC_NO, KC_NO, LCTL(KC_V), KC_NO,                            LCTL(KC_X),                        KC_NO, KC_NO, KC_NO, JSARROW, KC_NO, KC_NO, 
+    KC_NO, KC_NO, KC_NO, KC_NO, LCTL(KC_V), KC_NO,                            LCTL(KC_X),                        KC_TRNS, KC_TRNS, KC_TRNS, JSARROW, LCTL(KC_SLSH), LCTL(KC_F), 
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_LCTL,                          KC_MFFD,                        LCTL(KC_C), KC_NO, KC_NO, KC_NO, KC_NO, KC_NO
     ),
 
 	[10] = LAYOUT_all(
     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, LCTL(KC_R), LCTL(KC_T),                                       KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, 
     KC_NO, KC_TRNS, KC_BSPC, KC_DEL, KC_BSPC, LALT(KC_LEFT),                   KC_TRNS,                       KC_NO, KC_LCTL, KC_TRNS, LCTL(KC_L), KC_NO, KC_NO, 
-    KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NO,                          KC_TRNS,                       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, 
+    KC_NO, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                          KC_TRNS,                       KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, KC_NO, KC_NO, 
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                                  KC_TRNS,                       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO
     )
 };
