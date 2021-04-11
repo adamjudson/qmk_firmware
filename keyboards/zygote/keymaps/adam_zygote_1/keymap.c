@@ -53,9 +53,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { \
   /* numbers */ \
 	[5] = LAYOUT_ortho_4x12(\
       KC_NO,    KC_NO,      KC_NO,      KC_NO,        KC_NO,          XXXX,   XXXX,  KC_PAST,      KC_P7,      KC_P8,          KC_P9,    KC_PMNS,   \
-      KC_NO,    KC_NO,      KC_NO,      KC_NO,        KC_NO,          XXXX,   XXXX,  KC_PMNS,      KC_P4,      KC_P5,          KC_P6,    KC_PPLS,   \
-      KC_NO,    KC_NO,      KC_NO,      KC_NO,        KC_NO,          KC_NO,  KC_NO,  KC_NO,       KC_P1,      KC_P2,          KC_P3,    KC_TRNS,   \
-      KC_NO,    KC_NO,      KC_NO,      KC_NO,        KC_NO,          KC_NO,  KC_NO,  KC_P0,       KC_PDOT,    KC_NO,          KC_NO,    KC_NO     ),\
+      KC_NO,    KC_NO,      KC_NO,      KC_LGUI,        KC_NO,          XXXX,   XXXX,  KC_PMNS,      KC_P4,      KC_P5,          KC_P6,    KC_PPLS,   \
+      KC_NO,    KC_NO,      KC_NO,      KC_NO,        KC_NO,          KC_NO,  KC_NO,  KC_PDOT,       KC_P1,      KC_P2,          KC_P3,    KC_TRNS,   \
+      KC_NO,    KC_NO,      KC_NO,      KC_LCTL,        KC_NO,          KC_NO,  KC_NO,  KC_P0,       KC_PDOT,    KC_NO,          KC_NO,    KC_NO     ),\
   /* mouse - this layer is dumb */ \
 	[6] = LAYOUT_ortho_4x12(\
       KC_NO,      KC_NO,   KC_NO,      KC_NO,        KC_NO,          XXXX,     XXXX,        KC_NO,       KC_WH_U,      KC_MS_U,        KC_WH_D,    KC_NO, \
