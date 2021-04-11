@@ -79,15 +79,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                  KC_TRNS,      KC_TRNS,      KC_TRNS,      LCA(KC_DEL),         KC_TRNS,   KC_NO), \
   /* anne pro / desktop swap - dropped os-e shifted left and right  - a is not a great key to use.  Especially for alt-F4.  Moving that to k*/ \
 	[4] = LAYOUT_33_split_space(\
-      KC_NO, LGUI(LCTL(KC_LEFT)), LGUI(LCTL(KC_RIGHT)),    KC_NO, KC_NO,   KC_NO,        KC_NO,      KC_NO,        KC_NO,    KC_NO,\
+      KC_NO, LGUI(LCTL(KC_LEFT)), LGUI(LCTL(KC_RIGHT)),    KC_NO, KC_NO,   KC_NO,        KC_NO,      KC_NO,        KC_NO,    RESET, \
       KC_NO,        KC_NO,      KC_NO,      KC_NO,        KC_NO,           KC_NO,        KC_NO,      KC_NO,          KC_NO,    KC_NO, \
       KC_NO,        KC_NO,      KC_NO,      KC_NO,        KC_NO,          KC_NO,        KC_NO,      KC_NO,          KC_NO,    KC_NO,  \
                       KC_NO,        KC_NO,      KC_NO,            KC_NO,          KC_NO,    KC_NO ), \
   /* numbers */ \
 	[5] = LAYOUT_33_split_space(\
       KC_NO,    KC_NO,      KC_NO,      KC_NO,        KC_NO,           KC_PAST,      KC_P7,      KC_P8,          KC_P9,    KC_PMNS,   \
-      KC_NO,    KC_NO,      KC_NO,      KC_NO,        KC_LGUI,         KC_PMNS,      KC_P4,      KC_P5,          KC_P6,    KC_PPLS,   \
-      KC_NO,    KC_NO,      KC_NO,      KC_NO,        KC_NO,           KC_PDOT,      KC_P1,      KC_P2,          KC_P3,    KC_TRNS,   \
+      KC_NO,    KC_NO,      KC_NO,      KC_LGUI,      KC_NO,         KC_PMNS,      KC_P4,      KC_P5,          KC_P6,    KC_PPLS,   \
+      KC_NO,    KC_NO,      KC_TRNS,      KC_TRNS,        KC_NO,           KC_PDOT,      KC_P1,      KC_P2,          KC_P3,    KC_TRNS,   \
                           KC_NO,    KC_NO,            KC_LCTL,         KC_P0,             KC_NO,    KC_NO     ),\
   /* mouse - again, not sure if we can get here*/ \
 	[6] = LAYOUT_33_split_space(\
@@ -104,7 +104,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /*  os nav - j layer */ \
 	[8] = LAYOUT_33_split_space(\
       LGUI(KC_1), LGUI(KC_2), LGUI(KC_E), LGUI(KC_4), LGUI(KC_5),      LGUI(KC_6),   LGUI(KC_7), LGUI(KC_8),     KC_NO,    KC_NO, \
-      KC_NO,      KC_NO,      LGUI(KC_3), KC_NO,      KC_TAB,           KC_NO,        KC_TRNS,    KC_LGUI,        LGUI(KC_L), KC_LALT, \
+      KC_NO,      KC_TRNS,      LGUI(KC_3), KC_TRNS,      KC_TAB,           KC_NO,        KC_TRNS,    KC_LGUI,        LGUI(KC_L), KC_LALT, \
       KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,         KC_TRNS,      KC_TRNS,    KC_TRNS,        KC_NO,    KC_NO, \
                     KC_TRNS,    KC_TRNS,    KC_TRNS,         KC_TRNS,      KC_TRNS,      KC_NO), \
   \
@@ -112,13 +112,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[9] = LAYOUT_33_split_space(\
       KC_TAB,  LCTL(KC_W), KC_TRNS,    LCTL(KC_R),   LCTL(KC_T),       KC_TRNS,      KC_PGUP,    KC_UP,          KC_PGDN,  KC_BSPC, \
       KC_ESC,  KC_DEL,     KC_TRNS,    KC_LSFT,      LCTL(KC_TAB),     KC_HOME,      KC_LEFT,    KC_DOWN,        KC_RGHT,  KC_END, \
-      KC_TRNS,  KC_TRNS,    KC_TRNS,    LCTL(KC_V),   KC_TRNS,         KC_TRNS,      KC_TRNS,    KC_TRNS,        JSARROW,  KC_TRNS, \
+      KC_TRNS,  KC_TRNS,    KC_TRNS,    LCTL(KC_V),   KC_TRNS,         KC_TRNS,      KC_TRNS,    KC_TRNS,        JSARROW,  LCTL(KC_SLSH), \
                     KC_TRNS,    KC_TRNS,    KC_LCTL,      LCTL(KC_C),     LCTL(KC_X),    KC_TRNS), \
   \
   /* ctrl - k layer */ \
 	[10] = LAYOUT_33_split_space(\
       KC_TAB,    LSFT(KC_TAB), KC_TRNS, LALT(KC_F4),        KC_NO,        KC_NO,        KC_NO,      KC_NO,          KC_NO,    KC_NO,  \
-      KC_ESC,    KC_DEL,     KC_DEL,     KC_BSPC,    LALT(KC_LEFT),       KC_NO,        KC_LCTL,    KC_NO,          LCTL(KC_L), KC_NO, \
+      KC_ESC,    KC_TRNS,     KC_TRNS,     KC_BSPC,    LALT(KC_LEFT),       KC_NO,        KC_LCTL,    KC_NO,          LCTL(KC_L), KC_NO, \
       KC_NO,    KC_NO,      KC_NO,      KC_NO,        KC_NO,            KC_NO,        KC_NO,      KC_NO,          KC_NO,   LCTL(KC_SLSH), \
                    KC_NO,      KC_NO,      KC_NO,             KC_LALT,  KC_TRNS,    KC_TRNS) \
 
@@ -147,4 +147,3 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   
   return true;
 }
-

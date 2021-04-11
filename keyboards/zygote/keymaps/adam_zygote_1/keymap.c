@@ -46,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { \
       KC_NO,        KC_TRNS,   KC_NO,       KC_TRNS,      KC_TRNS,      LCA(KC_DEL), KC_TRNS,        KC_NO,         KC_NO,    KC_NO,        KC_NO,   KC_NO), \
   /* anne pro / desktop swap - dropped os-e shifted left and right  - a is not a great key to use.  Especially for alt-F4.  Moving that to k*/ \
 	[4] = LAYOUT_ortho_4x12(\
-      KC_NO, LGUI(LCTL(KC_LEFT)), LGUI(LCTL(KC_RIGHT)),    KC_NO, KC_NO, XXXX, XXXX,  KC_NO,        KC_NO,      KC_NO,        KC_NO,    KC_NO,\
+      KC_NO, LGUI(LCTL(KC_LEFT)), LGUI(LCTL(KC_RIGHT)),    KC_NO, KC_NO, XXXX, XXXX,  KC_NO,        KC_NO,      KC_NO,        KC_NO,    RESET,\
       KC_NO,        KC_NO,      KC_NO,      KC_NO,        KC_NO,          XXXX, XXXX, KC_NO,        KC_NO,      KC_NO,          KC_NO,    KC_NO, \
       KC_NO,        KC_NO,      KC_NO,      KC_NO,        KC_NO,          KC_NO, KC_NO, KC_NO,        KC_NO,      KC_NO,          KC_NO,    KC_NO,  \
       KC_NO,        KC_NO,      KC_NO,      KC_NO,        KC_NO,          KC_NO, KC_NO, KC_NO,        KC_NO,      KC_NO,          KC_NO,    KC_NO ), \
@@ -79,7 +79,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { \
 	[9] = LAYOUT_ortho_4x12(\
       KC_TAB,  LCTL(KC_W), KC_TRNS,    LCTL(KC_R),   LCTL(KC_T),     XXXX,     XXXX,   KC_TRNS,      KC_PGUP,    KC_UP,          KC_PGDN,  KC_BSPC, \
       KC_ESC,  KC_DEL,     KC_TRNS,    KC_LSFT,      LCTL(KC_TAB),   XXXX,     XXXX,   KC_HOME,      KC_LEFT,    KC_DOWN,        KC_RGHT,  KC_END, \
-      KC_TRNS,  KC_TRNS,    KC_TRNS,    LCTL(KC_V),   KC_TRNS,        KC_NO,     KC_NO,   KC_TRNS,      KC_TRNS,    KC_TRNS,     JSARROW,  KC_TRNS, \
+      KC_TRNS,  KC_TRNS,    KC_TRNS,    LCTL(KC_V),   KC_TRNS,        KC_NO,     KC_NO,   KC_TRNS,      KC_TRNS,    KC_TRNS,     JSARROW,  LCTL(KC_SLSH), \
       KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_LCTL,      LCTL(KC_C),     LCTL(KC_C),   KC_TRNS, LCTL(KC_C), LCTL(KC_X),   KC_TRNS,        KC_TRNS,  KC_TRNS), \
   \
   /* ctrl - k layer */ \
