@@ -52,10 +52,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { \
       KC_NO,        KC_NO,      KC_NO,      KC_NO,        KC_NO,          KC_NO, KC_NO, KC_NO,        KC_NO,      KC_NO,          KC_NO,    KC_NO ), \
   /* numbers */ \
 	[5] = LAYOUT_ortho_4x12(\
-      KC_NO,    KC_NO,      KC_NO,      KC_NO,        KC_NO,          XXXX,   XXXX,  KC_PAST,      KC_P7,      KC_P8,          KC_P9,    KC_PMNS,   \
-      KC_NO,    KC_NO,      KC_NO,      KC_LGUI,        KC_NO,          XXXX,   XXXX,  KC_PMNS,      KC_P4,      KC_P5,          KC_P6,    KC_PPLS,   \
-      KC_NO,    KC_NO,      KC_TRNS,    KC_TRNS,        KC_NO,          KC_NO,  KC_NO,  KC_PDOT,       KC_P1,      KC_P2,          KC_P3,    KC_TRNS,   \
-      KC_NO,    KC_NO,      KC_NO,      KC_LCTL,        KC_NO,          KC_NO,  KC_NO,  KC_P0,       KC_PDOT,    KC_NO,          KC_NO,    KC_NO     ),\
+      KC_NO,    KC_NO,      KC_NO,      KC_NO,        KC_NO,          XXXX,   XXXX,      KC_PAST,     KC_P7,      KC_P8,          KC_P9,    KC_PMNS,   \
+      KC_NO,    KC_NO,      KC_NO,      KC_LGUI,      KC_NO,          XXXX,   XXXX,      KC_PMNS,     KC_P4,      KC_P5,          KC_P6,    KC_PPLS,   \
+      KC_NO,    KC_NO,      KC_TRNS,    KC_TRNS,      KC_NO,          KC_NO,  KC_NO,     KC_PDOT,     KC_P1,      KC_P2,          KC_P3,    KC_TRNS,   \
+      KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_LCTL,      KC_NO,          KC_NO,  KC_NO,     KC_P0,       KC_PDOT,    KC_NO,          KC_NO,    KC_NO     ),\
   /* mouse - this layer is dumb */ \
 	[6] = LAYOUT_ortho_4x12(\
       KC_NO,      KC_NO,   KC_NO,      KC_NO,        KC_NO,          XXXX,     XXXX,        KC_NO,       KC_WH_U,      KC_MS_U,        KC_WH_D,    KC_NO, \
@@ -71,9 +71,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { \
   /*  os nav - j layer */ \
 	[8] = LAYOUT_ortho_4x12(\
       LGUI(KC_1), LGUI(KC_2), LGUI(KC_E), LGUI(KC_4), LGUI(KC_5),     XXXX,     XXXX,   LGUI(KC_6),   LGUI(KC_7), LGUI(KC_8),     KC_NO,    KC_NO, \
-      KC_NO,      KC_TRNS,    LGUI(KC_3), KC_NO,      KC_TAB,         XXXX,     XXXX,   KC_NO,         KC_TRNS,    KC_LGUI,        LGUI(KC_L), KC_LALT, \
-      KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,        KC_TAB,   KC_TRNS, KC_TRNS,      KC_TRNS,    KC_TRNS,        KC_NO,    KC_NO, \
-      KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,        KC_TRNS,   KC_TRNS, KC_TRNS,     KC_TRNS,    KC_NO,          KC_NO,    KC_NO), \
+      KC_NO,      KC_TRNS,    LGUI(KC_3), KC_TRNS,      KC_TAB,         XXXX,     XXXX,   KC_NO,         KC_TRNS,    KC_LGUI,        LGUI(KC_L), KC_LALT, \
+      KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,        KC_TAB,   KC_TRNS, KC_TRNS,      KC_TRNS,    KC_TRNS,        KC_TRNS,    KC_TRNS, \
+      KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,        KC_TRNS,   KC_TRNS, KC_TRNS,     KC_TRNS,    KC_TRNS,          KC_TRNS,    KC_TRNS), \
   \
   /* nav - d layer - tab on q seems like a bit of a waste*/ \
 	[9] = LAYOUT_ortho_4x12(\
@@ -86,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { \
 	[10] = LAYOUT_ortho_4x12(\
       KC_TAB,    LSFT(KC_TAB), KC_TRNS, LALT(KC_F4),        KC_NO,         XXXX,    XXXX,       KC_NO,        KC_NO,      KC_NO,          KC_NO,    KC_NO,  \
       KC_ESC,    KC_TRNS,     KC_TRNS,     KC_BSPC,    LALT(KC_LEFT),         XXXX,    XXXX,       KC_NO,        KC_LCTL,    KC_NO,          LCTL(KC_L), KC_NO, \
-      KC_TRNS,    KC_TRNS,    KC_TRNS,     KC_TRNS,        KC_NO,         KC_TRNS, KC_TRNS,    KC_NO,        KC_NO,      KC_NO,          KC_NO,   LCTL(KC_SLSH), \
+      KC_TRNS,    KC_TRNS,    KC_TRNS,     KC_TRNS,        KC_TRNS,         KC_TRNS, KC_TRNS,    KC_NO,        KC_NO,      KC_NO,          KC_NO,   LCTL(KC_SLSH), \
       KC_NO,    KC_NO,      KC_NO,      KC_NO,        KC_NO,         KC_TRNS, KC_TRNS,   KC_LALT,  KC_TRNS,    KC_TRNS,        KC_TRNS,  KC_TRNS) \
 
 
