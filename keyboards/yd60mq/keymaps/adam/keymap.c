@@ -1,5 +1,7 @@
 #include QMK_KEYBOARD_H
 
+#include "adam.h"
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 	[0] = LAYOUT_all(
@@ -64,20 +66,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    ),
 
     // g - brackets
-	[7] = LAYOUT_all(
+	[7] = AJ_LAYOUT(
         KC_TRNS, KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS,  _______, KC_TRNS,
-        KC_TRNS, KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS,  KC_TRNS,
-        KC_TRNS, KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS,  KC_TRNS,
+        KC_TRNS, KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    __AJ__G__u_p__,                                 KC_TRNS, KC_TRNS,  KC_TRNS,
+        KC_TRNS, KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    __AJ__G__h_semi__,                                          KC_TRNS, KC_TRNS,  KC_TRNS,
         KC_TRNS, _______,  KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS,  KC_TRNS,                            _______,    KC_TRNS,     _______,                            KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
     ),
 
     // j
-	[8] = LAYOUT_all(
+	[8] = AJ_LAYOUT(
         KC_TRNS, KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS,  _______, KC_TRNS,
-        KC_TRNS, KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS,  KC_TRNS,
-        KC_TRNS, KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS,  KC_TRNS,
-        KC_TRNS, _______,  KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,
+        KC_TRNS, __AJ__J__q_p__,                                                                                                       KC_TRNS, KC_TRNS,  KC_TRNS,
+        KC_TRNS, __AJ__J__a_semi__,                                                                                                    KC_TRNS, KC_TRNS,  KC_TRNS,
+        KC_TRNS, _______,  __AJ__J__z_slash__,                                                                                                 KC_TRNS,  KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS,  KC_TRNS,                            _______,    KC_TRNS,     _______,                            KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
     ),
 
@@ -91,13 +93,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     // k - 
-	[10] = LAYOUT_all(
+	[10] = AJ_LAYOUT(
         KC_TRNS, KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS,  _______, KC_TRNS,
-        KC_TRNS, KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS,  KC_TRNS,
-        KC_TRNS, KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS,  KC_TRNS,
+        KC_TRNS, __AJ__K__q_p__,    KC_TRNS, KC_TRNS,  KC_TRNS,
+        KC_TRNS, __AJ__K__a_semi_,    KC_TRNS, KC_TRNS,  KC_TRNS,
         KC_TRNS, _______,  KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS,  KC_TRNS,                            _______,    KC_ENT,     _______,                            KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
     ),
 
 
 };
+
+

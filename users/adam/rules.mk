@@ -1,0 +1,1 @@
+SRC += adam.c
