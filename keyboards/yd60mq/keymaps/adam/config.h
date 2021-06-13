@@ -1,0 +1,7 @@
+#ifndef CONFIG_KEYMAP_H
+#define CONFIG_KEYMAP_H
+
+
+#define IGNORE_MOD_TAP_INTERRUPT
+
+#endif
