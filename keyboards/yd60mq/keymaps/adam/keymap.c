@@ -70,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS, KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS,  _______, KC_TRNS,
         KC_TRNS, KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    __AJ__G__u_p__,                                 KC_TRNS, KC_TRNS,  KC_TRNS,
         KC_TRNS, KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    __AJ__G__h_semi__,                                          KC_TRNS, KC_TRNS,  KC_TRNS,
-        KC_TRNS, _______,  KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,
+        KC_TRNS, _______,  KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    __AG__G__m_dot__,                                KC_TRNS,    KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS,  KC_TRNS,                            _______,    KC_TRNS,     _______,                            KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
     ),
 
