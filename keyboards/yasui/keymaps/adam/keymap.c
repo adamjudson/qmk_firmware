@@ -22,12 +22,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	LAYOUT(
         KC_EXLM,      KC_AT,     KC_HASH,     KC_DLR,       KC_PERC,        KC_CIRC,      KC_AMPR,    KC_ASTR,      KC_DEL,  KC_BSPC,  
         KC_F1,        KC_F2,     KC_F3,       KC_F4,        KC_F5,          KC_F6,        KC_UNDS,    KC_EQUAL,     KC_QUOT, LSFT(KC_QUOT), 
-        KC_F7,        KC_F8,     KC_F9,       KC_F10,       KC_F11,         KC_F12,       KC_MUTE,    KC_LT,        KC_GT,    KC_QUES, 
-        KC_TRNS,      KC_TRNS,   KC_TRNS,     KC_TRNS,      KC_NO,          KC_NO,        KC_TRNS,    MO(3),      LALT(KC_LEFT),    LALT(KC_RGHT)
+        KC_F7,        KC_F8,     KC_F9,       KC_F10,       KC_F11,         KC_F12,       KC_MUTE,    KC_LT,        KC_PIPE,  KC_BSLS, 
+        KC_TRNS,      KC_TRNS,   KC_TRNS,     KC_TRNS,      KC_NO,          KC_NO,        KC_TRNS,    MO(3),        KC_GRAVE, KC_TILD
     ), 
-    /* 2 - raise - try to avoid putting anything important here*/
+    /* 2 - raise - try to avoid putting anything important here */
 	LAYOUT(
-        KC_GRAVE,     KC_TILD,   KC_3,        KC_4,         KC_5,            KC_6,         KC_7,       KC_8,          KC_9,    KC_0, 
+        KC_GRAVE,     KC_TILD,   KC_3,        LALT(KC_F4),         KC_5,            KC_6,         KC_7,       KC_8,          KC_9,    KC_0, 
         KC_F1,        KC_F2,     KC_F3,       KC_F4,        KC_F5,           KC_F6,        KC_PMNS,    KC_EQUAL,      KC_QUOT, LSFT(KC_QUOT), 
         KC_F7,        KC_F8,     KC_F9,       KC_F10,       KC_F11,          KC_F12,       KC_MUTE,    KC_MPLY,     KC_PIPE, KC_BSLS,     
         KC_TRNS,      KC_TRNS,   KC_TRNS,     MO(3),        KC_NO,           KC_NO,        KC_TRNS,    KC_TRNS,     KC_VOLD,    KC_VOLU
@@ -41,8 +41,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ), 
     /* 4 - anne pro / desktop swap - dropped os-e shifted left and right  - a is not a great key to use.  Especially for alt-F4.  Moving that to k*/ 
 	LAYOUT(
-        KC_NO, LGUI(LCTL(KC_LEFT)), LGUI(LCTL(KC_RIGHT)),    KC_NO,        KC_NO,   KC_NO,        KC_NO,      KC_NO,    KC_NO,    RESET, 
-        KC_NO,  MO(1),               KC_NO,                  KC_NO,        KC_NO,   KC_NO,        KC_TRNS,    KC_TRNS,  KC_TRNS,  KC_TRNS, 
+        KC_NO, LGUI(LCTL(KC_LEFT)), LGUI(LCTL(KC_RIGHT)),    KC_TRNS,      KC_NO,   KC_NO,        KC_NO,      KC_NO,    KC_NO,    RESET, 
+        KC_NO,  MO(1),               MO(2),                  KC_NO,        KC_NO,   KC_NO,        KC_TRNS,    KC_TRNS,  KC_TRNS,  KC_TRNS, 
         KC_NO,  KC_NO,                KC_NO,                 KC_NO,        KC_NO,   KC_NO,        KC_TRNS,    KC_TRNS,  KC_TRNS,  KC_TRNS,  
         KC_NO,  KC_NO,                KC_NO,                 KC_NO,        KC_NO,   KC_NO,        KC_NO,      KC_NO,    KC_NO,    KC_NO 
     ), 
@@ -76,8 +76,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ), 
     /* 9 - k ctrl */ 
 	LAYOUT(
-      KC_TAB,    LSFT(KC_TAB), KC_TRNS, LALT(KC_F4),        KC_TRNS,        KC_TRNS,    KC_TRNS,    KC_TRNS,   KC_TRNS,    KC_TRNS,  
-      KC_ESC,    KC_TRNS,     KC_TRNS,     KC_BSPC,      LALT(KC_LEFT),     KC_NO,      KC_LCTL,    KC_NO,     LCTL(KC_L), OSM(MOD_LALT), 
+      KC_TAB,    LSFT(KC_TAB), KC_TRNS,    KC_TRNS,        KC_TRNS,        KC_TRNS,    KC_TRNS,    KC_TRNS,   KC_TRNS,    KC_TRNS,  
+      KC_ESC,    KC_TRNS,     KC_BSPC,     KC_BSPC,      LALT(KC_LEFT),     KC_NO,      KC_LCTL,    KC_NO,     LCTL(KC_L), OSM(MOD_LALT), 
       KC_TRNS,   KC_TRNS,     KC_TRNS,     KC_TRNS,        KC_NO,           KC_NO,      KC_NO,      KC_NO,     KC_NO,      LCTL(KC_SLSH), 
       KC_TRNS,   KC_TRNS,     KC_TRNS,     KC_TRNS,      KC_NO,             KC_NO,      KC_TRNS,    KC_NO,     KC_TRNS,    KC_TRNS
     ) 
