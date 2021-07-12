@@ -13,7 +13,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   } else if (keycode == ARRAY && record->event.pressed) {
     SEND_STRING("[] ");
   } else if (keycode == ARRAY_INSIDE && record->event.pressed) {
-    SEND_STRING("[]SS_TAP(X_LEFT)");
+    SEND_STRING("[]"SS_TAP(X_LEFT));
   } else if (keycode == END_TAG && record->event.pressed) {
     SEND_STRING("</");
   }
