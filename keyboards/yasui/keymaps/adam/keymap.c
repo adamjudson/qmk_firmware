@@ -87,12 +87,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 #ifdef COMBO_ENABLE
 const uint16_t PROGMEM combo_bspc[] = {KC_O, KC_P, COMBO_END};
-const uint16_t PROGMEM combo_tab[] = {KC_Q, KC_W, COMBO_END};
+const uint16_t PROGMEM combo_tab[]  = {KC_Q, KC_W, COMBO_END};
+const uint16_t PROGMEM combo_single_quote[]  = {KC_L, KC_SCLN, COMBO_END};
 // const uint16_t PROGMEM combo_esc[] = {KC_E, KC_W, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
- COMBO(combo_bspc,KC_BSPC),
- COMBO(combo_tab,KC_TAB),
- // COMBO(combo_esc,KC_ESC)
+    COMBO(combo_bspc, KC_BSPC), 
+    COMBO(combo_tab, KC_TAB), 
+    COMBO(combo_single_quote, KC_QUOTE),
+// COMBO(combo_esc,KC_ESC)
 };
 #endif
