@@ -3,11 +3,9 @@
 
 
 #pragma once
-#include QMK_KEYBOARD_H
 
 #include "quantum.h"
 
-#define IGNORE_MOD_TAP_INTERRUPT
 
 
 void my_custom_function(void);
