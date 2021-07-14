@@ -27,7 +27,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ), 
     /* 2 - raise - try to avoid putting anything important here */
 	LAYOUT(
-        KC_GRAVE,     KC_TILD,   KC_3,        LALT(KC_F4),         KC_5,            KC_6,         KC_7,       KC_8,          KC_9,    KC_0, 
+        KC_GRAVE,     KC_TILD,   KC_3,        LALT(KC_F4),         KC_5,            KC_6,         KC_7,       KC_8,          KC_9,    KC_BSPC, 
         KC_F1,        KC_F2,     KC_F3,       KC_F4,        KC_F5,           KC_F6,        KC_PMNS,    KC_EQUAL,      KC_QUOT, LSFT(KC_QUOT), 
         KC_F7,        KC_F8,     KC_F9,       KC_F10,       KC_F11,          KC_F12,       KC_MUTE,    KC_MPLY,     KC_PIPE, KC_BSLS,     
         KC_TRNS,      KC_TRNS,   KC_TRNS,     MO(3),        KC_NO,           KC_NO,        KC_TRNS,    KC_TRNS,     KC_VOLD,    KC_VOLU
@@ -71,7 +71,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	LAYOUT(
         KC_TRNS,  LCTL(KC_W), KC_TRNS,    LCTL(KC_R),   LCTL(KC_T),       KC_TRNS,      KC_PGUP,     KC_UP,         KC_PGDN,  KC_BSPC, 
         KC_ESC,   KC_DEL,     KC_TRNS,    KC_LSFT,      LCTL(KC_TAB),     KC_HOME,      KC_LEFT,     KC_DOWN,       KC_RGHT,  KC_END, 
-        KC_TRNS,  KC_TRNS,    KC_TRNS,    LCTL(KC_V),   KC_TRNS,          KC_TRNS,      KC_TRNS,     KC_TRNS,       KC_TRNS,  LCTL(KC_SLSH), 
+        KC_TRNS,  KC_TRNS,    KC_TRNS,    LCTL(KC_V),   KC_TRNS,          KC_TRNS,      KC_TRNS,     KC_BSPC,       KC_TRNS,  LCTL(KC_SLSH), 
         KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_LCTL,      KC_NO,            KC_NO,        LCTL(KC_C),  LCTL(KC_X),    LCTL(KC_U), LCTL(LSFT(KC_U))
     ), 
     /* 9 - k ctrl */ 
