@@ -40,16 +40,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO,        KC_NO,     KC_NO,       KC_TRNS,      KC_NO,             KC_NO,    LCA(KC_DEL),  KC_TRNS,      KC_NO,   KC_NO
     ), 
     /* 4 - anne pro / desktop swap - dropped os-e shifted left and right  - a is not a great key to use.  Especially for alt-F4.  Moving that to k*/ 
+    /* MO on s is questionable - triggering when I don't want sometimes */
 	LAYOUT(
         KC_TAB, LGUI(LCTL(KC_LEFT)), LGUI(LCTL(KC_RIGHT)),   KC_TRNS,      KC_NO,   KC_NO,        KC_NO,      KC_NO,    KC_NO,    RESET, 
         KC_NO,  MO(1),               MO(2),                  KC_ESC,       KC_NO,   KC_NO,        KC_TRNS,    KC_TRNS,  KC_TRNS,  KC_TRNS, 
         KC_NO,  KC_NO,                KC_NO,                 KC_NO,        KC_NO,   KC_NO,        KC_TRNS,    KC_TRNS,  KC_TRNS,  KC_TRNS,  
-        KC_NO,  KC_NO,                KC_NO,                 KC_NO,        KC_NO,   KC_NO,        KC_NO,      KC_NO,    KC_NO,    KC_NO 
+        KC_NO,  KC_NO,                KC_NO,                 KC_NO,        KC_NO,   KC_NO,        KC_NO,      KC_NO,    KC_VOLD,    KC_VOLU 
     ), 
     /* 5 - s numbers - and tab I guess */ 
 	LAYOUT(
         KC_NO,    KC_NO,      KC_NO,      KC_NO,        KC_NO,         KC_PAST,      KC_7,      KC_8,           KC_9,    KC_PMNS,   
-        KC_NO,    KC_TRNS,    KC_TAB,     KC_TRNS,      KC_UNDS,       KC_PMNS,      KC_4,      KC_5,           KC_6,    KC_PPLS,   
+        KC_NO,    KC_TRNS,    KC_TAB,     KC_TAB,       KC_UNDS,       KC_PMNS,      KC_4,      KC_5,           KC_6,    KC_PPLS,   
         KC_NO,    KC_NO,      KC_NO,      KC_LGUI,      KC_NO,         KC_PDOT,      KC_1,      KC_2,           KC_3,    KC_TRNS,
         KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_LCTL,      KC_NO,         KC_NO,        KC_0,      KC_TRNS,        KC_NO,    KC_NO     
     ),
@@ -62,17 +63,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ), 
     /* 7 - j  os nav */ 
 	LAYOUT(
-        LGUI(KC_1),    LGUI(KC_2), LGUI(KC_E), LGUI(KC_4), LGUI(KC_5),      LGUI(KC_6),   LGUI(KC_7), LGUI(KC_8),     KC_NO,    KC_NO, 
+        LGUI(KC_1),    LGUI(KC_2), LGUI(KC_E), LGUI(KC_4), LGUI(KC_5),      LGUI(KC_6),   LGUI(KC_7), LGUI(KC_8),     KC_NO,    KC_BSPC, 
         OSM(MOD_LCTL), KC_TRNS,    KC_TRNS,    LCTL(KC_F),  KC_TAB,         KC_NO,        KC_TRNS,    KC_LGUI,        LGUI(KC_L), KC_LALT, 
         KC_TRNS,       KC_TRNS,    KC_TRNS,    KC_TRNS,   KC_TRNS,         KC_TRNS,      KC_TRNS,    KC_TRNS,        KC_NO,    KC_NO, 
         KC_TRNS,       KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_NO,           KC_NO,        KC_TRNS,    KC_NO,          KC_NO,    KC_NO
     ), 
     /* 8 - d nav */ 
 	LAYOUT(
-        KC_TRNS,  LCTL(KC_W), KC_TRNS,    LCTL(KC_R),   LCTL(KC_T),       KC_TRNS,      KC_PGUP,     KC_UP,         KC_PGDN,  KC_BSPC, 
-        KC_ESC,   KC_DEL,     KC_TRNS,    KC_LSFT,      LCTL(KC_TAB),     KC_HOME,      KC_LEFT,     KC_DOWN,       KC_RGHT,  KC_END, 
-        KC_TRNS,  KC_TRNS,    KC_TRNS,    LCTL(KC_V),   KC_TRNS,          KC_TRNS,      KC_TRNS,     KC_BSPC,       KC_TRNS,  LCTL(KC_SLSH), 
-        KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_LCTL,      KC_NO,            KC_NO,        LCTL(KC_C),  LCTL(KC_X),    LCTL(KC_U), LCTL(LSFT(KC_U))
+        KC_TRNS,  LCTL(KC_W), KC_TRNS,    LCTL(KC_R),   LCTL(KC_T),       KC_TRNS,      KC_PGUP,     KC_UP,         KC_PGDN,            KC_BSPC, 
+        KC_ESC,   KC_DEL,     KC_TRNS,    KC_LSFT,      LCTL(KC_TAB),     KC_HOME,      KC_LEFT,     KC_DOWN,       KC_RGHT,            KC_END, 
+        KC_TRNS,  KC_TRNS,    KC_TRNS,    LCTL(KC_V),   KC_TRNS,          KC_TRNS,      LCTL(KC_U),  KC_BSPC,       LCTL(LSFT(KC_U)),   LCTL(KC_SLSH), 
+        KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_LCTL,      KC_NO,            KC_NO,        LCTL(KC_C),  LCTL(KC_X),    LCTL(KC_U),         LCTL(LSFT(KC_U))
     ), 
     /* 9 - k ctrl */ 
 	LAYOUT(
