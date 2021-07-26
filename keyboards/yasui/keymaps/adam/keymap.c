@@ -50,14 +50,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* 5 - s numbers - and tab I guess */ 
 	LAYOUT(
         KC_NO,    KC_NO,      KC_NO,      KC_NO,        KC_NO,         KC_PAST,      KC_7,      KC_8,           KC_9,    KC_PMNS,   
-        KC_NO,    KC_TRNS,    KC_TAB,     KC_TRNS,       KC_UNDS,       KC_PMNS,      KC_4,      KC_5,           KC_6,    KC_PPLS,   
+        KC_ESC,   KC_TRNS,    KC_TAB,     KC_TRNS,      KC_UNDS,       KC_PMNS,      KC_4,      KC_5,           KC_6,    KC_PPLS,   
         KC_NO,    KC_NO,      KC_NO,      KC_LGUI,      KC_NO,         KC_PDOT,      KC_1,      KC_2,           KC_3,    KC_TRNS,
         KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_LCTL,      KC_NO,         KC_NO,        KC_0,      KC_TRNS,        KC_NO,    KC_NO     
     ),
     /* 6 - g brackets */ 
 	LAYOUT(
         KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_NO,        KC_NO,                KC_NO,        ARRAY,      KC_LBRC,        KC_RBRC,  ARRAY_INSIDE,   
-        KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_NO,        KC_NO,                JSARROW,      KC_LPRN,    KC_RPRN,        KC_LCBR,  KC_RCBR,   
+        KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_BSPC,      KC_NO,                JSARROW,      KC_LPRN,    KC_RPRN,        KC_LCBR,  KC_RCBR,   
         KC_TRNS,  KC_TRNS,    KC_NO,      KC_NO,        KC_NO,                KC_NO,        KC_LT,      KC_GT,          END_TAG,  KC_GT,     
         KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_NO,        KC_NO,                KC_NO,        KC_TRNS,    KC_NO,          KC_NO,    KC_NO   
     ), 
@@ -72,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	LAYOUT(
         KC_TRNS,  LCTL(KC_W), KC_TRNS,    LCTL(KC_R),   LCTL(KC_T),       KC_TRNS,      KC_PGUP,     KC_UP,         KC_PGDN,            KC_BSPC, 
         KC_ESC,   KC_DEL,     KC_TRNS,    KC_LSFT,      LCTL(KC_TAB),     KC_HOME,      KC_LEFT,     KC_DOWN,       KC_RGHT,            KC_END, 
-        KC_TRNS,  KC_TRNS,    KC_TRNS,    LCTL(KC_V),   KC_TRNS,          KC_TRNS,      LCTL(KC_U),  KC_BSPC,       LCTL(LSFT(KC_U)),   LCTL(KC_SLSH), 
+        KC_TRNS,  LCTL(KC_X), LCTL(KC_C), LCTL(KC_V),   KC_TRNS,          KC_TRNS,      LCTL(KC_U),  KC_BSPC,       LCTL(LSFT(KC_U)),   LCTL(KC_SLSH), 
         KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_LCTL,      KC_NO,            KC_NO,        LCTL(KC_C),  LCTL(KC_X),    LCTL(KC_U),         LCTL(LSFT(KC_U))
     ), 
     /* 9 - k ctrl */ 
@@ -87,15 +87,39 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // this is kind of cool
 
 #ifdef COMBO_ENABLE
-const uint16_t PROGMEM combo_bspc[] = {KC_O, KC_P, COMBO_END};
+const uint16_t PROGMEM combo_copy[]         = {KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM combo_cut[]          = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM combo_bspc[]         = {KC_O, KC_P, COMBO_END};
 const uint16_t PROGMEM combo_tab[]  = {KC_Q, KC_W, COMBO_END};
-const uint16_t PROGMEM combo_single_quote[]  = {KC_L, KC_SCLN, COMBO_END};
+const uint16_t PROGMEM combo_single_quote[] = {KC_L, KC_SCLN, COMBO_END};
+// this doesn't seem to work - probably because f is already overloaded?
+// const uint16_t PROGMEM combo_another_bspc[] = {KC_F, KC_E, COMBO_END};
 // const uint16_t PROGMEM combo_esc[] = {KC_E, KC_W, COMBO_END};
 
+enum combo_events { CV_COPY, XC_CUT };
+
 combo_t key_combos[COMBO_COUNT] = {
+    [CV_COPY] = COMBO_ACTION(combo_copy),
+    [XC_CUT] = COMBO_ACTION(combo_cut),
     COMBO(combo_bspc, KC_BSPC), 
     COMBO(combo_tab, KC_TAB), 
-    COMBO(combo_single_quote, KC_QUOTE),
-// COMBO(combo_esc,KC_ESC)
+    COMBO(combo_single_quote, KC_QUOTE), 
 };
+
+// note that that this is using the index into key_combos, which is assumed to be the enum
+// not clear if we can acutally mix enums and the combo macro...
+void process_combo_event(uint16_t combo_index, bool pressed) {
+    switch (combo_index) {
+        case CV_COPY:
+            if (pressed) {
+                tap_code16(LCTL(KC_C));
+            }
+            break;
+        case XC_CUT:
+            if (pressed) {
+                tap_code16(LCTL(KC_X));
+            }
+            break;
+    }
+}
 #endif
