@@ -87,20 +87,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // this is kind of cool
 
 #ifdef COMBO_ENABLE
-const uint16_t PROGMEM combo_copy[]         = {KC_C, KC_V, COMBO_END};
-const uint16_t PROGMEM combo_cut[]          = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM combo_cut[]          = {KC_Z, KC_X, COMBO_END};
+const uint16_t PROGMEM combo_copy[]         = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM combo_paste[]        = {KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM combo_bspc[]         = {KC_O, KC_P, COMBO_END};
-const uint16_t PROGMEM combo_tab[]  = {KC_Q, KC_W, COMBO_END};
+const uint16_t PROGMEM combo_tab[]          = {KC_Q, KC_W, COMBO_END};
 const uint16_t PROGMEM combo_single_quote[] = {KC_L, KC_SCLN, COMBO_END};
 // this doesn't seem to work - probably because f is already overloaded?
 // const uint16_t PROGMEM combo_another_bspc[] = {KC_F, KC_E, COMBO_END};
 // const uint16_t PROGMEM combo_esc[] = {KC_E, KC_W, COMBO_END};
 
-enum combo_events { CV_COPY, XC_CUT };
+enum combo_events { ZX_CUT, XC_COPY, CV_PASTE };
 
 combo_t key_combos[COMBO_COUNT] = {
-    [CV_COPY] = COMBO_ACTION(combo_copy),
-    [XC_CUT] = COMBO_ACTION(combo_cut),
+    [ZX_CUT] = COMBO_ACTION(combo_cut),
+    [XC_COPY] = COMBO_ACTION(combo_copy),
+    [CV_PASTE] = COMBO_ACTION(combo_paste),
     COMBO(combo_bspc, KC_BSPC), 
     COMBO(combo_tab, KC_TAB), 
     COMBO(combo_single_quote, KC_QUOTE), 
@@ -110,12 +112,17 @@ combo_t key_combos[COMBO_COUNT] = {
 // not clear if we can acutally mix enums and the combo macro...
 void process_combo_event(uint16_t combo_index, bool pressed) {
     switch (combo_index) {
-        case CV_COPY:
+        case CV_PASTE:
+            if (pressed) {
+                tap_code16(LCTL(KC_V));
+            }
+            break;
+        case XC_COPY:
             if (pressed) {
                 tap_code16(LCTL(KC_C));
             }
             break;
-        case XC_CUT:
+        case ZX_CUT:
             if (pressed) {
                 tap_code16(LCTL(KC_X));
             }
