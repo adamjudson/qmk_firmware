@@ -76,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* anne pro / desktop swap - dropped os-e shifted left and right  - a is not a great key to use.  Especially for alt-F4.  Moving that to k*/ \
 	[4] = LAYOUT_33_split_space(\
       KC_NO, LGUI(LCTL(KC_LEFT)), LGUI(LCTL(KC_RIGHT)),    KC_NO, KC_NO,   KC_NO,        KC_NO,      KC_NO,        KC_NO,    RESET, \
-      KC_NO,        KC_NO,      KC_NO,      KC_NO,        KC_NO,           KC_NO,        KC_NO,      KC_NO,          KC_NO,    KC_NO, \
+      KC_NO,  MO(1),               MO(2),                  KC_ESC, KC_NO,  KC_NO,        KC_NO,      KC_NO,          KC_NO,    KC_NO, \
       KC_NO,        KC_NO,      KC_NO,      KC_NO,        KC_NO,          KC_NO,        KC_NO,      KC_NO,          KC_NO,    KC_NO,  \
                       KC_NO,        KC_NO,      KC_NO,            KC_NO,          KC_NO,    KC_NO ), \
   /* numbers */ \
@@ -93,9 +93,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_TRNS,    KC_NO,        KC_BTN1,            KC_BTN2,   KC_TRNS,    KC_NO),\
   /* brackets - g layer */ \
 	[7] = LAYOUT_33_split_space(\
-      KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_NO,        KC_NO,                KC_NO,        ARRAY,      KC_LBRC,        KC_RBRC,  ARRAY_INSIDE,     \
-      KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_NO,        KC_NO,                JSARROW,      KC_LPRN,    KC_RPRN,        KC_LCBR,  KC_RCBR,   \
-      KC_TRNS,  KC_TRNS,    KC_NO,      KC_NO,        KC_NO,                KC_NO,        KC_LT,    KC_GT,        END_TAG,    KC_GT,     \
+      KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_NO,        KC_NO,                KC_NO,        ARRAY,      KC_LBRC,        KC_RBRC,  ARRAY_INSIDE,   
+      KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_BSPC,      KC_NO,                JSARROW,      KC_LPRN,    KC_RPRN,        KC_LCBR,  KC_RCBR,   
+      KC_TRNS,  KC_TRNS,    KC_NO,      KC_NO,        KC_NO,                KC_NO,        KC_LT,      KC_GT,          END_TAG,  KC_GT,     
                             KC_TRNS,  KC_TRNS,           KC_TRNS,      KC_TRNS,          KC_TRNS,    KC_TRNS   ), \
   /*  os nav - j layer */ \
 	[8] = LAYOUT_33_split_space(\
@@ -108,7 +108,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[9] = LAYOUT_33_split_space(\
       KC_TAB,  LCTL(KC_W), KC_TRNS,    LCTL(KC_R),   LCTL(KC_T),       KC_TRNS,      KC_PGUP,    KC_UP,          KC_PGDN,  KC_BSPC, \
       KC_ESC,  KC_DEL,     KC_TRNS,    KC_LSFT,      LCTL(KC_TAB),     KC_HOME,      KC_LEFT,    KC_DOWN,        KC_RGHT,  KC_END, \
-      KC_TRNS,  KC_TRNS,    KC_TRNS,    LCTL(KC_V),   KC_TRNS,         KC_TRNS,      KC_TRNS,    KC_TRNS,        JSARROW,  LCTL(KC_SLSH), \
+      KC_TRNS,  LCTL(KC_X), LCTL(KC_C), LCTL(KC_V),   KC_TRNS,          KC_TRNS,      LCTL(KC_U),  KC_BSPC,       LCTL(LSFT(KC_U)),   LCTL(KC_SLSH), \
                     KC_TRNS,    KC_TRNS,    KC_LCTL,      LCTL(KC_C),     LCTL(KC_X),    KC_TRNS), \
   \
   /* ctrl - k layer */ \
@@ -124,17 +124,46 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // this is kind of cool
 
 #ifdef COMBO_ENABLE
-const uint16_t PROGMEM combo_bspc[] = {KC_O, KC_P, COMBO_END};
-const uint16_t PROGMEM combo_tab[] = {KC_Q, KC_W, COMBO_END};
+const uint16_t PROGMEM combo_cut[]          = {KC_Z, KC_X, COMBO_END};
+const uint16_t PROGMEM combo_copy[]         = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM combo_paste[]        = {KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM combo_bspc[]         = {KC_O, KC_P, COMBO_END};
+const uint16_t PROGMEM combo_tab[]          = {KC_Q, KC_W, COMBO_END};
 const uint16_t PROGMEM combo_single_quote[] = {KC_L, KC_SCLN, COMBO_END};
-
+// this doesn't seem to work - probably because f is already overloaded?
+// const uint16_t PROGMEM combo_another_bspc[] = {KC_F, KC_E, COMBO_END};
 // const uint16_t PROGMEM combo_esc[] = {KC_E, KC_W, COMBO_END};
 
-combo_t key_combos[COMBO_COUNT] = {
- COMBO(combo_bspc,KC_BSPC),
- COMBO(combo_tab,KC_TAB),
- COMBO(combo_single_quote,KC_QUOTE),
- // COMBO(combo_esc,KC_ESC)
-};
-#endif
+enum combo_events { ZX_CUT, XC_COPY, CV_PASTE };
 
+combo_t key_combos[COMBO_COUNT] = {
+    [ZX_CUT] = COMBO_ACTION(combo_cut),
+    [XC_COPY] = COMBO_ACTION(combo_copy),
+    [CV_PASTE] = COMBO_ACTION(combo_paste),
+    COMBO(combo_bspc, KC_BSPC), 
+    COMBO(combo_tab, KC_TAB), 
+    COMBO(combo_single_quote, KC_QUOTE), 
+};
+
+// note that that this is using the index into key_combos, which is assumed to be the enum
+// not clear if we can acutally mix enums and the combo macro...
+void process_combo_event(uint16_t combo_index, bool pressed) {
+    switch (combo_index) {
+        case CV_PASTE:
+            if (pressed) {
+                tap_code16(LCTL(KC_V));
+            }
+            break;
+        case XC_COPY:
+            if (pressed) {
+                tap_code16(LCTL(KC_C));
+            }
+            break;
+        case ZX_CUT:
+            if (pressed) {
+                tap_code16(LCTL(KC_X));
+            }
+            break;
+    }
+}
+#endif
