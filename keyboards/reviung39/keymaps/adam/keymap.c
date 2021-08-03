@@ -22,7 +22,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_reviung39(
     KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSPACE,      
     LT(4,KC_ESCAPE),KC_A,           LT(5,KC_S),     LT(8,KC_D),     LSFT_T(KC_F),   LT(6,KC_G),     LSFT_T(KC_H),   LT(7,KC_J),     LT(9,KC_K),    KC_L,           KC_SCOLON,      KC_QUOTE,       
-    KC_LCTRL,      KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       RSFT_T(KC_BSLASH),
+    KC_LCTRL,      KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       LGUI_T(KC_BSLASH),
                                                      LT(1,KC_ENTER),    MO(2),   LSFT_T(KC_SPACE)    
   ),
 
