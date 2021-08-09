@@ -64,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 \
 	[2] = LAYOUT_33_split_space(\
       KC_GRAVE,     KC_TILD,   KC_3,        LALT(KC_F4),   KC_5,           KC_6,         KC_7,       KC_8,          KC_9,    KC_MPLY, 
-      KC_F1,        KC_F2,     KC_F3,       KC_F4,        KC_F5,           KC_F6,        KC_PMNS,    KC_EQUAL,      KC_UP, LSFT(KC_QUOT), 
+      KC_F1,        KC_F2,     KC_F3,       KC_F4,        KC_F5,           KC_F6,        KC_MINS,    KC_EQUAL,      KC_UP, LSFT(KC_QUOT), 
       KC_F7,        KC_F8,     KC_F9,       KC_F10,       KC_F11,          KC_F12,       KC_MUTE,    KC_LEFT,      KC_DOWN, KC_RIGHT,     
                              KC_GRAVE, KC_TILD,     MO(3),              KC_VOLD,      KC_TRNS,     KC_VOLU), \
   /* adjust  - this is pretty much only reset  and c-a-d  */  \
@@ -81,9 +81,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                       KC_NO,        KC_NO,      KC_NO,            KC_NO,          KC_NO,    KC_NO ), \
   /* numbers */ \
 	[5] = LAYOUT_33_split_space(\
-      KC_NO,    KC_NO,      KC_NO,      KC_NO,        KC_NO,           KC_PAST,      KC_7,      KC_8,          KC_P9,    KC_PMNS,   \
-      OSM(MOD_LGUI),    KC_NO,      KC_TAB,     KC_TRNS,      KC_UNDS,         KC_PMNS,      KC_4,      KC_5,          KC_P6,    KC_PPLS,   \
-      KC_NO,    KC_NO,      KC_TRNS,    KC_TRNS,      KC_NO,           KC_PDOT,      KC_1,      KC_2,          KC_P3,    KC_TRNS,   \
+      KC_NO,            KC_NO,      KC_NO,      KC_NO,        KC_NO,           KC_PAST,      KC_7,      KC_8,          KC_9,    KC_PMNS,   \
+      OSM(MOD_LGUI),    KC_NO,      KC_TAB,     KC_TRNS,      KC_UNDS,         KC_MINS,      KC_4,      KC_5,          KC_6,    KC_PPLS,   \
+      KC_NO,            KC_NO,      KC_TRNS,    KC_TRNS,      KC_NO,           KC_DOT,      KC_1,      KC_2,          KC_3,    KC_TRNS,   \
                           KC_TRNS,    KC_TRNS,            KC_LCTL,         KC_0,             KC_NO,    KC_NO     ),\
   /* mouse - again, not sure if we can get here*/ \
 	[6] = LAYOUT_33_split_space(\
