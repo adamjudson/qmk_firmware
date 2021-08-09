@@ -35,8 +35,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* 3 - adjust  - this is pretty much only reset  and c-a-d  */ 
 	LAYOUT(
         KC_NO,        KC_NO,     KC_NO,       KC_NO,        KC_NO,             KC_NO,        KC_NO,    KC_NO,        KC_NO,   RESET, 
-        KC_NO,        KC_NO,     KC_NO,       KC_NO,        KC_NO,             KC_NO,        KC_NO,    KC_NO,        KC_NO,   RESET, 
-        KC_NO,        KC_NO,     KC_NO,       KC_NO,        KC_NO,             KC_NO,        KC_NO,    KC_NO,        KC_NO,   KC_NO, 
+        KC_NO,        KC_NO,     KC_NO,       KC_NO,        KC_NO,             KC_NO,        RGB_TOG,  RGB_VAI,      RGB_VAD, RESET, 
+        KC_NO,        KC_NO,     KC_NO,       KC_NO,        KC_NO,             KC_NO,        RGB_MOD,  RGB_HUI,      RGB_HUD, KC_NO, 
         KC_NO,        KC_NO,     KC_NO,       KC_TRNS,      KC_NO,             KC_NO,    LCA(KC_DEL),  KC_TRNS,      KC_NO,   KC_NO
     ), 
     /* 4 - anne pro / desktop swap - dropped os-e shifted left and right  - a is not a great key to use.  Especially for alt-F4.  Moving that to k*/ 
@@ -49,10 +49,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ), 
     /* 5 - s numbers - and tab I guess */ 
 	LAYOUT(
-        KC_NO,    KC_NO,      KC_NO,      KC_NO,        KC_NO,         KC_PAST,      KC_7,      KC_8,           KC_9,    KC_PMNS,   
-        KC_ESC,   KC_TRNS,    KC_TAB,     KC_TRNS,      KC_UNDS,       KC_PMNS,      KC_4,      KC_5,           KC_6,    KC_PPLS,   
-        KC_NO,    KC_NO,      KC_NO,      KC_LGUI,      KC_NO,         KC_PDOT,      KC_1,      KC_2,           KC_3,    KC_TRNS,
-        KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_LCTL,      KC_NO,         KC_NO,        KC_0,      KC_TRNS,        KC_NO,    KC_NO     
+        KC_NO,              KC_NO,      KC_NO,      KC_NO,        KC_NO,         KC_PAST,      KC_7,      KC_8,           KC_9,    KC_PMNS,   
+        OSM(MOD_LGUI),      KC_TRNS,    KC_TAB,     KC_TRNS,      KC_UNDS,       KC_PMNS,      KC_4,      KC_5,           KC_6,    KC_PPLS,   
+        KC_NO,              KC_NO,      KC_NO,      KC_LGUI,      KC_NO,         KC_PDOT,      KC_1,      KC_2,           KC_3,    KC_TRNS,
+        KC_TRNS,            KC_TRNS,    KC_TRNS,    KC_LCTL,      KC_NO,         KC_NO,        KC_0,      KC_TRNS,        KC_NO,    KC_NO     
     ),
     /* 6 - g brackets */ 
 	LAYOUT(
