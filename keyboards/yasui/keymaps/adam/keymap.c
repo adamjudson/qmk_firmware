@@ -84,8 +84,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ) 
 };
 
-// this is kind of cool
-
 #ifdef COMBO_ENABLE
 const uint16_t PROGMEM combo_cut[]          = {KC_Z, KC_X, COMBO_END};
 const uint16_t PROGMEM combo_copy[]         = {KC_X, KC_C, COMBO_END};

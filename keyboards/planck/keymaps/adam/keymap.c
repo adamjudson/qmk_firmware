@@ -68,7 +68,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // S - numbers
   [_LAYER5] = LAYOUT_planck_grid(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_KP_ASTERISK, KC_7,           KC_8,           KC_9,           KC_KP_MINUS,    KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TAB,         KC_TRANSPARENT, KC_UNDERSCORE, KC_MINUS,       KC_4,           KC_5,           KC_6,           KC_KP_PLUS,     KC_EQUAL,       
+    KC_TRANSPARENT, OSM(MOD_LGUI), KC_TRANSPARENT, KC_TAB,         KC_TRANSPARENT, KC_UNDERSCORE, KC_MINUS,       KC_4,           KC_5,           KC_6,           KC_KP_PLUS,     KC_EQUAL,       
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_DOT,        KC_1,           KC_2,           KC_3,           KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          KC_LCTRL,       KC_NO,         KC_0,           KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
@@ -94,7 +94,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, LGUI(KC_1),     LGUI(KC_2),     LGUI(KC_E),     LGUI(KC_4),     LGUI(KC_5),     LGUI(KC_6),     LGUI(KC_7),     LGUI(KC_8),     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, OSM(MOD_LCTL),  KC_TRANSPARENT, KC_TRANSPARENT, LCTL(KC_F),     KC_TAB,         KC_TRANSPARENT, KC_TRANSPARENT, KC_LGUI,        LGUI(KC_L),     KC_LALT,        KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          KC_TRANSPARENT, KC_NO,          KC_LALT,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          KC_BSPC,        KC_NO,          KC_LALT,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
 
   // D - nav
@@ -110,7 +110,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_ESC,         KC_TRANSPARENT, KC_BSPC,        KC_BSPC,        LALT(KC_LEFT),  KC_TRANSPARENT, KC_LCTRL,       KC_TRANSPARENT, LCTL(KC_L),     OSM(MOD_LALT),  KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, LCTL(KC_SLASH), KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          KC_TRANSPARENT, KC_NO,          LCTL(KC_SPACE), KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          KC_BSPC,        KC_NO,          LCTL(KC_SPACE), KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
 
   // game macro
@@ -346,13 +346,41 @@ uint32_t layer_state_set_user(uint32_t state) {
 // not clear if we really want to keep bspc and tab
 // but single quote is very handy
 #ifdef COMBO_ENABLE
+const uint16_t PROGMEM combo_cut[]          = {KC_Z, KC_X, COMBO_END};
+const uint16_t PROGMEM combo_copy[]         = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM combo_paste[]        = {KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM combo_bspc[]         = {KC_O, KC_P, COMBO_END};
 const uint16_t PROGMEM combo_tab[]          = {KC_Q, KC_W, COMBO_END};
 const uint16_t PROGMEM combo_single_quote[] = {KC_L, KC_SCLN, COMBO_END};
+// this doesn't seem to work - probably because f is already overloaded?
+// const uint16_t PROGMEM combo_another_bspc[] = {KC_F, KC_E, COMBO_END};
 // const uint16_t PROGMEM combo_esc[] = {KC_E, KC_W, COMBO_END};
 
+enum combo_events { ZX_CUT, XC_COPY, CV_PASTE };
+
 combo_t key_combos[COMBO_COUNT] = {
-    COMBO(combo_bspc, KC_BSPC), COMBO(combo_tab, KC_TAB), COMBO(combo_single_quote, KC_QUOTE),
-    // COMBO(combo_esc,KC_ESC)
+    [ZX_CUT] = COMBO_ACTION(combo_cut), [XC_COPY] = COMBO_ACTION(combo_copy), [CV_PASTE] = COMBO_ACTION(combo_paste), COMBO(combo_bspc, KC_BSPC), COMBO(combo_tab, KC_TAB), COMBO(combo_single_quote, KC_QUOTE),
 };
+
+// note that that this is using the index into key_combos, which is assumed to be the enum
+// not clear if we can acutally mix enums and the combo macro...
+void process_combo_event(uint16_t combo_index, bool pressed) {
+    switch (combo_index) {
+        case CV_PASTE:
+            if (pressed) {
+                tap_code16(LCTL(KC_V));
+            }
+            break;
+        case XC_COPY:
+            if (pressed) {
+                tap_code16(LCTL(KC_C));
+            }
+            break;
+        case ZX_CUT:
+            if (pressed) {
+                tap_code16(LCTL(KC_X));
+            }
+            break;
+    }
+}
 #endif

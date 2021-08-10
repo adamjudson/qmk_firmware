@@ -18,5 +18,5 @@
 
 #define RGB_MATRIX_STARTUP_SPD 60
 
-#define COMBO_COUNT 3
+#define COMBO_COUNT 6
 #define COMBO_TERM 50
