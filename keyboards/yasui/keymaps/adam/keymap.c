@@ -66,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         LGUI(KC_1),    LGUI(KC_2), LGUI(KC_E), LGUI(KC_4), LGUI(KC_5),      LGUI(KC_6),   LGUI(KC_7), LGUI(KC_8),     KC_NO,    KC_BSPC, 
         OSM(MOD_LCTL), KC_TRNS,    KC_TRNS,    LCTL(KC_F),  KC_TAB,         KC_NO,        KC_TRNS,    KC_LGUI,        LGUI(KC_L), KC_LALT, 
         KC_TRNS,       KC_TRNS,    KC_TRNS,    KC_TRNS,   KC_TRNS,         KC_TRNS,      KC_TRNS,    KC_TRNS,        KC_NO,    KC_NO, 
-        KC_TRNS,       KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_NO,           KC_NO,        KC_TRNS,    KC_NO,          KC_NO,    KC_NO
+        KC_TRNS,       KC_TRNS,    KC_TRNS,    KC_BSPC,    KC_NO,           KC_NO,        KC_TRNS,    KC_NO,          KC_NO,    KC_NO
     ), 
     /* 8 - d nav */ 
 	LAYOUT(
@@ -80,7 +80,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_TAB,    LSFT(KC_TAB), KC_TRNS,    KC_TRNS,        KC_TRNS,        KC_TRNS,    KC_TRNS,    KC_TRNS,   KC_TRNS,    KC_TRNS,  
       KC_ESC,    KC_TRNS,     KC_BSPC,     KC_BSPC,      LALT(KC_LEFT),     KC_TRNS,    KC_LCTL,    KC_NO,     LCTL(KC_L), OSM(MOD_LALT), 
       KC_TRNS,   KC_TRNS,     KC_TRNS,     KC_TRNS,        KC_NO,           KC_TRNS,     KC_NO,      KC_NO,     KC_NO,      LCTL(KC_SLSH), 
-      KC_TRNS,   KC_TRNS,     KC_TRNS,     KC_TRNS,      KC_NO,             KC_NO,      KC_TRNS,    KC_NO,     KC_TRNS,    KC_TRNS
+      KC_TRNS,   KC_TRNS,     KC_TRNS,     KC_BSPC,      KC_NO,             KC_NO,      KC_TRNS,    KC_NO,     KC_TRNS,    KC_TRNS
     ) 
 };
 
