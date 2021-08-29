@@ -66,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_GRAVE,     KC_TILD,   KC_3,        LALT(KC_F4),   KC_5,           KC_6,         KC_7,       KC_8,          KC_9,    KC_MPLY, 
       KC_F1,        KC_F2,     KC_F3,       KC_F4,        KC_F5,           KC_F6,        KC_MINS,    KC_EQUAL,      KC_UP, LSFT(KC_QUOT), 
       KC_F7,        KC_F8,     KC_F9,       KC_F10,       KC_F11,          KC_F12,       KC_MUTE,    KC_LEFT,      KC_DOWN, KC_RIGHT,     
-                             KC_GRAVE, KC_TILD,     MO(3),              KC_VOLD,      KC_TRNS,     KC_VOLU), \
+                             KC_TRNS, KC_TRNS,     MO(3),              KC_VOLD,      KC_TRNS,     KC_VOLU), \
   /* adjust  - this is pretty much only reset  and c-a-d  */  \
 	[3] = LAYOUT_33_split_space(\
       KC_NO,        KC_NO,     KC_NO,       KC_NO,        KC_NO,             KC_NO,        KC_NO,     KC_NO,        KC_NO,   RESET, \
