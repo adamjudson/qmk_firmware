@@ -92,7 +92,7 @@ enum custom_keycodes {
 // G - Brackets 
 #define __AJ__G__u_p__ KC_NO, KC_LBRC, KC_RBRC, KC_NO
 #define __AJ__G__h_semi__ JSARROW, KC_LPRN, KC_RPRN, KC_LCBR, KC_RCBR
-#define __AJ__G__n_dot__ LSFT(KC_COMM, LSFT(KC_DOT), END_TAG, LSFT(KC_DOT)
+#define __AJ__G__n_dot__ LSFT(KC_COMM), LSFT(KC_DOT), END_TAG, LSFT(KC_DOT)
 
 
 
