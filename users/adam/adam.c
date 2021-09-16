@@ -53,6 +53,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
     [TD_CTRL_GUI] = ACTION_TAP_DANCE_DOUBLE(KC_LCTL, KC_LGUI),
     [TD_MEDIA]    = ACTION_TAP_DANCE_FN(dance_media),
     [TD_VOLUME]   = ACTION_TAP_DANCE_FN(dance_volume),
-};
+    [TD_F5_F6]    = ACTION_TAP_DANCE_DOUBLE(KC_F5, KC_F6)
+    };
 
 #endif
