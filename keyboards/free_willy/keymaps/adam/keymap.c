@@ -17,6 +17,10 @@
 #include "adam.h"
 
 
+enum {
+    TD_CTRL_GUI
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
@@ -30,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_Q,         KC_W,       KC_E,       KC_R,         KC_T,              KC_Y,         KC_U,       KC_I,         KC_O,     KC_P, \
       LT(4,KC_A),   LT(5,KC_S), LT(8,KC_D), LSFT_T(KC_F), LT(6,KC_G),        LSFT_T(KC_H), LT(7,KC_J), LT(9,KC_K),  KC_L,     KC_SCLN, \
       KC_Z,         KC_X,       KC_C,       KC_V,         KC_B,              KC_N,         KC_M,       KC_COMM,      KC_DOT,   KC_SLSH,  \
-                        KC_LCTL,      LT(1,KC_ENT),    LT(1,KC_ENT),   LSFT_T(KC_SPC), LSFT_T(KC_SPC),   LT(2,KC_ESC)             ), \
+                        TD(TD_CTRL_GUI),      LT(1,KC_ENT),    LT(1,KC_ENT),   LSFT_T(KC_SPC), LSFT_T(KC_SPC),   LT(2,KC_ESC)             ), \
   /* lower  - things to find a space for KC_TILD, KC_PIPE KC_QUOT again*/ \
 	[1] = LAYOUT(\
       KC_EXLM,      KC_AT,     KC_HASH,     KC_DLR,       KC_PERC,        KC_CIRC,      KC_AMPR,    KC_ASTR,      KC_DEL,  KC_BSPC,  \
@@ -71,7 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /*  os nav - j layer */ \
 	[7] = LAYOUT(\
       LGUI(KC_1), LGUI(KC_2), LGUI(KC_E), LGUI(KC_4), LGUI(KC_5),      LGUI(KC_6),   LGUI(KC_7), LGUI(KC_8),     KC_TRNS,    KC_TRNS, 
-      OSM(MOD_LCTL), KC_TRNS,     KC_TRNS,   KC_TRNS,      KC_TAB,           KC_NO,        KC_TRNS,    OSM(MOD_LGUI),        LGUI(KC_L), KC_LALT, \
+      OSM(MOD_LCTL), KC_TRNS,     KC_TRNS,   KC_TRNS,      KC_TAB,           KC_NO,        KC_TRNS,    KC_LGUI,        LGUI(KC_L), KC_LALT, \
       KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,         KC_TRNS,      KC_TRNS,    KC_TRNS,        KC_NO,    KC_NO, \
                     KC_TRNS,    KC_TRNS,    KC_TRNS,         KC_TRNS,      KC_TRNS,      KC_NO), \
   \
@@ -138,3 +142,9 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
     }
 }
 #endif
+
+// tap dance stuff
+qk_tap_dance_action_t tap_dance_actions[] = {
+    // ctrl and then gui/win
+    [TD_CTRL_GUI] = ACTION_TAP_DANCE_DOUBLE(KC_LCTL, KC_LGUI),
+};
