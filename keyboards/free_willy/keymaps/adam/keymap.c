@@ -48,19 +48,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* adjust  - this is pretty much only reset  and c-a-d  */  \
 	[3] = LAYOUT(\
       KC_NO,        KC_NO,     KC_NO,       KC_NO,        KC_NO,             KC_NO,        KC_NO,     KC_NO,        KC_NO,   RESET, \
-      KC_NO,        KC_NO,     KC_NO,       KC_NO,        KC_NO,                 KC_NO,         KC_NO,    KC_NO,        KC_NO,   RESET, \
+      KC_NO,        TG(5),     KC_NO,       KC_NO,        KC_NO,             KC_NO,        RGB_TOG,  RGB_VAI,      RGB_VAD, RESET, 
       KC_NO,        KC_NO,     KC_NO,       KC_NO,        KC_NO,                 KC_NO,         KC_NO,    KC_NO,        KC_NO,   KC_NO, \
                                  KC_TRNS,      KC_TRNS,      KC_TRNS,      LCA(KC_DEL),         KC_TRNS,   KC_NO), \
   /* anne pro / desktop swap - dropped os-e shifted left and right  - a is not a great key to use.  Especially for alt-F4.  Moving that to k*/ \
 	[4] = LAYOUT(\
-      KC_NO, LGUI(LCTL(KC_LEFT)), LGUI(LCTL(KC_RIGHT)),    KC_NO, KC_NO,   KC_NO,        KC_NO,      KC_NO,        KC_NO,    RESET, \
+      KC_NO, LGUI(LCTL(KC_LEFT)), LGUI(LCTL(KC_RIGHT)),    KC_TRNS,  KC_NO,   KC_NO,        KC_NO,      KC_NO,        KC_NO,    RESET, \
       KC_NO,  MO(1),               MO(2),                  KC_ESC, KC_NO,  KC_NO,        KC_NO,      KC_NO,          KC_NO,    KC_NO, \
       KC_NO,        KC_NO,      KC_NO,      KC_NO,        KC_NO,          KC_NO,        KC_NO,      KC_NO,          KC_NO,    KC_NO,  \
                       KC_NO,        KC_NO,      KC_NO,            KC_NO,          KC_NO,    KC_NO ), \
   /* numbers */ \
 	[5] = LAYOUT(\
       KC_NO,            KC_NO,      KC_NO,      KC_NO,        KC_NO,           KC_PAST,      KC_7,      KC_8,          KC_9,    KC_PMNS,   \
-      OSM(MOD_LGUI),    KC_NO,      KC_TAB,     KC_TRNS,      KC_UNDS,         KC_MINS,      KC_4,      KC_5,          KC_6,    KC_PPLS,   \
+      OSM(MOD_LGUI),      TG(5),      KC_TAB,     KC_TRNS,      KC_UNDS,       KC_MINS,      KC_4,      KC_5,           KC_6,    KC_PLUS,   
       KC_NO,            KC_NO,      KC_TRNS,    KC_TRNS,      KC_NO,           KC_DOT,      KC_1,      KC_2,          KC_3,    KC_TRNS,   \
                           KC_TRNS,    KC_LCTL,            KC_LCTL,         KC_0,             KC_0,    KC_NO     ),\
   /* brackets - g layer */ \
