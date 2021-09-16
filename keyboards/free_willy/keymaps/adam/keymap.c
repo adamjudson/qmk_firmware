@@ -17,9 +17,6 @@
 #include "adam.h"
 
 
-enum {
-    TD_CTRL_GUI
-};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -39,12 +36,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[1] = LAYOUT(\
       KC_EXLM,      KC_AT,     KC_HASH,     KC_DLR,       KC_PERC,        KC_CIRC,      KC_AMPR,    KC_ASTR,      KC_DEL,  KC_BSPC,  \
       KC_F1,        KC_F2,     KC_F3,       KC_F4,        KC_F5,          KC_F6,        KC_UNDS,    KC_EQUAL,     KC_QUOT, LSFT(KC_QUOT), \
-      KC_F7,        KC_F8,     KC_F9,       KC_F10,       KC_F11,         KC_F12,       KC_MUTE,    KC_LT,        KC_PIPE,  KC_BSLS, 
+      KC_F7,        KC_F8,     KC_F9,       KC_F10,       KC_F11,         KC_F12,       TD(TD_VOLUME),    KC_LT,        KC_PIPE,  KC_BSLS, 
                          KC_TRNS,   KC_TRNS,     KC_TRNS,         LALT(KC_LEFT),  LALT(KC_LEFT), MO(3)), \
 /* raise - KC_MPRV media previous*/ \
 \
 	[2] = LAYOUT(\
-      KC_GRAVE,     KC_TILD,   KC_3,        LALT(KC_F4),   KC_5,           KC_6,         KC_7,       KC_8,          KC_9,    KC_MPLY, 
+      KC_GRAVE,     KC_TILD,   KC_3,        LALT(KC_F4),   KC_5,           KC_6,         KC_7,       KC_VOLD,       KC_VOLU,   TD(TD_MEDIA), 
       KC_F1,        KC_F2,     KC_F3,       KC_F4,        KC_F5,           KC_F6,        KC_MINS,    KC_EQUAL,      KC_UP, LSFT(KC_QUOT), 
       KC_F7,        KC_F8,     KC_F9,       KC_F10,       KC_F11,          KC_F12,       KC_MUTE,    KC_LEFT,      KC_DOWN, KC_RIGHT,     
                              OSM(MOD_LGUI), MO(3),    MO(3),                KC_TRNS,     KC_TRNS, KC_TRNS), \
@@ -143,8 +140,3 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 }
 #endif
 
-// tap dance stuff
-qk_tap_dance_action_t tap_dance_actions[] = {
-    // ctrl and then gui/win
-    [TD_CTRL_GUI] = ACTION_TAP_DANCE_DOUBLE(KC_LCTL, KC_LGUI),
-};

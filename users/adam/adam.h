@@ -19,7 +19,7 @@ enum custom_keycodes {
   AJ_SAFE_RANGE
 };
 
-
+enum adam_tap_dance_codes { TD_CTRL_GUI, TD_MEDIA, TD_VOLUME };
 // defines for common rows
 
 // KEYCODE GROUPS ======================================================================
