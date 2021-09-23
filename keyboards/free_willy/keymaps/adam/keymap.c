@@ -17,16 +17,18 @@
 #include "adam.h"
 
 
+// Free Willy has 6 keys on the bottom row, and no options for layouts other than 6x1u
+// tried pos keys for 2x2u, but they suck, at least at the spring weight I have
+// for now, keep the 4 keys in the middle mapped with duplicates to match the 2x2u pattern on other boards
 
+// not tap-dance on ctrl -bottom left- so we can use it as gui as well.  Same for H on lower - was using that to type _ way too often
+// and getting F6, which was genearlly annoying.
+
+// tap dance for play/pause, next, previous is brilliant and we should use everywhere
+// volume tap dance on lower M is less great.
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-
- // need to find a spot for tilda and back quote
- // might be time to start dropping numbers from raise?
-
- // suspect there are issues with alt-tab and gui-tab
-
-    /* a might be a problem.  Keep hitting left instead of space, so no more left... Keep hitting tab instead of b, but making it b seems a bit much.  Going to try dropping it*/ 
+    /* main - a is still not great - sometimes issues with aw or ae words */ 
 	[0] = LAYOUT(
       KC_Q,         KC_W,       KC_E,       KC_R,         KC_T,              KC_Y,         KC_U,       KC_I,         KC_O,     KC_P, 
       LT(4,KC_A),   LT(5,KC_S), LT(8,KC_D), LSFT_T(KC_F), LT(6,KC_G),        LSFT_T(KC_H), LT(7,KC_J), LT(9,KC_K),  KC_L,     KC_SCLN, 
