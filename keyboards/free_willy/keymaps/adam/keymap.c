@@ -1,18 +1,3 @@
-/* Copyright 2020 tominabox1
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 #include QMK_KEYBOARD_H
 #include "adam.h"
 
@@ -20,6 +5,10 @@
 // Free Willy has 6 keys on the bottom row, and no options for layouts other than 6x1u
 // tried pos keys for 2x2u, but they suck, at least at the spring weight I have
 // for now, keep the 4 keys in the middle mapped with duplicates to match the 2x2u pattern on other boards
+
+// on one board, I only have keys 2, 4 and 6 installed.  So no ctrl key on that one.  Which is proving a bit challenging.
+// might need to think about having it as a mod on the main layer...
+// maybe on z or slash?  Z seems better, as we have shift on slash on a few keyboards.
 
 // not tap-dance on ctrl -bottom left- so we can use it as gui as well.  Same for H on lower - was using that to type _ way too often
 // and getting F6, which was genearlly annoying.
@@ -32,7 +21,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[0] = LAYOUT(
       KC_Q,         KC_W,       KC_E,       KC_R,         KC_T,              KC_Y,         KC_U,       KC_I,         KC_O,     KC_P, 
       LT(4,KC_A),   LT(5,KC_S), LT(8,KC_D), LSFT_T(KC_F), LT(6,KC_G),        LSFT_T(KC_H), LT(7,KC_J), LT(9,KC_K),  KC_L,     KC_SCLN, 
-      KC_Z,         KC_X,       KC_C,       KC_V,         KC_B,              KC_N,         KC_M,       KC_COMM,      KC_DOT,   KC_SLSH,  
+      MT(MOD_LCTL, KC_Z),         KC_X,       KC_C,       KC_V,         KC_B,              KC_N,         KC_M,       KC_COMM,      KC_DOT,   MT(MOD_LCTL, KC_SLSH),  
                         TD(TD_CTRL_GUI),      LT(1,KC_ENT),    LT(1,KC_ENT),   LSFT_T(KC_SPC), LSFT_T(KC_SPC),   LT(2,KC_ESC)             ), 
     /* lower  - things to find a space for KC_TILD, KC_PIPE KC_QUOT again*/ 
 	[1] = LAYOUT(
