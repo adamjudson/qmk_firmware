@@ -35,10 +35,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ), 
     /* 3 - adjust  - this is pretty much only reset  and c-a-d  */ 
 	LAYOUT(
-        KC_NO,        KC_NO,     KC_NO,       KC_NO,        KC_NO,             KC_NO,        KC_NO,    KC_NO,        KC_NO,   RESET, 
-        KC_NO,        TG(5),     KC_NO,       KC_NO,        KC_NO,             KC_NO,        RGB_TOG,  RGB_VAI,      RGB_VAD, RESET, 
-        KC_NO,        KC_NO,     KC_NO,       KC_NO,        KC_NO,             KC_NO,        RGB_MOD,  RGB_HUI,      RGB_HUD, KC_NO, 
-        KC_NO,        KC_NO,     KC_NO,       KC_TRNS,      KC_NO,             KC_NO,    LCA(KC_DEL),  KC_TRNS,      KC_NO,   KC_NO
+        DYN_REC_START1, DYN_MACRO_PLAY1,  KC_NO,       KC_NO,        KC_NO,             KC_NO,        KC_NO,    KC_NO,        KC_NO,   RESET, 
+        DYN_REC_STOP,        TG(5),       KC_NO,       KC_NO,        KC_NO,             KC_NO,        RGB_TOG,  RGB_VAI,      RGB_VAD, RESET, 
+        KC_NO,                 KC_NO,     KC_NO,       KC_NO,        KC_NO,             KC_NO,        RGB_MOD,  RGB_HUI,      RGB_HUD, KC_NO, 
+        KC_NO,                 KC_NO,     KC_NO,       KC_TRNS,      KC_NO,             KC_NO,    LCA(KC_DEL),  KC_TRNS,      KC_NO,   KC_NO
     ), 
     /* 4 - anne pro / desktop swap - dropped os-e shifted left and right  - a is not a great key to use.  Especially for alt-F4.  Moving that to k*/ 
     /* MO on s is questionable - triggering when I don't want sometimes */

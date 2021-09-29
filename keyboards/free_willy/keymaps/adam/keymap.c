@@ -37,10 +37,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                              OSM(MOD_LGUI), MO(3),    MO(3),                KC_TRNS,     KC_TRNS, KC_TRNS), 
     /* adjust  - this is pretty much only reset  and c-a-d  */  \
 	[3] = LAYOUT(
-      KC_NO,        KC_NO,     KC_NO,       KC_NO,        KC_NO,             KC_NO,        KC_NO,     KC_NO,        KC_NO,   RESET, 
-      KC_NO,        TG(5),     KC_NO,       KC_NO,        KC_NO,             KC_NO,        RGB_TOG,  RGB_VAI,      RGB_VAD, RESET, 
-      KC_NO,        KC_NO,     KC_NO,       KC_NO,        KC_NO,             KC_NO,         KC_NO,    KC_NO,        KC_NO,   KC_NO, 
-                                 KC_TRNS,      KC_TRNS,      KC_TRNS,      LCA(KC_DEL),         KC_TRNS,   KC_NO), 
+      DYN_REC_START1,      DYN_MACRO_PLAY1,     KC_NO,       KC_NO,        KC_NO,             KC_NO,        KC_NO,     KC_NO,        KC_NO,   RESET, 
+      DYN_REC_STOP,        TG(5),               KC_NO,       KC_NO,        KC_NO,             KC_NO,        RGB_TOG,  RGB_VAI,      RGB_VAD, RESET, 
+      KC_NO,                KC_NO,              KC_NO,       KC_NO,        KC_NO,             KC_NO,         KC_NO,    KC_NO,        KC_NO,   KC_NO, 
+                                                KC_TRNS,     KC_TRNS,      KC_TRNS,      LCA(KC_DEL),         KC_TRNS,   KC_NO), 
     /* anne pro / desktop swap - dropped os-e shifted left and right  - a is not a great key to use.  Especially for alt-F4.  Moving that to k*/ 
 	[4] = LAYOUT(
       KC_NO,    LGUI(LCTL(KC_LEFT)), LGUI(LCTL(KC_RIGHT)),   KC_TRNS,  KC_NO,   KC_NO,        KC_NO,    KC_NO,    KC_NO,    RESET, 
