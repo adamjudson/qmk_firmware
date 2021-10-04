@@ -6,15 +6,16 @@
 // tried pos keys for 2x2u, but they suck, at least at the spring weight I have
 // for now, keep the 4 keys in the middle mapped with duplicates to match the 2x2u pattern on other boards
 
-// on one board, I only have keys 2, 4 and 6 installed.  So no ctrl key on that one.  Which is proving a bit challenging.
-// might need to think about having it as a mod on the main layer...
-// maybe on z or slash?  Z seems better, as we have shift on slash on a few keyboards.
+// on one (or maybe all...) board, I only have keys 2, 4 and 6 installed on the bottom row.  So no ctrl key on that one.  Which is proving a bit challenging.
+// so we put ctrl on z and slash
 
 // not tap-dance on ctrl -bottom left- so we can use it as gui as well.  Same for H on lower - was using that to type _ way too often
 // and getting F6, which was genearlly annoying.
 
 // tap dance for play/pause, next, previous is brilliant and we should use everywhere
 // volume tap dance on lower M is less great.
+
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /* main - a is still not great - sometimes issues with aw or ae words */ 
