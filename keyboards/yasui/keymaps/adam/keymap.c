@@ -15,7 +15,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	LAYOUT(
         KC_Q,         KC_W,       KC_E,       KC_R,         KC_T,              KC_Y,         KC_U,       KC_I,         KC_O,    KC_P, 
         LT(4,KC_A),   LT(5,KC_S), LT(8,KC_D), LSFT_T(KC_F), LT(6,KC_G),      SFT_T(KC_H),   LT(7,KC_J), LT(9,KC_K),  KC_L,     KC_SCLN, 
-        KC_Z,         KC_X,       KC_C,       KC_V,         KC_B,              KC_N,         KC_M,       KC_COMM,      KC_DOT,  KC_SLSH,  
+        MT(MOD_LCTL, KC_Z), KC_X,       KC_C,       KC_V,         KC_B,              KC_N,         KC_M,       KC_COMM,      KC_DOT,  KC_SLSH,  
         KC_LCTL,      KC_LGUI,    KC_LALT,  LT(1,KC_ENT),   KC_NO,             KC_NO,     LSFT_T(KC_SPC),   MO(2),    KC_ESC,   KC_BSPC   
     ), 
     /* 1 - lower */
@@ -86,7 +86,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 #ifdef COMBO_ENABLE
-const uint16_t PROGMEM combo_cut[]          = {KC_Z, KC_X, COMBO_END};
+const uint16_t PROGMEM combo_cut[]  = {KC_Z, KC_X, COMBO_END};
+const uint16_t PROGMEM combo_cutt[] = {MT(MOD_LCTL, KC_Z), KC_X, COMBO_END};
+
 const uint16_t PROGMEM combo_copy[]         = {KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM combo_paste[]        = {KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM combo_bspc[]         = {KC_O, KC_P, COMBO_END};
@@ -96,15 +98,16 @@ const uint16_t PROGMEM combo_single_quote[] = {KC_L, KC_SCLN, COMBO_END};
 // const uint16_t PROGMEM combo_another_bspc[] = {KC_F, KC_E, COMBO_END};
 // const uint16_t PROGMEM combo_esc[] = {KC_E, KC_W, COMBO_END};
 
-enum combo_events { ZX_CUT, XC_COPY, CV_PASTE };
+enum combo_events { ZX_CUT, ZX_CUTT, XC_COPY, CV_PASTE };
 
 combo_t key_combos[COMBO_COUNT] = {
-    [ZX_CUT] = COMBO_ACTION(combo_cut),
-    [XC_COPY] = COMBO_ACTION(combo_copy),
-    [CV_PASTE] = COMBO_ACTION(combo_paste),
+    [ZX_CUT] = COMBO_ACTION(combo_cut), 
+    [ZX_CUTT] = COMBO_ACTION(combo_cutt), 
+    [XC_COPY] = COMBO_ACTION(combo_copy), 
+    [CV_PASTE] = COMBO_ACTION(combo_paste), 
     COMBO(combo_bspc, KC_BSPC), 
     COMBO(combo_tab, KC_TAB), 
-    COMBO(combo_single_quote, KC_QUOTE), 
+    COMBO(combo_single_quote, KC_QUOTE),
 };
 
 // note that that this is using the index into key_combos, which is assumed to be the enum
@@ -122,6 +125,7 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
             }
             break;
         case ZX_CUT:
+        case ZX_CUTT:
             if (pressed) {
                 tap_code16(LCTL(KC_X));
             }
