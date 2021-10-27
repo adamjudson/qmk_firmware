@@ -87,7 +87,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // this is kind of cool
 
 #ifdef COMBO_ENABLE
-const uint16_t PROGMEM combo_cut[]          = {KC_Z, KC_X, COMBO_END};
+const uint16_t PROGMEM combo_cut[] = {KC_Z, KC_X, COMBO_END};
+const uint16_t PROGMEM combo_cutt[] = {MT(MOD_LCTL, KC_Z), KC_X, COMBO_END};
+
 const uint16_t PROGMEM combo_copy[]         = {KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM combo_paste[]        = {KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM combo_bspc[]         = {KC_O, KC_P, COMBO_END};
@@ -97,10 +99,11 @@ const uint16_t PROGMEM combo_single_quote[] = {KC_L, KC_SCLN, COMBO_END};
 // const uint16_t PROGMEM combo_another_bspc[] = {KC_F, KC_E, COMBO_END};
 // const uint16_t PROGMEM combo_esc[] = {KC_E, KC_W, COMBO_END};
 
-enum combo_events { ZX_CUT, XC_COPY, CV_PASTE };
+enum combo_events { ZX_CUT, ZX_CUTT, XC_COPY, CV_PASTE };
 
 combo_t key_combos[COMBO_COUNT] = {
     [ZX_CUT] = COMBO_ACTION(combo_cut),
+    [ZX_CUTT] = COMBO_ACTION(combo_cutt),
     [XC_COPY] = COMBO_ACTION(combo_copy),
     [CV_PASTE] = COMBO_ACTION(combo_paste),
     COMBO(combo_bspc, KC_BSPC), 
@@ -123,6 +126,7 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
             }
             break;
         case ZX_CUT:
+        case ZX_CUTT:
             if (pressed) {
                 tap_code16(LCTL(KC_X));
             }
