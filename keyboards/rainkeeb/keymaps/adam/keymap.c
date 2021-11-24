@@ -15,8 +15,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	LAYOUT(
         KC_Q,         KC_W,       KC_E,       KC_R,         KC_T,                                           KC_Y,         KC_U,       KC_I,         KC_O,    KC_P, 
         LT(4,KC_A),   LT(5,KC_S), LT(8,KC_D), LSFT_T(KC_F), LT(6,KC_G),                  KC_MUTE,           SFT_T(KC_H),   LT(7,KC_J), LT(9,KC_K),  KC_L,     KC_SCLN, 
-      MT(MOD_LCTL, KC_Z),    MT(MOD_LALT, KC_X),       KC_C,       KC_V,         KC_B,   KC_ESC,            KC_N,         KC_M,       KC_COMM,      KC_DOT,   MT(MOD_LGUI, KC_SLSH),  
-        KC_LCTL,      KC_LGUI,    KC_LALT,  LT(1,KC_ENT),                                MO(2),                           LSFT_T(KC_SPC),   MO(2),    KC_ESC,   KC_BSPC   
+      MT(MOD_LCTL, KC_Z),    MT(MOD_LALT, KC_X),       KC_C,       KC_V,         KC_B,   KC_MUTE,            KC_N,         KC_M,       KC_COMM,      KC_DOT,   MT(MOD_LGUI, KC_SLSH),  
+        KC_LCTL,      KC_LGUI,    KC_LALT,  LT(1,KC_ENT),                                LT(2, KC_ESC),                           LSFT_T(KC_SPC),   MO(2),    KC_ESC,   KC_BSPC   
     ), 
     /* 1 - lower */
     // kept hitting F6 when I want underscore...
@@ -30,7 +30,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	LAYOUT(
         KC_GRAVE,     KC_TILD,   KC_3,        LALT(KC_F4),   KC_5,                          KC_6,         KC_7,       KC_VOLD,       KC_VOLU,    TD(TD_MEDIA), 
         KC_F1,        KC_F2,     KC_F3,       KC_F4,        KC_F5,           KC_TRNS,       KC_F6,        KC_MINS,    KC_EQUAL,      KC_UP, LSFT(KC_QUOT), 
-        KC_F7,        KC_F8,     KC_F9,       KC_F10,       KC_F11,          KC_TRNS,       KC_F12,       KC_MUTE,    KC_LEFT,      KC_DOWN, KC_RIGHT,     
+        KC_F7,        KC_F8,     KC_F9,       KC_F10,       KC_F11,          TD(TD_MEDIA),  KC_F12,       KC_MUTE,    KC_LEFT,      KC_DOWN, KC_RIGHT,     
         KC_TRNS,      KC_TRNS,   KC_TRNS,     MO(3),                         KC_TRNS,                      KC_TRNS,    KC_TRNS,      KC_VOLD,    KC_VOLU
     ), 
     /* 3 - adjust  - this is pretty much only reset  and c-a-d  */ 
@@ -145,9 +145,9 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 	switch (get_highest_layer(layer_state)) {
         case 1:
             if (clockwise) {
-                tap_code(KC_PGDN);
+                tap_code(KC_MS_DOWN);
             } else {
-                tap_code(KC_PGUP);
+                tap_code(KC_MS_UP);
             }
             break;
         default:
@@ -163,48 +163,63 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 
 char wpm[10];
 
+uint8_t mod_state;
+
 void oled_task_user(void) {
-    sprintf(wpm, "WPM: %03d", get_current_wpm());
+    int iWpm = get_current_wpm();
+    iWpm = iWpm > 20 ? iWpm : 0;
+    sprintf(wpm, "WPM: %03d", iWpm);
 
     // Host Keyboard Layer Status
     oled_write_P(PSTR("    Adam is the best\n"), false);
     oled_write_P(PSTR(" Layer: "), false);
 
-    switch (get_highest_layer(layer_state)) {
-        case 0:
-            oled_write_P(PSTR("Default\n"), false);
-            break;
-        case 1:
-            oled_write_P(PSTR("Lower\n"), false);
-            break;
-        case 2:
-            oled_write_P(PSTR("Raise\n"), false);
-            break;
-        case 3:
-            oled_write_P(PSTR("Adjust\n"), false);
-            break;
-        case 4:
-            oled_write_P(PSTR("esc - AP4\n"), false);
-            break;
-        case 5:
-            oled_write_P(PSTR("s - Numbers\n"), false);
-            break;
-        case 6:
-            oled_write_P(PSTR("g - Brackets\n"), false);
-            break;
-        case 7:
-            oled_write_P(PSTR("j - os nav\n"), false);
-            break;
-        case 8:
-            oled_write_P(PSTR("d - nav\n"), false);
-            break;
-        case 9:
-            oled_write_P(PSTR("k - ctrl\n"), false);
-            break;
-        default:
-            // Or use the write_ln shortcut over adding '\n' to the end of your string
-            oled_write_ln_P(PSTR("Undefined"), false);
+    mod_state = get_mods();
+    if (mod_state & MOD_MASK_CTRL) {
+        oled_write_P(PSTR("c-"), false);
     }
-    oled_write_P(PSTR(" "), false);
-    oled_write(wpm, false);
-}
+    if (mod_state & MOD_MASK_ALT) {
+        oled_write_P(PSTR("a-"), false);
+    }
+    if (mod_state & MOD_MASK_SHIFT) {
+        oled_write_P(PSTR("s-"), false);
+    }
+
+    switch (get_highest_layer(layer_state)) {
+            case 0:
+                oled_write_P(PSTR("Default\n"), false);
+                break;
+            case 1:
+                oled_write_P(PSTR("Lower\n"), false);
+                break;
+            case 2:
+                oled_write_P(PSTR("Raise\n"), false);
+                break;
+            case 3:
+                oled_write_P(PSTR("Adjust\n"), false);
+                break;
+            case 4:
+                oled_write_P(PSTR("esc - AP4\n"), false);
+                break;
+            case 5:
+                oled_write_P(PSTR("s - Numbers\n"), false);
+                break;
+            case 6:
+                oled_write_P(PSTR("g - Brackets\n"), false);
+                break;
+            case 7:
+                oled_write_P(PSTR("j - os nav\n"), false);
+                break;
+            case 8:
+                oled_write_P(PSTR("d - nav\n"), false);
+                break;
+            case 9:
+                oled_write_P(PSTR("k - ctrl\n"), false);
+                break;
+            default:
+                // Or use the write_ln shortcut over adding '\n' to the end of your string
+                oled_write_ln_P(PSTR("Undefined"), false);
+        }
+        oled_write_P(PSTR(" "), false);
+        oled_write(wpm, false);
+    }
