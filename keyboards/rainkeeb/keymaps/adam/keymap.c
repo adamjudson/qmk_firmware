@@ -145,9 +145,9 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 	switch (get_highest_layer(layer_state)) {
         case 1:
             if (clockwise) {
-                tap_code(KC_MS_DOWN);
+                tap_code(KC_MS_WH_DOWN);
             } else {
-                tap_code(KC_MS_UP);
+                tap_code(KC_MS_WH_UP);
             }
             break;
         default:

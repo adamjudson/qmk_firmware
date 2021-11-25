@@ -4,6 +4,8 @@
 #define COMBO_COUNT 8
 #define COMBO_TERM 50
 
+#undef ENCODER_RESOLUTION
+#define ENCODER_RESOLUTION 2
 
 // reduce size
 #define NO_ACTION_MACRO
