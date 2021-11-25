@@ -168,21 +168,33 @@ uint8_t mod_state;
 void oled_task_user(void) {
     int iWpm = get_current_wpm();
     iWpm = iWpm > 20 ? iWpm : 0;
-    sprintf(wpm, "WPM: %03d", iWpm);
+    sprintf(wpm, " WPM: %03d", iWpm);
 
     // Host Keyboard Layer Status
     oled_write_P(PSTR("    Adam is the best\n"), false);
     oled_write_P(PSTR(" Layer: "), false);
 
     mod_state = get_mods();
+    bool mods = false;
+    if (mod_state & MOD_MASK_GUI) {
+        oled_write_P(PSTR("w"), false);
+        mods = true;
+    }
     if (mod_state & MOD_MASK_CTRL) {
-        oled_write_P(PSTR("c-"), false);
+        oled_write_P(PSTR("c"), false);
+        mods = true;
     }
     if (mod_state & MOD_MASK_ALT) {
-        oled_write_P(PSTR("a-"), false);
+        oled_write_P(PSTR("a"), false);
+        mods = true;
     }
     if (mod_state & MOD_MASK_SHIFT) {
-        oled_write_P(PSTR("s-"), false);
+        oled_write_P(PSTR("s"), false);
+        mods = true;
+    }
+
+    if (mods) {
+        oled_write_P(PSTR("-"), false);
     }
 
     switch (get_highest_layer(layer_state)) {
@@ -199,27 +211,26 @@ void oled_task_user(void) {
                 oled_write_P(PSTR("Adjust\n"), false);
                 break;
             case 4:
-                oled_write_P(PSTR("esc - AP4\n"), false);
+                oled_write_P(PSTR(" AP4\n"), false);
                 break;
             case 5:
-                oled_write_P(PSTR("s - Numbers\n"), false);
+                oled_write_P(PSTR(" Numbers\n"), false);
                 break;
             case 6:
-                oled_write_P(PSTR("g - Brackets\n"), false);
+                oled_write_P(PSTR(" Brackets\n"), false);
                 break;
             case 7:
-                oled_write_P(PSTR("j - os nav\n"), false);
+                oled_write_P(PSTR(" os nav\n"), false);
                 break;
             case 8:
-                oled_write_P(PSTR("d - nav\n"), false);
+                oled_write_P(PSTR(" nav\n"), false);
                 break;
             case 9:
-                oled_write_P(PSTR("k - ctrl\n"), false);
+                oled_write_P(PSTR(" k\n"), false);
                 break;
             default:
                 // Or use the write_ln shortcut over adding '\n' to the end of your string
-                oled_write_ln_P(PSTR("Undefined"), false);
+                oled_write_ln_P(PSTR(" ?? "), false);
         }
-        oled_write_P(PSTR(" "), false);
         oled_write(wpm, false);
     }
