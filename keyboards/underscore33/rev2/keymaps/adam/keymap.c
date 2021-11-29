@@ -103,7 +103,7 @@ const uint16_t PROGMEM combo_bspc[]         = {KC_O, KC_P, COMBO_END};
 const uint16_t PROGMEM combo_tab[]          = {KC_Q, KC_W, COMBO_END};
 const uint16_t PROGMEM combo_single_quote[] = {KC_L, KC_SCLN, COMBO_END};
 // this doesn't seem to work - probably because f is already overloaded?
-// const uint16_t PROGMEM combo_another_bspc[] = {KC_F, KC_E, COMBO_END};
+const uint16_t PROGMEM combo_another_bspc[] = {LSFT_T(KC_F), KC_E, COMBO_END};
 // const uint16_t PROGMEM combo_esc[] = {KC_E, KC_W, COMBO_END};
 
 enum combo_events { ZX_CUT, ZX_CUTT, XC_COPY, CV_PASTE, DOTSLASH_BSLASH };
@@ -117,6 +117,7 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo_bspc, KC_BSPC), 
     COMBO(combo_tab, KC_TAB), 
     COMBO(combo_single_quote, KC_QUOTE),
+    COMBO(combo_another_bspc, KC_BSPC)
 };
 
 // note that that this is using the index into key_combos, which is assumed to be the enum
