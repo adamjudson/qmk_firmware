@@ -15,7 +15,7 @@
 // tap dance for play/pause, next, previous is brilliant and we should use everywhere
 // volume tap dance on lower M is less great.
 
-// change of k-j to osm ctrl was a good idea, consider making the same change to j-k?
+// change of k-j to osm ctrl was a good idea, didn't change j-k because we want to press gui by itself pretty often?
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
