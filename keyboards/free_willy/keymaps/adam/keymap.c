@@ -7,13 +7,15 @@
 // for now, keep the 4 keys in the middle mapped with duplicates to match the 2x2u pattern on other boards
 
 // on one (or maybe all...) board, I only have keys 2, 4 and 6 installed on the bottom row.  So no ctrl key on that one.  Which is proving a bit challenging.
-// so we put ctrl on z and slash
+// so we put ctrl on z, alt on x and gui on slash
 
-// not tap-dance on ctrl -bottom left- so we can use it as gui as well.  Same for H on lower - was using that to type _ way too often
+// note tap-dance on ctrl -bottom left- so we can use it as gui as well.  Same for H on lower - was using that to type _ way too often
 // and getting F6, which was genearlly annoying.
 
 // tap dance for play/pause, next, previous is brilliant and we should use everywhere
 // volume tap dance on lower M is less great.
+
+// change of k-j to osm ctrl was a good idea, consider making the same change to j-k?
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
