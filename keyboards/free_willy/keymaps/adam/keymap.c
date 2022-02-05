@@ -73,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[8] = LAYOUT(
       KC_TAB,  LCTL(KC_W), KC_TRNS,    LCTL(KC_R),   LCTL(KC_T),       KC_TRNS,      KC_PGUP,     KC_UP,       KC_PGDN,          KC_BSPC, 
       KC_ESC,  KC_DEL,     KC_TRNS,    KC_LSFT,      LCTL(KC_TAB),     KC_HOME,      KC_LEFT,     KC_DOWN,     KC_RGHT,          KC_END, 
-      KC_TRNS, LCTL(KC_X), LCTL(KC_C), LCTL(KC_V),   KC_TRNS,          KC_TRNS,      LCTL(KC_U),  KC_BSPC,     LCTL(LSFT(KC_U)), LCTL(KC_SLSH), 
+      KC_LALT,  KC_TRNS,    LCTL(KC_C), LCTL(KC_V),   KC_TRNS,          KC_TRNS,      LCTL(KC_U),  KC_BSPC,     LCTL(LSFT(KC_U)), LCTL(KC_SLSH), 
                            KC_TRNS,    KC_LCTL,      KC_LCTL,          LCTL(KC_C),   LCTL(KC_C),  LCTL(KC_X)), 
   
     /* ctrl - k layer */ 
