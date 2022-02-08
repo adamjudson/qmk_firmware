@@ -15,16 +15,16 @@
  */
 #include "lesovoz.h"
 
+// suspect this is happening too fast - led doesn't have time to actually turn on a lot of the time
 bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
-    writePin(LED1, record->event.pressed);
-    writePin(LED2, record->event.pressed);
+    record->event.pressed ? writePinHigh(LED1) : writePinLow(LED1);
     return process_record_user(keycode, record);
 }
-/*
+
 layer_state_t layer_state_set_kb(layer_state_t state) {
+    // don't want led1 to stay on when we're just pressing a layer
     writePinLow(LED1);
-    writePin(LED2, state);
+    state ? writePinHigh(LED2) : writePinLow(LED2);
 
     return layer_state_set_user(state);
 }
-*/
