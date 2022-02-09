@@ -46,10 +46,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                 KC_TRNS,     KC_TRNS,      KC_TRNS,      LCA(KC_DEL),         KC_TRNS,   KC_NO), 
     /* anne pro / desktop swap - dropped os-e shifted left and right  - a is not a great key to use.  Especially for alt-F4.  Moving that to k*/ 
 	[4] = LAYOUT(
-      KC_NO,    LGUI(LCTL(KC_LEFT)), LGUI(LCTL(KC_RIGHT)),   KC_TRNS,  KC_NO,   KC_NO,        KC_NO,    KC_NO,    KC_NO,    RESET, 
-      KC_NO,    MO(1),               MO(2),                  KC_ESC,   KC_NO,   KC_NO,        KC_NO,    KC_NO,    KC_NO,    KC_NO, 
-      KC_NO,    KC_NO,               KC_NO,                  KC_NO,    KC_NO,   KC_NO,        KC_NO,    KC_NO,    KC_NO,    KC_NO, 
-                                     KC_NO,                  KC_NO,    KC_NO,   KC_NO,        KC_NO,    KC_NO ), 
+      KC_NO,    LGUI(LCTL(KC_LEFT)), LGUI(LCTL(KC_RIGHT)),   KC_TRNS,       KC_NO,   KC_NO,        KC_MS_WH_UP,         KC_MS_UP,      KC_MS_WH_DOWN,    RESET, 
+      KC_NO,    MO(1),               MO(2),                  KC_ESC,        KC_NO,   KC_NO,        KC_MS_LEFT,          KC_MS_DOWN,    KC_MS_RIGHT,      KC_NO, 
+      KC_NO,    KC_NO,               KC_NO,                  KC_NO,         KC_NO,   KC_NO,        KC_NO,               KC_NO,         KC_NO,            KC_NO, 
+                                     KC_NO,                  KC_MS_BTN1,    KC_NO,   KC_MS_BTN1,   KC_NO,               KC_MS_BTN2 ), 
     /* numbers */ 
 	[5] = LAYOUT(
       KC_NO,            KC_NO,      KC_NO,      KC_NO,        KC_NO,           KC_PAST,      KC_7,      KC_8,     KC_9,    KC_MINS,   
