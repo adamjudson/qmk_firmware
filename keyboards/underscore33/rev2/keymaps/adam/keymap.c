@@ -50,10 +50,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* 4 - anne pro / desktop swap - dropped os-e shifted left and right  - a is not a great key to use.  Especially for alt-F4.  Moving that to k*/ 
     /* MO on s is questionable - triggering when I don't want sometimes */
 	LAYOUT_33_split_space (
-        KC_TAB, LGUI(LCTL(KC_LEFT)), LGUI(LCTL(KC_RIGHT)),   KC_TRNS,      KC_NO,   KC_NO,        KC_NO,      KC_NO,    KC_NO,    RESET, 
-        KC_NO,  MO(1),               MO(2),                  KC_ESC,       KC_NO,   KC_NO,        KC_TRNS,    KC_TRNS,  KC_TRNS,  KC_TRNS, 
-        KC_NO,  KC_NO,                KC_NO,                 KC_NO,        KC_NO,   KC_NO,        KC_TRNS,    KC_TRNS,  KC_TRNS,  KC_TRNS,  
-                        KC_NO,      KC_NO,                 KC_NO,        KC_NO,      KC_NO, KC_NO
+        KC_NO,  LGUI(LCTL(KC_LEFT)), LGUI(LCTL(KC_RIGHT)),   KC_TRNS,       KC_NO,   KC_NO,        KC_MS_WH_UP,         KC_MS_UP,      KC_MS_WH_DOWN,    RESET, 
+        KC_NO,  MO(1),               MO(2),                  KC_ESC,        KC_NO,   KC_NO,        KC_MS_LEFT,          KC_MS_DOWN,    KC_MS_RIGHT,      KC_NO, 
+        KC_NO,  KC_NO,               KC_NO,                  KC_NO,         KC_NO,   KC_NO,        KC_TRNS,             KC_TRNS,       KC_TRNS,          KC_TRNS,  
+                        KC_NO,      KC_NO,                 KC_MS_BTN1,      KC_MS_BTN1,      KC_MS_BTN2, KC_NO
     ), 
     /* 5 - s numbers - and tab I guess */ 
 	LAYOUT_33_split_space (
