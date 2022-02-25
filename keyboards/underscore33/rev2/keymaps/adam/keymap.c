@@ -60,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO,              KC_NO,      KC_TRNS,      KC_NO,        KC_NO,         KC_PAST,      KC_7,      KC_8,           KC_9,    KC_MINS,  
         OSM(MOD_LGUI),      TG(5),      KC_TAB,     KC_TRNS,      KC_UNDS,         KC_MINS,      KC_4,      KC_5,           KC_6,    KC_PLUS,   
         KC_NO,              KC_NO,      KC_NO,      KC_LGUI,      KC_NO,           KC_DOT,       KC_1,      KC_2,           KC_3,    KC_TRNS,
-                    KC_TRNS,    KC_TRNS,            KC_LCTL,                                   KC_0,      KC_TRNS,        KC_NO
+                    KC_TRNS,    KC_TRNS,            MT(MOD_LCTL, KC_DOT),            KC_0,      KC_TRNS,        KC_NO
     ),
     /* 6 - g brackets */ 
 	LAYOUT_33_split_space(
