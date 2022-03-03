@@ -55,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_NO,            KC_NO,      KC_NO,      KC_NO,                    KC_NO,           KC_PAST,      KC_7,      KC_8,     KC_9,    KC_MINS,   
       OSM(MOD_LGUI),    TG(5),      KC_TAB,     KC_TRNS,                  KC_UNDS,         KC_MINS,      KC_4,      KC_5,     KC_6,    KC_PLUS,   
       KC_NO,            KC_NO,      KC_NO,      KC_LGUI,                  KC_NO,           KC_DOT,       KC_1,      KC_2,     KC_3,    KC_TRNS,   
-                                    KC_LALT,    MT(MOD_LCTL, KC_DOT),      KC_LCTL,         KC_0,         KC_0,      KC_DOT     ),
+                                    KC_LALT,    MT(MOD_LCTL, KC_DOT),     KC_LCTL,         KC_0,         KC_0,      KC_DOT     ),
     /* brackets - g layer */ 
 	[6] = LAYOUT(
       KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_NO,        KC_NO,           KC_NO,        ARRAY,      KC_LBRC,        KC_RBRC,  ARRAY_INSIDE,  
@@ -114,7 +114,6 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo_bspc, KC_BSPC), 
     COMBO(combo_tab, KC_TAB), 
     COMBO(combo_single_quote, KC_QUOTE), 
-    
 };
 
 // note that that this is using the index into key_combos, which is assumed to be the enum
