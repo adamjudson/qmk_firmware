@@ -21,6 +21,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t * record) {
             SEND_STRING("</");
         }
 
+        if (keycode == KC_MS_BTN1 || keycode == KC_MS_BTN2 || keycode == KC_MS_BTN3) {
+            // by default mouse keys don't clear OSM
+            // that's pretty annoying.
+            clear_oneshot_mods();
+        }
         return process_record_adam(keycode, record);
     }
 
@@ -57,6 +62,6 @@ qk_tap_dance_action_t tap_dance_actions[] = {
     [TD_MEDIA]    = ACTION_TAP_DANCE_FN(dance_media),
     [TD_VOLUME]   = ACTION_TAP_DANCE_FN(dance_volume),
     [TD_F5_F6]    = ACTION_TAP_DANCE_DOUBLE(KC_F5, KC_F6)
-    };
+};
 
 #endif
