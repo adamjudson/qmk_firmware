@@ -26,7 +26,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_F7,        KC_F8,     KC_F9,       KC_F10,       KC_F11,         KC_F12,       KC_MUTE,    KC_LT,        KC_PIPE,  KC_BSLS, 
         KC_TRNS,      KC_TRNS,   KC_TRNS,     KC_TRNS,      KC_NO,          KC_NO,        KC_TRNS,    MO(3),        KC_GRAVE, KC_TILD
     ), 
-    /* 2 - raise - try to avoid putting anything important here */
+    /* 2 - raise - mostly keys for right hand only.  e.g. arrows and volume*/
 	LAYOUT(
         KC_GRAVE,     KC_TILD,   KC_3,        LALT(KC_F4),   KC_5,           KC_6,         KC_7,       KC_VOLD,       KC_VOLU,    TD(TD_MEDIA), 
         KC_F1,        KC_F2,     KC_F3,       KC_F4,        KC_F5,           KC_F6,        KC_MINS,    KC_EQUAL,      KC_UP, LSFT(KC_QUOT), 
@@ -43,10 +43,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* 4 - anne pro / desktop swap - dropped os-e shifted left and right  - a is not a great key to use.  Especially for alt-F4.  Moving that to k*/ 
     /* MO on s is questionable - triggering when I don't want sometimes */
 	LAYOUT(
-        KC_TAB, LGUI(LCTL(KC_LEFT)), LGUI(LCTL(KC_RIGHT)),   KC_TRNS,      KC_NO,   KC_NO,        KC_NO,      KC_NO,    KC_NO,    RESET, 
-        KC_NO,  MO(1),               MO(2),                  KC_ESC,       KC_NO,   KC_NO,        KC_TRNS,    KC_TRNS,  KC_TRNS,  KC_TRNS, 
-        KC_NO,  KC_NO,                KC_NO,                 KC_NO,        KC_NO,   KC_NO,        KC_TRNS,    KC_TRNS,  KC_TRNS,  KC_TRNS,  
-        KC_NO,  KC_NO,                KC_NO,                 KC_NO,        KC_NO,   KC_NO,        KC_NO,      KC_NO,    KC_VOLD,    KC_VOLU 
+      KC_NO,    LGUI(LCTL(KC_LEFT)), LGUI(LCTL(KC_RIGHT)),   KC_TRNS,       KC_NO,   KC_NO,        KC_MS_WH_UP,         KC_MS_UP,      KC_MS_WH_DOWN,    RESET, 
+      KC_NO,    MO(1),               MO(2),                  KC_ESC,        KC_NO,   KC_NO,        KC_MS_LEFT,          KC_MS_DOWN,    KC_MS_RIGHT,      KC_NO, 
+      KC_NO,    KC_NO,               KC_NO,                  KC_NO,         KC_NO,   KC_NO,        KC_NO,               KC_NO,         KC_NO,            KC_NO, 
+      KC_NO,    KC_NO,               KC_NO,                  KC_MS_BTN1,    KC_NO,   KC_NO,        KC_MS_BTN1,          KC_MS_BTN2,    KC_NO,            KC_NO
     ), 
     /* 5 - s numbers - and tab I guess */ 
 	LAYOUT(
