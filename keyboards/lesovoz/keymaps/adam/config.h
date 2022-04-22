@@ -2,4 +2,4 @@
 
 /* Combos */
 #define COMBO_COUNT 9
-#define COMBO_TERM 50
+#define COMBO_TERM 40

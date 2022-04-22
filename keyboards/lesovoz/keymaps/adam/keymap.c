@@ -4,7 +4,7 @@
 #include "adam.h"
 
 // Currently I have 1,1,3,  2,1,1,1 on the bottom row.
-// which means keys 3/5 are dead.  And 7 (so 7 and 8 are duplicates)
+// which means keys 3/5 are dead.  And 6 (so 6 and 7 are duplicates)
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -21,8 +21,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	LAYOUT(
         KC_EXLM,      KC_AT,     KC_HASH,     KC_DLR,       KC_PERC,        KC_CIRC,      KC_AMPR,    KC_ASTR,      KC_DEL,  KC_BSPC,  
         KC_F1,        KC_F2,     KC_F3,       KC_F4,        TD(TD_F5_F6),   KC_UNDS,      KC_UNDS,    KC_EQUAL,     KC_QUOT, LSFT(KC_QUOT), 
-        KC_F7,        KC_F8,     KC_F9,       KC_F10,       KC_F11,         KC_F12,       KC_MUTE,    KC_LT,        KC_PIPE,  KC_BSLS, 
-        KC_TRNS,      KC_TRNS,   KC_TRNS,     KC_TRNS,      KC_NO,          KC_TRNS,        KC_TRNS,    MO(3),        KC_GRAVE, KC_TILD
+        KC_F7,        KC_F8,     KC_F9,       KC_F10,       KC_F11,         KC_F12,       KC_GRAVE,   KC_TILD,      KC_PIPE,  KC_BSLS, 
+        KC_TRNS,      KC_TRNS,   KC_TRNS,     KC_TRNS,      KC_NO,          KC_TRNS,        KC_TRNS,    MO(3),      KC_GRAVE, KC_TILD
     ), 
     /* 2 - raise - try to avoid putting anything important here */
 	LAYOUT(
@@ -41,10 +41,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* 4 - anne pro / desktop swap - dropped os-e shifted left and right  - a is not a great key to use.  Especially for alt-F4.  Moving that to k*/ 
     /* MO on s is questionable - triggering when I don't want sometimes */
 	LAYOUT(
-        KC_TAB, LGUI(LCTL(KC_LEFT)), LGUI(LCTL(KC_RIGHT)),   KC_TRNS,      KC_NO,   KC_NO,        KC_NO,      KC_NO,    KC_NO,    RESET, 
-        KC_NO,  MO(1),               MO(2),                  KC_ESC,       KC_NO,   KC_NO,        KC_TRNS,    KC_TRNS,  KC_TRNS,  KC_TRNS, 
-        KC_NO,  KC_NO,                KC_NO,                 KC_NO,        KC_NO,   KC_NO,        KC_TRNS,    KC_TRNS,  KC_TRNS,  KC_TRNS,  
-        KC_NO,  KC_NO,                KC_NO,                 KC_NO,        KC_NO,   KC_NO,        KC_NO,      KC_NO,    KC_VOLD,    KC_VOLU 
+       KC_NO,    LGUI(LCTL(KC_LEFT)), LGUI(LCTL(KC_RIGHT)),   KC_TRNS,       KC_NO,   KC_NO,        KC_MS_WH_UP,         KC_MS_UP,      KC_MS_WH_DOWN,    RESET, 
+       KC_NO,    MO(1),               MO(2),                  KC_ESC,        KC_NO,   KC_NO,        KC_MS_LEFT,          KC_MS_DOWN,    KC_MS_RIGHT,      KC_NO, 
+       KC_NO,    KC_NO,               KC_NO,                  KC_NO,         KC_NO,   KC_NO,        KC_NO,               KC_NO,         KC_NO,            KC_NO, 
+       KC_NO,    KC_NO,               KC_NO,                  KC_MS_BTN1,    KC_NO,   KC_NO,        KC_MS_BTN1,          KC_MS_BTN2,    KC_VOLD,    KC_VOLU 
     ), 
     /* 5 - s numbers - and tab I guess */ 
 	LAYOUT(
