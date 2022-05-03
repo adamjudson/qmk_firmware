@@ -2,7 +2,7 @@
 
 /* Combos */
 #define COMBO_COUNT 9
-#define COMBO_TERM 50
+#define COMBO_TERM 40
 
 #undef ENCODER_RESOLUTION
 #define ENCODER_RESOLUTION 2

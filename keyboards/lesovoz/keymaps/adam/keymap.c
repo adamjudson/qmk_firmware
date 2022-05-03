@@ -76,10 +76,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ), 
     /* 9 - k ctrl */ 
 	LAYOUT(
-      KC_TAB,    LSFT(KC_TAB), KC_TRNS,  KC_TRNS,  KC_TRNS,        KC_TRNS,    KC_TRNS,    KC_TRNS,   KC_TRNS,    KC_TRNS,  
-      KC_ESC,    KC_TRNS,      KC_BSPC,  KC_BSPC,  LALT(KC_LEFT),  KC_TRNS,    KC_LCTL,    KC_NO,     LCTL(KC_L), OSM(MOD_LALT), 
-      KC_TRNS,   KC_TRNS,      KC_TRNS,  KC_TRNS,  KC_NO,          KC_TRNS,    KC_NO,      KC_NO,     KC_NO,      LCTL(KC_SLSH), 
-      KC_TRNS,   KC_TRNS,      KC_TRNS,  KC_BSPC,  KC_NO,          KC_TRNS,    KC_TRNS,    KC_NO,     KC_TRNS,    KC_TRNS
+      KC_TAB,    LSFT(KC_TAB), KC_TRNS,  KC_TRNS,  KC_TRNS,        KC_TRNS,         KC_TRNS,    KC_TRNS,   KC_TRNS,    KC_TRNS,  
+      KC_ESC,    KC_TRNS,      KC_BSPC,  KC_BSPC,  LALT(KC_LEFT),  LALT(KC_RIGHT),  KC_LCTL,    KC_NO,     LCTL(KC_L), OSM(MOD_LALT), 
+      KC_TRNS,   KC_TRNS,      KC_TRNS,  KC_TRNS,  KC_NO,          KC_TRNS,         KC_NO,      KC_NO,     KC_NO,      LCTL(KC_SLSH), 
+      KC_TRNS,   KC_TRNS,      KC_TRNS,  KC_BSPC,  KC_NO,          KC_TRNS,         KC_TRNS,    KC_NO,     KC_TRNS,    KC_TRNS
     ) 
 };
 
