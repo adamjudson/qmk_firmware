@@ -27,6 +27,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "matrix.h"
 #include "timer.h"
 
+#define pdec(data) print_dec(data)
+#define pdec16(data) print_dec(data)
+#define phex(data) print_hex8(data)
+#define phex16(data) print_hex16(data)
+#define pbin(data) print_bin8(data)
+#define pbin16(data) print_bin16(data)
+#define pbin_reverse(data) print_bin_reverse8(data)
+#define pbin_reverse16(data) print_bin_reverse16(data)
+
 #if (MATRIX_COLS <= 8)
 #    define print_matrix_header()  print("\nr/c 01234567\n")
 #    define print_matrix_row(row)  print_bin_reverse8(matrix_get_row(row))
