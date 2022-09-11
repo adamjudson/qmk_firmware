@@ -1,4 +1,6 @@
 #include QMK_KEYBOARD_H
+
+
 #include "adam.h"
 
 
@@ -20,63 +22,62 @@
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-    /* main - a is still not great - sometimes issues with aw or ae words */ 
 	[0] = LAYOUT(
       KC_Q,         KC_W,       KC_E,       KC_R,         KC_T,              KC_Y,         KC_U,       KC_I,         KC_O,     KC_P, 
       LT(4,KC_A),   LT(5,KC_S), LT(8,KC_D), LSFT_T(KC_F), LT(6,KC_G),        LSFT_T(KC_H), LT(7,KC_J), LT(9,KC_K),  KC_L,     KC_SCLN, 
-      MT(MOD_LCTL, KC_Z),    MT(MOD_LALT, KC_X),       KC_C,       KC_V,         KC_B,              KC_N,         KC_M,       KC_COMM,      KC_DOT,   MT(MOD_LGUI, KC_SLSH),  
-                        TD(TD_CTRL_GUI),      LT(1,KC_ENT),    LT(1,KC_ENT),   LSFT_T(KC_SPC), LSFT_T(KC_SPC),   LT(2,KC_ESC)             ), 
-    /* lower  - things to find a space for KC_TILD, KC_PIPE KC_QUOT again*/ 
+      MT(MOD_LCTL, KC_Z),    MT(MOD_LALT, KC_X),       KC_C,       LT(1, KC_V),      LSFT_T(KC_SPC),    LT(2, KC_B),  KC_N,     KC_M
+    ),  
 
-    // alt-left is a problem - when typing a = b, it's too easy to trigger when I actually mean to type space
+
 	[1] = LAYOUT(
       KC_EXLM,      KC_AT,     KC_HASH,     KC_DLR,       KC_PERC,        KC_CIRC,      KC_AMPR,    KC_ASTR,      KC_DEL,  KC_BSPC,  
       KC_F1,        KC_F2,     KC_F3,       KC_F4,        TD(TD_F5_F6),   KC_UNDS,      KC_UNDS,    KC_EQUAL,     KC_QUOT, LSFT(KC_QUOT), 
-      KC_F7,        KC_F8,     KC_F9,       KC_F10,       KC_F11,         KC_F12,       KC_GRAVE,   KC_TILD,      KC_PIPE,  KC_BSLS, 
-                         KC_TRNS,   KC_TRNS,     KC_TRNS,         LALT(KC_LEFT),  LALT(KC_LEFT), MO(3)), 
-    /* raise - KC_MPRV media previous*/ 
+      KC_F7,        KC_F8,     KC_F9,       KC_TRNS,      KC_F11,     LT(3,KC_F12),       KC_GRAVE,   KC_TILD
+    ),
+
 	[2] = LAYOUT(
-      KC_GRAVE,     KC_TILD,   KC_3,        LALT(KC_F4),   KC_5,           KC_6,         KC_7,       KC_VOLD,       KC_VOLU,   TD(TD_MEDIA),
-      KC_F1,        KC_F2,     KC_F3,       KC_F4,        KC_F5,           KC_F6,        KC_MINS,    KC_EQUAL,      KC_UP, LSFT(KC_QUOT), 
-      KC_F7,        KC_F8,     KC_F9,       KC_F10,       KC_F11,          KC_F12,       KC_MUTE,    KC_LEFT,      KC_DOWN, KC_RIGHT,     
-                             OSM(MOD_LGUI), MO(3),    MO(3),                KC_TRNS,     KC_TRNS, KC_TRNS), 
-    /* adjust  - this is pretty much only reset  and c-a-d  */  \
+      KC_GRAVE,     KC_TILD,   KC_3,        LALT(KC_F4),   KC_5,           KC_6,         KC_7,       KC_VOLD,       KC_UP,   TD(TD_MEDIA),
+      KC_F1,        KC_F2,     KC_F3,       KC_F4,        KC_F5,           KC_F6,        KC_MINS,    KC_LEFT,      KC_DOWN, KC_RIGHT, 
+      KC_F7,        KC_F8,     KC_F9,       LT(3,KC_F10), KC_F11,           KC_TRNS,    KC_VOLD,  KC_VOLU
+    ),     
+
 	[3] = LAYOUT(
       DYN_REC_START1,      DYN_MACRO_PLAY1,     KC_NO,       KC_NO,        KC_NO,             KC_NO,        KC_NO,     KC_NO,        KC_NO,   RESET, 
-      DYN_REC_STOP,        TG(5),               KC_NO,       KC_NO,        KC_NO,             KC_NO,        RGB_TOG,  RGB_VAI,      RGB_VAD, RESET, 
-      KC_NO,                KC_NO,              KC_NO,       KC_NO,        KC_NO,             KC_NO,         KC_NO,    KC_NO,        KC_NO,   KC_NO, 
-                                                KC_TRNS,     KC_TRNS,      KC_TRNS,      LCA(KC_DEL),         KC_TRNS,   KC_NO), 
+      DYN_REC_STOP,        TG(5),               KC_NO,       KC_NO,        KC_NO,             KC_NO,        KC_NO,  KC_NO,      KC_NO, RESET, 
+      KC_NO,               KC_NO,              KC_NO,       KC_NO,        LCA(KC_DEL),        KC_NO,        KC_NO, KC_NO
+    ), 
+
     /* anne pro / desktop swap - dropped os-e shifted left and right  - a is not a great key to use.  Especially for alt-F4.  Moving that to k*/ 
 	[4] = LAYOUT(
       KC_NO,    LGUI(LCTL(KC_LEFT)), LGUI(LCTL(KC_RIGHT)),   KC_TRNS,       KC_NO,   KC_NO,        KC_MS_WH_UP,         KC_MS_UP,      KC_MS_WH_DOWN,    RESET, 
       KC_NO,    MO(1),               MO(2),                  KC_ESC,        KC_NO,   KC_NO,        KC_MS_LEFT,          KC_MS_DOWN,    KC_MS_RIGHT,      KC_NO, 
-      KC_TRNS,    KC_NO,               KC_NO,                  KC_NO,         KC_NO,   KC_NO,        KC_NO,               KC_NO,         KC_NO,          KC_INS, 
-                                     KC_NO,                  KC_MS_BTN1,    KC_NO,   KC_MS_BTN1,   KC_NO,               KC_MS_BTN2 ), 
+      KC_TRNS,    KC_NO,               KC_NO,                  KC_MS_BTN1,       KC_MS_BTN1,   KC_MS_BTN2,        KC_NO,               KC_NO
+    ), 
     /* numbers */ 
 	[5] = LAYOUT(
       KC_NO,            KC_NO,      KC_NO,      KC_NO,                    KC_NO,           KC_ASTR,      KC_7,      KC_8,     KC_9,    KC_BSPC,   
       OSM(MOD_LGUI),    TG(5),      KC_TAB,     KC_TRNS,                  KC_UNDS,         KC_MINS,      KC_4,      KC_5,     KC_6,    KC_PLUS,   
-      KC_NO,            KC_NO,      KC_NO,      KC_LGUI,                  KC_NO,           KC_DOT,       KC_1,      KC_2,     KC_3,    KC_TRNS,   
-                                    KC_LALT,    MT(MOD_LCTL, KC_DOT),     KC_LCTL,         KC_0,         KC_0,      KC_DOT     ),
+      KC_NO,            KC_NO,      KC_NO,      MT(MOD_LCTL, KC_DOT),     KC_0,                 KC_1,      KC_2,     KC_3
+    ),   
     /* brackets - g layer */ 
 	[6] = LAYOUT(
       KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_NO,        KC_NO,           KC_NO,        ARRAY,      KC_LBRC,        KC_RBRC,  ARRAY_INSIDE,  
       KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_BSPC,      KC_NO,           JSARROW,      KC_LPRN,    KC_RPRN,        KC_LCBR,  KC_RCBR,   
-      KC_TRNS,  KC_TRNS,    KC_NO,      KC_NO,        KC_NO,           KC_NO,        KC_LT,      KC_GT,          END_TAG,  KC_GT,     
-                            KC_TRNS,    KC_TRNS,      KC_TRNS,         KC_TRNS,      KC_TRNS,    KC_TRNS   ), 
+      KC_TRNS,  KC_TRNS,    KC_NO,      KC_NO,        KC_LT,      KC_GT,          END_TAG,  KC_GT
+    ),     
     /*  os nav - j layer */ 
 	[7] = LAYOUT(
       LGUI(KC_1),    LGUI(KC_2), LGUI(KC_E), LGUI(KC_4),  LGUI(KC_5),      LGUI(KC_6),   LGUI(KC_7), LGUI(KC_8),     KC_TRNS,    KC_TRNS, 
       OSM(MOD_LCTL), KC_TRNS,    KC_TRNS,    LCTL(KC_F),  KC_TAB,          KC_NO,        KC_TRNS,    KC_LGUI,        LGUI(KC_L), KC_LALT, 
-      KC_TRNS,       KC_TRNS,    KC_TRNS,    KC_TRNS,     KC_TRNS,         KC_TRNS,      KC_TRNS,    KC_TRNS,        KC_NO,    KC_NO, 
-                                 KC_TRNS,    KC_TRNS,     KC_TRNS,         KC_TRNS,      KC_TRNS,    KC_NO), 
+      KC_TRNS,       KC_TRNS,    KC_TRNS,    KC_TRNS,     KC_TRNS,         KC_TRNS,      KC_TRNS,    KC_TRNS
+    ), 
   
     /* nav - d layer - tab on q seems like a bit of a waste*/ 
 	[8] = LAYOUT(
       KC_TAB,  LCTL(KC_W), KC_TRNS,    LCTL(KC_R),   LCTL(KC_T),       KC_TRNS,      KC_PGUP,     KC_UP,       KC_PGDN,          KC_BSPC, 
       KC_ESC,  KC_DEL,     KC_TRNS,    KC_LSFT,      LCTL(KC_TAB),     KC_HOME,      KC_LEFT,     KC_DOWN,     KC_RGHT,          KC_END, 
-      KC_LALT,  KC_TRNS,    LCTL(KC_C), LCTL(KC_V),   KC_TRNS,          KC_TRNS,      LCTL(KC_U),  KC_BSPC,     LCTL(LSFT(KC_U)), LCTL(KC_SLSH), 
-                           KC_TRNS,    KC_LCTL,      KC_LCTL,          LCTL(KC_C),   LCTL(KC_C),  LCTL(KC_X)), 
+      KC_LALT,  KC_TRNS,    LCTL(KC_V), KC_LCTL,   LCTL(KC_C),       LCTL(KC_U),  LCTL(LSFT(KC_U)), LCTL(KC_SLSH)
+    ), 
   
     /* ctrl - k layer */ 
     /* key on g is problematic - nor sure why, but I hit it a lot by accident and it has a big impact when editting.  
@@ -85,14 +86,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[9] = LAYOUT(
       KC_TAB,    LSFT(KC_TAB), KC_TRNS,   KC_TRNS,    KC_TRNS,        KC_TRNS,         KC_TRNS,          KC_TRNS,   KC_TRNS,    KC_TRNS,  
       KC_ESC,    KC_TRNS,      KC_BSPC,   KC_BSPC,    LALT(KC_LEFT),  LALT(KC_RIGHT),  OSM(MOD_LCTL),    KC_NO,     LCTL(KC_L), OSM(MOD_LALT), 
-      KC_TRNS,   KC_TRNS,      KC_TRNS,   KC_TRNS,    KC_TRNS,        KC_TRNS,         KC_TRNS,          KC_TRNS,   KC_TRNS,    LCTL(KC_SLSH), 
-                               KC_NO,     KC_BSPC,    KC_BSPC,        OSM(MOD_LALT),   OSM(MOD_LALT),    KC_TRNS) 
+      KC_TRNS,   KC_TRNS,      KC_TRNS,   KC_ENT,    KC_TRNS,        KC_TRNS,         KC_TRNS,          KC_TRNS
+    ), 
 
 };
 
 // this is kind of cool
 
 #ifdef COMBO_ENABLE
+
 const uint16_t PROGMEM combo_cut[] = {KC_Z, KC_X, COMBO_END};
 const uint16_t PROGMEM combo_cutt[] = {MT(MOD_LCTL, KC_Z), MT(MOD_LALT, KC_X), COMBO_END};
 const uint16_t PROGMEM combo_bslash[] = {KC_DOT, MT(MOD_LGUI, KC_SLSH), COMBO_END};
@@ -151,3 +153,27 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 }
 #endif
 
+#if 0
+
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+	[HOME] = LAYOUT(
+		KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P,
+		KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, TO(1),
+		KC_Z, KC_X, KC_C, KC_V, MT(MOD_LSFT, KC_SPC), KC_B, KC_N, KC_M),
+
+	[MODS] = LAYOUT(
+		KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0,
+		KC_BSPC, KC_ESC, KC_TAB, KC_SCLN, KC_QUOT, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, TO(2),
+		KC_LCTL, KC_LGUI, KC_LALT, TO(0), MT(MOD_LSFT, KC_ENT), KC_COMM, KC_DOT, KC_SLSH),
+
+	[MODS2] = LAYOUT(
+		KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10,
+		KC_LSFT, KC_F11, KC_F12, KC_MINS, KC_EQL, KC_LBRC, KC_RBRC, KC_BSLS, KC_GRV, TO(3),
+		RGB_VAI, RGB_VAD, RGB_HUI, TO(0), RGB_MOD, KC_MPLY, KC_VOLD, KC_VOLU),
+
+	[OTHER] = LAYOUT(
+		RESET, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+		KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+		KC_NO, KC_NO, KC_NO, TO(0), MACRO1, KC_NO, KC_NO, KC_NO),
+};
+#endif 
