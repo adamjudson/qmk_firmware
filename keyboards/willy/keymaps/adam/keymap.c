@@ -45,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       DYN_REC_START1,      DYN_MACRO_PLAY1,     KC_NO,       KC_NO,        KC_NO,             KC_NO,        KC_NO,     KC_NO,        KC_NO,   RESET, 
       DYN_REC_STOP,        TG(5),               KC_NO,       KC_NO,        KC_NO,             KC_NO,        RGB_TOG,  RGB_VAI,      RGB_VAD, RESET, 
       KC_NO,                KC_NO,              KC_NO,       KC_NO,        KC_NO,             KC_NO,        KC_NO,    KC_NO,        KC_NO,   KC_NO, 
-                                                KC_TRNS,     KC_TRNS,      KC_TRNS,      LCA(KC_DEL),       LCA(KC_DEL),   KC_NO), 
+                                                TG(10),     KC_TRNS,      KC_TRNS,      LCA(KC_DEL),       LCA(KC_DEL),   KC_NO), 
     /* anne pro / desktop swap - dropped os-e shifted left and right  - a is not a great key to use.  Especially for alt-F4.  Moving that to k*/ 
 	[4] = LAYOUT(
       KC_NO,    LGUI(LCTL(KC_LEFT)), LGUI(LCTL(KC_RIGHT)),   KC_TRNS,       KC_NO,   KC_NO,        KC_MS_WH_UP,         KC_MS_UP,      KC_MS_WH_DOWN,    RESET, 
@@ -86,7 +86,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_TAB,    LSFT(KC_TAB), KC_TRNS,   KC_TRNS,    KC_TRNS,        KC_TRNS,         KC_TRNS,          KC_TRNS,   KC_TRNS,    KC_TRNS,  
       KC_ESC,    KC_TRNS,      KC_BSPC,   KC_BSPC,    LALT(KC_LEFT),  LALT(KC_RIGHT),  OSM(MOD_LCTL),    KC_NO,     LCTL(KC_L), OSM(MOD_LALT), 
       KC_TRNS,   KC_TRNS,      KC_TRNS,   KC_TRNS,    KC_TRNS,        KC_TRNS,         KC_TRNS,          KC_TRNS,   KC_TRNS,    LCTL(KC_SLSH), 
-                               KC_NO,     KC_BSPC,    KC_BSPC,        OSM(MOD_LALT),   OSM(MOD_LALT),    KC_TRNS) 
+                               KC_NO,     KC_BSPC,    KC_BSPC,        OSM(MOD_LALT),   OSM(MOD_LALT),    KC_TRNS),
+
+    // game - everything is shifted right one key, and no tricky keys
+	[10] = LAYOUT(
+      KC_TAB,   KC_Q,   KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I,    TG(10),  
+      KC_LCTL,  KC_A,   KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K,    KC_L,
+      KC_LSFT,  KC_Z,   KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, 
+                        KC_ENT,   KC_SPC, KC_SPC,  KC_SPC, KC_SPC,   KC_ESC             ), 
 
 };
 
