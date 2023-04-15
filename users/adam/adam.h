@@ -12,7 +12,7 @@ void my_custom_function(void);
 
 bool process_record_adam(uint16_t keycode, keyrecord_t *record);
 
-enum custom_keycodes { JSARROW = SAFE_RANGE, BRACKETS, ARRAY, ARRAY_INSIDE, END_TAG, AJ_SAFE_RANGE };
+enum custom_keycodes { JSARROW = SAFE_RANGE, BRACKETS, ARRAY, ARRAY_INSIDE, END_TAG, CLOSE_TAG, AJ_SAFE_RANGE };
 
 enum adam_tap_dance_codes { TD_CTRL_GUI, TD_MEDIA, TD_VOLUME, TD_F5_F6 };
 // defines for common rows

@@ -19,6 +19,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t * record) {
             SEND_STRING("[]" SS_TAP(X_LEFT));
         } else if (keycode == END_TAG && record->event.pressed) {
             SEND_STRING("</");
+        } else if (keycode == CLOSE_TAG && record->event.pressed) {
+            SEND_STRING("/>");
         }
 
         if (keycode == KC_MS_BTN1 || keycode == KC_MS_BTN2 || keycode == KC_MS_BTN3) {

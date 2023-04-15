@@ -15,7 +15,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	LAYOUT(
         KC_Q,         KC_W,       KC_E,       KC_R,         KC_T,                                           KC_Y,         KC_U,       KC_I,         KC_O,    KC_P, 
         LT(4,KC_A),   LT(5,KC_S), LT(8,KC_D), LSFT_T(KC_F), LT(6,KC_G),                  KC_MUTE,           SFT_T(KC_H),   LT(7,KC_J), LT(9,KC_K),  KC_L,     KC_SCLN, 
-      MT(MOD_LCTL, KC_Z),    MT(MOD_LALT, KC_X),       KC_C,       KC_V,         KC_B,   KC_MUTE,            KC_N,         KC_M,       KC_COMM,      KC_DOT,   MT(MOD_LGUI, KC_SLSH),  
+        MT(MOD_LCTL, KC_Z),    MT(MOD_LALT, KC_X),       KC_C,       KC_V,         KC_B,   KC_MUTE,            KC_N,         KC_M,       KC_COMM,      KC_DOT,   MT(MOD_LGUI, KC_SLSH),  
         KC_LCTL,      KC_LGUI,    KC_LALT,  LT(1,KC_ENT),                                LT(2, KC_ESC),                           LSFT_T(KC_SPC),   MO(2),    KC_ESC,   KC_BSPC   
     ), 
     /* 1 - lower */
@@ -23,7 +23,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	LAYOUT(
         KC_EXLM,      KC_AT,     KC_HASH,     KC_DLR,       KC_PERC,                        KC_CIRC,      KC_AMPR,    KC_ASTR,      KC_DEL,  KC_BSPC,  
         KC_F1,        KC_F2,     KC_F3,       KC_F4,        TD(TD_F5_F6),    KC_TRNS,               KC_UNDS,      KC_UNDS,    KC_EQUAL,     KC_QUOT, LSFT(KC_QUOT), 
-        KC_F7,        KC_F8,     KC_F9,       KC_F10,       KC_F11,          KC_TRNS,               KC_F12,       KC_MUTE,    KC_LT,        KC_PIPE,  KC_BSLS, 
+        KC_F7,        KC_F8,     KC_F9,       KC_F10,       KC_F11,          KC_TRNS,               KC_F12,       KC_GRAVE,   KC_TILD,      KC_PIPE,  KC_BSLS, 
         KC_TRNS,      KC_TRNS,   KC_TRNS,     KC_TRNS,                       KC_TRNS,                             KC_TRNS,    MO(3),        KC_GRAVE, KC_TILD
     ), 
     /* 2 - raise - try to avoid putting anything important here */
@@ -43,10 +43,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* 4 - anne pro / desktop swap - dropped os-e shifted left and right  - a is not a great key to use.  Especially for alt-F4.  Moving that to k*/ 
     /* MO on s is questionable - triggering when I don't want sometimes */
 	LAYOUT(
-        KC_TAB, LGUI(LCTL(KC_LEFT)), LGUI(LCTL(KC_RIGHT)),   KC_TRNS,      KC_NO,               KC_NO,        KC_NO,      KC_NO,    KC_NO,    RESET, 
-        KC_NO,  MO(1),               MO(2),                  KC_ESC,       KC_NO,   KC_TRNS,    KC_NO,        KC_TRNS,    KC_TRNS,  KC_TRNS,  KC_TRNS, 
+        KC_TAB, LGUI(LCTL(KC_LEFT)), LGUI(LCTL(KC_RIGHT)),   KC_TRNS,      KC_NO,               KC_NO,        KC_MS_WH_UP,         KC_MS_UP,      KC_MS_WH_DOWN,    RESET, 
+        KC_NO,  MO(1),               MO(2),                  KC_ESC,       KC_NO,   KC_TRNS,    KC_NO,        KC_MS_LEFT,          KC_MS_DOWN,    KC_MS_RIGHT,      KC_NO, 
         KC_TRNS,  KC_NO,                KC_NO,                 KC_NO,        KC_NO,   KC_TRNS,    KC_NO,        KC_TRNS,    KC_TRNS,  KC_TRNS,  KC_INS,  
-        KC_TRNS,  KC_NO,                KC_NO,                 KC_NO,                 KC_TRNS,                KC_NO,      KC_NO,    KC_VOLD,    KC_VOLU 
+        KC_TRNS,  KC_NO,                KC_NO,                KC_MS_BTN1,             KC_MS_BTN1,               KC_MS_BTN1,       KC_MS_BTN2,    KC_VOLD,    KC_VOLU 
     ), 
     /* 5 - s numbers - and tab I guess */ 
 	LAYOUT(
@@ -59,7 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	LAYOUT(
         KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_NO,        KC_NO,                              KC_NO,        ARRAY,      KC_LBRC,        KC_RBRC,  ARRAY_INSIDE,   
         KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_BSPC,      KC_NO,                KC_TRNS,      JSARROW,      KC_LPRN,    KC_RPRN,        KC_LCBR,  KC_RCBR,   
-        KC_TRNS,  KC_TRNS,    KC_NO,      KC_NO,        KC_NO,                KC_TRNS,      KC_NO,        KC_LT,      KC_GT,          END_TAG,  KC_GT,     
+        KC_TRNS,  KC_TRNS,    KC_NO,      KC_NO,        KC_NO,                KC_TRNS,      KC_NO,        KC_LT,      KC_GT,          END_TAG,  CLOSE_TAG,     
         KC_TRNS,  KC_TRNS,    KC_TRNS,    KC_NO,                              KC_TRNS,                    KC_TRNS,    KC_NO,          KC_NO,    KC_NO   
     ), 
     /* 7 - j  os nav */ 
@@ -79,39 +79,40 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* 9 - k ctrl */ 
 	LAYOUT(
       KC_TAB,    LSFT(KC_TAB), KC_TRNS,    KC_TRNS,        KC_TRNS,                     KC_TRNS,        KC_TRNS,    KC_TRNS,   KC_TRNS,    KC_TRNS,  
-      KC_ESC,    KC_TRNS,     KC_BSPC,     KC_BSPC,      LALT(KC_LEFT),     KC_TRNS,    LALT(KC_RIGHT), KC_LCTL,    KC_NO,     LCTL(KC_L), OSM(MOD_LALT), 
+      KC_ESC,    KC_TRNS,     KC_BSPC,     KC_BSPC,      LALT(KC_LEFT),     KC_TRNS,    LALT(KC_RIGHT), OSM(MOD_LCTL),    KC_NO,     LCTL(KC_L), OSM(MOD_LALT), 
       KC_TRNS,   KC_TRNS,     KC_TRNS,     KC_TRNS,        KC_NO,           KC_TRNS,    KC_TRNS,        KC_NO,      KC_NO,     KC_NO,      LCTL(KC_SLSH), 
-      KC_TRNS,   KC_TRNS,     KC_TRNS,     KC_BSPC,                         KC_TRNS,                    KC_TRNS,    KC_NO,     KC_TRNS,    KC_TRNS
+      KC_TRNS,   KC_TRNS,     KC_TRNS,     KC_BSPC,                         KC_TRNS,                    OSM(MOD_LALT),    KC_NO,     KC_TRNS,    KC_TRNS
     ) 
 };
 
+// can we move these to adam.c?
 #ifdef COMBO_ENABLE
-const uint16_t PROGMEM combo_cut[]  = {KC_Z, KC_X, COMBO_END};
-const uint16_t PROGMEM combo_cutt[] = {MT(MOD_LCTL, KC_Z), KC_X, COMBO_END};
+const uint16_t PROGMEM combo_cut[] = {KC_Z, KC_X, COMBO_END};
+const uint16_t PROGMEM combo_cutt[] = {MT(MOD_LCTL, KC_Z), MT(MOD_LALT, KC_X), COMBO_END};
 const uint16_t PROGMEM combo_bslash[] = {KC_DOT, MT(MOD_LGUI, KC_SLSH), COMBO_END};
 
 const uint16_t PROGMEM combo_copy[]         = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM combo_copyy[]        = {MT(MOD_LALT, KC_X), KC_C, COMBO_END};
 const uint16_t PROGMEM combo_paste[]        = {KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM combo_bspc[]         = {KC_O, KC_P, COMBO_END};
 const uint16_t PROGMEM combo_tab[]          = {KC_Q, KC_W, COMBO_END};
-const uint16_t PROGMEM combo_single_quote[] = {KC_L, KC_SCLN, COMBO_END};
-const uint16_t PROGMEM combo_another_bspc[] = {LSFT_T(KC_F), KC_E, COMBO_END};
+const uint16_t PROGMEM combo_single_quote[] = {KC_L, LT(5, KC_SCLN), COMBO_END};
 // this doesn't seem to work - probably because f is already overloaded?
 // const uint16_t PROGMEM combo_another_bspc[] = {KC_F, KC_E, COMBO_END};
 // const uint16_t PROGMEM combo_esc[] = {KC_E, KC_W, COMBO_END};
 
-enum combo_events { ZX_CUT, ZX_CUTT, XC_COPY, CV_PASTE, DOTSLASH_BSLASH };
+enum combo_events { ZX_CUT, ZX_CUTT, XC_COPY, XC_COPYY, CV_PASTE, DOTSLASH_BSLASH };
 
 combo_t key_combos[COMBO_COUNT] = {
-    [ZX_CUT] = COMBO_ACTION(combo_cut), 
-    [ZX_CUTT] = COMBO_ACTION(combo_cutt), 
-    [XC_COPY] = COMBO_ACTION(combo_copy), 
-    [CV_PASTE] = COMBO_ACTION(combo_paste), 
+    [ZX_CUT] = COMBO_ACTION(combo_cut),
+    [ZX_CUTT] = COMBO_ACTION(combo_cutt),
+    [XC_COPY] = COMBO_ACTION(combo_copy),
+    [XC_COPYY] = COMBO_ACTION(combo_copyy),
+    [CV_PASTE] = COMBO_ACTION(combo_paste),
     [DOTSLASH_BSLASH] = COMBO_ACTION(combo_bslash),
     COMBO(combo_bspc, KC_BSPC), 
     COMBO(combo_tab, KC_TAB), 
-    COMBO(combo_single_quote, KC_QUOTE),
-    COMBO(combo_another_bspc, KC_BSPC)
+    COMBO(combo_single_quote, KC_QUOTE), 
 };
 
 // note that that this is using the index into key_combos, which is assumed to be the enum
@@ -124,6 +125,7 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
             }
             break;
         case XC_COPY:
+        case XC_COPYY:
             if (pressed) {
                 tap_code16(LCTL(KC_C));
             }
@@ -173,7 +175,7 @@ void oled_task_user(void) {
     sprintf(wpm, " WPM: %03d", iWpm);
 
     // Host Keyboard Layer Status
-    oled_write_P(PSTR("    Adam is the best\n"), false);
+    oled_write_P(PSTR("   Adam is the best\n"), false);
     oled_write_P(PSTR(" Layer: "), false);
 
     mod_state = get_mods();
@@ -222,10 +224,10 @@ void oled_task_user(void) {
                 oled_write_P(PSTR(" Brackets\n"), false);
                 break;
             case 7:
-                oled_write_P(PSTR(" os nav\n"), false);
+                oled_write_P(PSTR(" os Nav\n"), false);
                 break;
             case 8:
-                oled_write_P(PSTR(" nav\n"), false);
+                oled_write_P(PSTR(" Nav\n"), false);
                 break;
             case 9:
                 oled_write_P(PSTR(" k\n"), false);
