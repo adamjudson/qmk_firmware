@@ -28,12 +28,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                         TD(TD_CTRL_GUI),      LT(1,KC_ENT),    LT(1,KC_ENT),   LSFT_T(KC_SPC), LSFT_T(KC_SPC),   LT(2,KC_ESC)             ), 
     /* lower  - things to find a space for KC_TILD, KC_PIPE KC_QUOT again*/ 
 
-    // alt-left is a problem - when typing a = b, it's too easy to trigger when I actually mean to type space
 	[1] = LAYOUT(
       KC_EXLM,      KC_AT,     KC_HASH,     KC_DLR,       KC_PERC,        KC_CIRC,      KC_AMPR,    KC_ASTR,      KC_DEL,  KC_BSPC,  
       KC_F1,        KC_F2,     KC_F3,       KC_F4,        TD(TD_F5_F6),   KC_UNDS,      KC_UNDS,    KC_EQUAL,     KC_QUOT, LSFT(KC_QUOT), 
       KC_F7,        KC_F8,     KC_F9,       KC_F10,       KC_F11,         KC_F12,       KC_GRAVE,   KC_TILD,      KC_PIPE,  KC_BSLS, 
-                         KC_TRNS,   KC_TRNS,     KC_TRNS,         LALT(KC_LEFT),  LALT(KC_LEFT), MO(3)), 
+                         KC_TRNS,   KC_TRNS,     KC_TRNS,         KC_TRNS,  KC_TRNS, MO(3)), 
     /* raise - KC_MPRV media previous*/ 
 	[2] = LAYOUT(
       KC_GRAVE,     KC_TILD,   KC_3,        LALT(KC_F4),   KC_5,           KC_6,         KC_7,       KC_VOLD,       KC_VOLU,   TD(TD_MEDIA),
