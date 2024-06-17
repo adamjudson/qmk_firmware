@@ -24,6 +24,13 @@
 #define MANUFACTURER squashkb
 #define PRODUCT free willy
 
+// lies - plus this didn't make the tablet work...
+// #define VENDOR_ID       0xFEAE
+// #define PRODUCT_ID      0x8844
+// #define DEVICE_VER      0x0002
+// #define MANUFACTURER    Evan Sailer
+// #define PRODUCT         Minivan
+
 /* key matrix size */
 #define MATRIX_ROWS 4
 #define MATRIX_COLS 10
