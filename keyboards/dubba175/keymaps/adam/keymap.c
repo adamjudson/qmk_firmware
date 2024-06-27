@@ -78,7 +78,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 #ifdef COMBO_ENABLE
-const uint16_t PROGMEM combo_cut[] = {KC_Z, KC_X, COMBO_END};
+// const uint16_t PROGMEM combo_cut[] = {KC_Z, KC_X, COMBO_END};
+const uint16_t PROGMEM combo_esc[] = {KC_W, KC_E, COMBO_END};
 const uint16_t PROGMEM combo_cutt[] = {MT(MOD_LCTL, KC_Z), MT(MOD_LALT, KC_X), COMBO_END};
 const uint16_t PROGMEM combo_bslash[] = {KC_DOT, MT(MOD_LGUI, KC_SLSH), COMBO_END};
 
@@ -92,22 +93,25 @@ const uint16_t PROGMEM combo_single_quote[] = {KC_L, LT(5, KC_SCLN), COMBO_END};
 // const uint16_t PROGMEM combo_another_bspc[] = {KC_F, KC_E, COMBO_END};
 // const uint16_t PROGMEM combo_esc[] = {KC_E, KC_W, COMBO_END};
 
-enum combo_events { ZX_CUT, ZX_CUTT, XC_COPY, XC_COPYY, CV_PASTE, DOTSLASH_BSLASH };
+// enum combo_events { ZX_CUT, ZX_CUTT, XC_COPY, XC_COPYY, CV_PASTE, DOTSLASH_BSLASH };
+enum combo_events { ZX_CUTT, XC_COPY, XC_COPYY, CV_PASTE, DOTSLASH_BSLASH };
 
 combo_t key_combos[COMBO_COUNT] = {
-    [ZX_CUT] = COMBO_ACTION(combo_cut),
+//     [ZX_CUT] = COMBO_ACTION(combo_cut),
+    // QWE_ESC] = COMBO_ACTION(combo_esc),
     [ZX_CUTT] = COMBO_ACTION(combo_cutt),
     [XC_COPY] = COMBO_ACTION(combo_copy),
     [XC_COPYY] = COMBO_ACTION(combo_copyy),
     [CV_PASTE] = COMBO_ACTION(combo_paste),
     [DOTSLASH_BSLASH] = COMBO_ACTION(combo_bslash),
+    COMBO(combo_esc, KC_ESC),
     COMBO(combo_bspc, KC_BSPC), 
     COMBO(combo_tab, KC_TAB), 
     COMBO(combo_single_quote, KC_QUOTE), 
 };
 
 // note that that this is using the index into key_combos, which is assumed to be the enum
-// not clear if we can acutally mix enums and the combo macro...
+// anything that's not a simple keypress needs to be here
 void process_combo_event(uint16_t combo_index, bool pressed) {
     switch (combo_index) {
         case CV_PASTE:
@@ -121,7 +125,7 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
                 tap_code16(LCTL(KC_C));
             }
             break;
-        case ZX_CUT:
+//         case ZX_CUT:
         case ZX_CUTT:
             if (pressed) {
                 tap_code16(LCTL(KC_X));
@@ -134,5 +138,5 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
             break;
     }
 }
-#endif
+#endif 
 
