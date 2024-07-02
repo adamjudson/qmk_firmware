@@ -9,27 +9,42 @@ bool process_record_adam(uint16_t keycode, keyrecord_t *record) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t * record) {
-        if (keycode == JSARROW && record->event.pressed) {
-            SEND_STRING("=>");
-        } else if (keycode == BRACKETS && record->event.pressed) {
-            SEND_STRING("() ");
-        } else if (keycode == ARRAY && record->event.pressed) {
-            SEND_STRING("[] ");
-        } else if (keycode == ARRAY_INSIDE && record->event.pressed) {
-            SEND_STRING("[]" SS_TAP(X_LEFT));
-        } else if (keycode == END_TAG && record->event.pressed) {
-            SEND_STRING("</");
-        } else if (keycode == CLOSE_TAG && record->event.pressed) {
-            SEND_STRING("/>");
-        }
-
-        if (keycode == KC_MS_BTN1 || keycode == KC_MS_BTN2 || keycode == KC_MS_BTN3) {
-            // by default mouse keys don't clear OSM
-            // that's pretty annoying.
-            clear_oneshot_mods();
-        }
-        return process_record_adam(keycode, record);
+    if (keycode == JSARROW && record->event.pressed) {
+        SEND_STRING("=>");
+    } else if (keycode == BRACKETS && record->event.pressed) {
+        SEND_STRING("() ");
+    } else if (keycode == ARRAY && record->event.pressed) {
+        SEND_STRING("[] ");
+    } else if (keycode == ARRAY_INSIDE && record->event.pressed) {
+        SEND_STRING("[]" SS_TAP(X_LEFT));
+    } else if (keycode == END_TAG && record->event.pressed) {
+        SEND_STRING("</");
+    } else if (keycode == CLOSE_TAG && record->event.pressed) {
+        SEND_STRING("/>");
     }
+
+    if (keycode == KC_MS_BTN1 || keycode == KC_MS_BTN2 || keycode == KC_MS_BTN3) {
+        // by default mouse keys don't clear OSM
+        // that's pretty annoying.
+        clear_oneshot_mods();
+    }
+    return process_record_adam(keycode, record);
+}
+
+
+
+bool encoder_update_user(uint8_t index, bool clockwise) {
+    if (index == 0) {
+        if (clockwise) {
+            tap_code(KC_VOLU);
+        } else {
+            tap_code(KC_VOLD);
+        }
+    }
+    return true;
+}
+
+
 
 #ifdef COMBO_ENABLE
 // const uint16_t PROGMEM combo_cut[] = {KC_Z, KC_X, COMBO_END};
