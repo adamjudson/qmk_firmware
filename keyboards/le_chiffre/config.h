@@ -20,7 +20,7 @@
 /* USB Device descriptor parameter */
 #define VENDOR_ID 0x7431
 #define PRODUCT_ID 0xD645
-#define DEVICE_VER 0x0001
+#define DEVICE_VER 0x0002
 #define MANUFACTURER tominabox1
 #define PRODUCT Le Chiffre
 
@@ -38,8 +38,8 @@
  *                  ROW2COL = ROW = Anode (+), COL = Cathode (-, marked on diode)
  *
  */
-#define MATRIX_ROW_PINS { B3, D4, F1, C6 }
-#define MATRIX_COL_PINS { F4, F5, B0, B2, B1, B4, D7, C7, D2, F7 }
+#define MATRIX_ROW_PINS { B3, F6, F7, C7 }
+#define MATRIX_COL_PINS { B2, F0, F1, F4, F5, B5, B4, D7, D6, D4 }
 #define UNUSED_PINS
 
 /* COL2ROW, ROW2COL*/
@@ -54,13 +54,13 @@
 #define LOCKING_RESYNC_ENABLE
 
 /* Define encoder pads */
-#define ENCODERS_PAD_A { D5 }
-#define ENCODERS_PAD_B { D3 }
+#define ENCODERS_PAD_A { B6 }
+#define ENCODERS_PAD_B { C6 }
 
 /*
  * WS2812 Underglow Matrix options
  */
-#define RGB_DI_PIN F0
+#define RGB_DI_PIN B1
 #define RGBLED_NUM 11
 
 #define DRIVER_LED_TOTAL RGBLED_NUM

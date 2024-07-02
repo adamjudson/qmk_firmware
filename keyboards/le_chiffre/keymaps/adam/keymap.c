@@ -22,10 +22,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /* main - a is still not great - sometimes issues with aw or ae words */ 
 	[0] = LAYOUT(
-      KC_Q,         KC_W,       KC_E,       KC_R,         KC_T,         KC_MPLY,     KC_Y,         KC_U,       KC_I,         KC_O,     KC_P, 
+      KC_Q,         KC_W,       KC_E,       KC_R,         KC_T,         LT(4, KC_MUTE),     KC_Y,         KC_U,       KC_I,         KC_O,     KC_P, 
       LT(4,KC_A),   LT(5,KC_S), LT(8,KC_D), LSFT_T(KC_F), LT(6,KC_G),                LSFT_T(KC_H), LT(7,KC_J), LT(9,KC_K),  KC_L,     LT(5,KC_SCLN), 
       MT(MOD_LCTL, KC_Z),    MT(MOD_LALT, KC_X),       KC_C,       KC_V,             KC_B,              KC_N,         KC_M,       KC_COMM,      KC_DOT,   MT(MOD_LGUI, KC_SLSH),  
-                        TD(TD_CTRL_GUI),      LT(1,KC_ENT),                           LSFT_T(KC_SPC),   LT(2,KC_ESC)             ), 
+                        TD(TD_CTRL_GUI),      LT(1,KC_ENT),                          LSFT_T(KC_SPC),   LT(2,KC_ESC)             ), 
 
     /* lower  - things to find a space for KC_TILD, KC_PIPE KC_QUOT again*/ 
 	[1] = LAYOUT(
@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[3] = LAYOUT(
       DYN_REC_START1,      DYN_MACRO_PLAY1,     KC_NO,       KC_NO,        KC_NO,       KC_TRNS,      KC_NO,        KC_NO,     KC_NO,        KC_NO,   RESET, 
       DYN_REC_STOP,        TG(5),               KC_NO,       KC_NO,        KC_NO,             KC_NO,        RGB_TOG,  RGB_VAI,      RGB_VAD, RESET, 
-      KC_NO,                KC_NO,              KC_NO,       KC_NO,        KC_NO,             KC_NO,        KC_NO,    KC_NO,        KC_NO,   KC_NO, 
+      KC_NO,                KC_NO,              KC_NO,       KC_NO,        KC_NO,             KC_NO,        RGB_MOD,  RGB_HUI,      RGB_HUD,   KC_NO, 
                                                 TG(10),     KC_TRNS,             LCA(KC_DEL),   KC_NO), 
     /* anne pro / desktop swap - dropped os-e shifted left and right  - a is not a great key to use.  Especially for alt-F4.  Moving that to k*/ 
 	[4] = LAYOUT(
