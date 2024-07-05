@@ -28,6 +28,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                         TD(TD_CTRL_GUI),      LT(1,KC_ENT),    LT(1,KC_ENT),   LSFT_T(KC_SPC), LSFT_T(KC_SPC),   LT(2,KC_ESC)             ), 
 
     /* lower  - things to find a space for KC_TILD, KC_PIPE KC_QUOT again*/ 
+    /* kind of pointless to have symbols on the top row, better to use shifted numbers other than * */
+    /* same with ' and " - the combo is so much better */
 	[1] = LAYOUT(
       KC_EXLM,      KC_AT,     KC_HASH,     KC_DLR,       KC_PERC,        KC_CIRC,      KC_AMPR,    KC_ASTR,      KC_DEL,  KC_BSPC,  
       KC_F1,        KC_F2,     KC_F3,       KC_F4,        TD(TD_F5_F6),   KC_UNDS,      KC_UNDS,    KC_EQUAL,     KC_QUOT, LSFT(KC_QUOT), 
@@ -47,8 +49,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                 TG(10),     KC_TRNS,      KC_TRNS,      LCA(KC_DEL),       LCA(KC_DEL),   KC_NO), 
     /* anne pro / desktop swap - dropped os-e shifted left and right  - a is not a great key to use.  Especially for alt-F4.  Moving that to k*/ 
 	[4] = LAYOUT(
-      KC_NO,    LGUI(LCTL(KC_LEFT)), LGUI(LCTL(KC_RIGHT)),   KC_TRNS,       KC_NO,   KC_NO,        KC_MS_WH_UP,         KC_MS_UP,      KC_MS_WH_DOWN,    RESET, 
-      KC_NO,    MO(1),               MO(2),                  KC_ESC,        KC_NO,   KC_NO,        KC_MS_LEFT,          KC_MS_DOWN,    KC_MS_RIGHT,      KC_NO, 
+      KC_NO,    LGUI(LCTL(KC_LEFT)), LGUI(LCTL(KC_RIGHT)),   KC_TRNS,       KC_NO,   KC_NO,        KC_MS_WH_UP,         KC_MS_UP,      KC_MS_WH_DOWN,    KC_NO, 
+      KC_NO,    KC_NO,               KC_NO,                  KC_NO,        KC_NO,   KC_NO,        KC_MS_LEFT,          KC_MS_DOWN,    KC_MS_RIGHT,      KC_NO, 
       KC_TRNS,    KC_NO,               KC_NO,                  KC_NO,         KC_NO,   KC_NO,        KC_NO,               KC_NO,         KC_NO,          KC_INS, 
                                      KC_NO,                  KC_MS_BTN1,    KC_MS_BTN1,   KC_MS_BTN1,   KC_NO,               KC_MS_BTN2 ), 
     /* numbers */ 
@@ -95,65 +97,4 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                         KC_ENT,   KC_SPC, KC_SPC,  KC_SPC, KC_SPC,   KC_ESC             ), 
 
 };
-
-// this is kind of cool
-
-#ifdef COMBO_ENABLE
-const uint16_t PROGMEM combo_cut[] = {KC_Z, KC_X, COMBO_END};
-const uint16_t PROGMEM combo_cutt[] = {MT(MOD_LCTL, KC_Z), MT(MOD_LALT, KC_X), COMBO_END};
-const uint16_t PROGMEM combo_bslash[] = {KC_DOT, MT(MOD_LGUI, KC_SLSH), COMBO_END};
-
-const uint16_t PROGMEM combo_copy[]         = {KC_X, KC_C, COMBO_END};
-const uint16_t PROGMEM combo_copyy[]        = {MT(MOD_LALT, KC_X), KC_C, COMBO_END};
-const uint16_t PROGMEM combo_paste[]        = {KC_C, KC_V, COMBO_END};
-const uint16_t PROGMEM combo_bspc[]         = {KC_O, KC_P, COMBO_END};
-const uint16_t PROGMEM combo_tab[]          = {KC_Q, KC_W, COMBO_END};
-const uint16_t PROGMEM combo_single_quote[] = {KC_L, LT(5, KC_SCLN), COMBO_END};
-// this doesn't seem to work - probably because f is already overloaded?
-// const uint16_t PROGMEM combo_another_bspc[] = {KC_F, KC_E, COMBO_END};
-// const uint16_t PROGMEM combo_esc[] = {KC_E, KC_W, COMBO_END};
-
-enum combo_events { ZX_CUT, ZX_CUTT, XC_COPY, XC_COPYY, CV_PASTE, DOTSLASH_BSLASH };
-
-combo_t key_combos[COMBO_COUNT] = {
-    [ZX_CUT] = COMBO_ACTION(combo_cut),
-    [ZX_CUTT] = COMBO_ACTION(combo_cutt),
-    [XC_COPY] = COMBO_ACTION(combo_copy),
-    [XC_COPYY] = COMBO_ACTION(combo_copyy),
-    [CV_PASTE] = COMBO_ACTION(combo_paste),
-    [DOTSLASH_BSLASH] = COMBO_ACTION(combo_bslash),
-    COMBO(combo_bspc, KC_BSPC), 
-    COMBO(combo_tab, KC_TAB), 
-    COMBO(combo_single_quote, KC_QUOTE), 
-};
-
-// note that that this is using the index into key_combos, which is assumed to be the enum
-// not clear if we can acutally mix enums and the combo macro...
-void process_combo_event(uint16_t combo_index, bool pressed) {
-    switch (combo_index) {
-        case CV_PASTE:
-            if (pressed) {
-                tap_code16(LCTL(KC_V));
-            }
-            break;
-        case XC_COPY:
-        case XC_COPYY:
-            if (pressed) {
-                tap_code16(LCTL(KC_C));
-            }
-            break;
-        case ZX_CUT:
-        case ZX_CUTT:
-            if (pressed) {
-                tap_code16(LCTL(KC_X));
-            }
-            break;
-        case DOTSLASH_BSLASH:
-            if (pressed) {
-                tap_code16(KC_BSLASH);
-            }
-            break;
-    }
-}
-#endif
 
