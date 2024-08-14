@@ -56,7 +56,8 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 
 #ifdef COMBO_ENABLE
 // const uint16_t PROGMEM combo_cut[] = {KC_Z, KC_X, COMBO_END};
-const uint16_t PROGMEM combo_esc[] = {KC_W, KC_E, COMBO_END};
+// this was hard to type with - got triggered all the time
+// const uint16_t PROGMEM combo_esc[] = {KC_W, KC_E, COMBO_END};
 const uint16_t PROGMEM combo_cutt[] = {MT(MOD_LCTL, KC_Z), MT(MOD_LALT, KC_X), COMBO_END};
 const uint16_t PROGMEM combo_bslash[] = {KC_DOT, MT(MOD_LGUI, KC_SLSH), COMBO_END};
 
@@ -82,7 +83,7 @@ combo_t key_combos[COMBO_COUNT] = {
     [XC_COPYY] = COMBO_ACTION(combo_copyy),
     [CV_PASTE] = COMBO_ACTION(combo_paste),
     [DOTSLASH_BSLASH] = COMBO_ACTION(combo_bslash),
-    COMBO(combo_esc, KC_ESC),
+    // COMBO(combo_esc, KC_ESC),
     COMBO(combo_bspc, KC_BSPC), 
     COMBO(combo_tab, KC_TAB), 
     COMBO(combo_single_quote, KC_QUOTE), 
