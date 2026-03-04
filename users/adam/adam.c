@@ -58,22 +58,33 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 // const uint16_t PROGMEM combo_cut[] = {KC_Z, KC_X, COMBO_END};
 // this was hard to type with - got triggered all the time
 // const uint16_t PROGMEM combo_esc[] = {KC_W, KC_E, COMBO_END};
+
+// c-v for paste can be annoying on not ortho - so add a define to drop it - NO_PASTE_COMBO
+// kind of an ugly implementation though...
+
 const uint16_t PROGMEM combo_cutt[] = {MT(MOD_LCTL, KC_Z), MT(MOD_LALT, KC_X), COMBO_END};
 const uint16_t PROGMEM combo_bslash[] = {KC_DOT, MT(MOD_LGUI, KC_SLSH), COMBO_END};
 
 const uint16_t PROGMEM combo_copy[]         = {KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM combo_copyy[]        = {MT(MOD_LALT, KC_X), KC_C, COMBO_END};
-const uint16_t PROGMEM combo_paste[]        = {KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM combo_bspc[]         = {KC_O, KC_P, COMBO_END};
 const uint16_t PROGMEM combo_tab[]          = {KC_Q, KC_W, COMBO_END};
 const uint16_t PROGMEM combo_single_quote[] = {KC_L, LT(5, KC_SCLN), COMBO_END};
+
+#ifndef NO_PASTE_COMBO
+const uint16_t PROGMEM combo_paste[]        = {KC_C, KC_V, COMBO_END};
+#endif
+
 // this doesn't seem to work - probably because f is already overloaded?
 // const uint16_t PROGMEM combo_another_bspc[] = {KC_F, KC_E, COMBO_END};
 // const uint16_t PROGMEM combo_esc[] = {KC_E, KC_W, COMBO_END};
 
 // enum combo_events { ZX_CUT, ZX_CUTT, XC_COPY, XC_COPYY, CV_PASTE, DOTSLASH_BSLASH };
-enum combo_events { ZX_CUTT, XC_COPY, XC_COPYY, CV_PASTE, DOTSLASH_BSLASH };
-
+enum combo_events { ZX_CUTT, XC_COPY, XC_COPYY, 
+#ifndef NO_PASTE_COMBO
+    CV_PASTE, 
+#endif
+    DOTSLASH_BSLASH };
 // don't think this worked when combo_esc was at the beginning
 combo_t key_combos[COMBO_COUNT] = {
 //     [ZX_CUT] = COMBO_ACTION(combo_cut),
@@ -81,7 +92,9 @@ combo_t key_combos[COMBO_COUNT] = {
     [ZX_CUTT] = COMBO_ACTION(combo_cutt),
     [XC_COPY] = COMBO_ACTION(combo_copy),
     [XC_COPYY] = COMBO_ACTION(combo_copyy),
+#ifndef NO_PASTE_COMBO
     [CV_PASTE] = COMBO_ACTION(combo_paste),
+#endif
     [DOTSLASH_BSLASH] = COMBO_ACTION(combo_bslash),
     // COMBO(combo_esc, KC_ESC),
     COMBO(combo_bspc, KC_BSPC), 
@@ -93,11 +106,13 @@ combo_t key_combos[COMBO_COUNT] = {
 // anything that's not a simple keypress needs to be here
 void process_combo_event(uint16_t combo_index, bool pressed) {
     switch (combo_index) {
+#ifndef NO_PASTE_COMBO
         case CV_PASTE:
             if (pressed) {
                 tap_code16(LCTL(KC_V));
             }
             break;
+#endif
         case XC_COPY:
         case XC_COPYY:
             if (pressed) {
